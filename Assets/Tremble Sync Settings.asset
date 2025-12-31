@@ -1,0 +1,199 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a88c8a3ff11450b94453ed26fba8f5c, type: 3}
+  m_Name: Tremble Sync Settings
+  m_EditorClassIdentifier: TinyGoose.Tremble::TinyGoose.Tremble.TrembleSyncSettings
+  m_ShowExpanded: 1
+  m_AutoSyncOnCompile: 1
+  m_AllowStandaloneImport: 0
+  m_TrenchBroomVersion: 3
+  m_TemplateMap: {fileID: 0}
+  m_WorldspawnScript:
+    m_ScriptName: TinyGoose.Tremble.Worldspawn
+  m_TypeNamingConvention: 3
+  m_FieldNamingConvention: 0
+  m_SpawnFlagNamingConvention: 4
+  m_MaterialNamingConvention: 3
+  m_IdentityPropertyName: targetname
+  m_MaterialGroups: []
+  m_MaterialRenderData:
+  - m_Material: {fileID: 2100000, guid: 3f1c092690d8f42b88ea7f2abef724db, type: 2}
+    m_ExportMode: 1
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 2100000, guid: 46547fc395b804663b8dac6d491327f6, type: 2}
+    m_ExportMode: 1
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 2100000, guid: 2c24e9a4313c849ebbc5d6dfc3413cb2, type: 2}
+    m_ExportMode: 1
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 2100000, guid: 2567af7a183a84989b4bf1b0044c21e5, type: 2}
+    m_ExportMode: 1
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 2100000, guid: 9b7047ef828ad420f97c5225c747d361, type: 2}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 2100000, guid: 0c9dda8345160435887e29946128cccc, type: 2}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 2100000, guid: 1361d123a716144e685abb31c8d00ea4, type: 2}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 2100000, guid: 5f7320eb3b94b4ec0b9d3140d53504eb, type: 2}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 2100000, guid: 72ad818ee723542e68f12ef4911b8aed, type: 2}
+    m_ExportMode: 1
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 2100000, guid: 672293571e291483e93d872ac6637085, type: 2}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  m_PipelineSplitMesh: 1
+  m_PipelineSmoothMeshNormals: 1
+  m_PipelineSimplifyCollisionMeshes: 1
+  m_PipelineUnwrapUV2: 1
+  m_PipelineRunMapProcessors: 1
+  m_MapProcessors: []
+  m_LogOnImportAndSync: 0
+  m_UseLiveUpdate: 1
+  m_AutomaticallyReimportWhenDependencyChanges: 1
+  m_EntityIconStyle: 1
+  m_PrefabOverrideHandling: 2
+  m_UseClassicQuakeCulling: 0
+  m_Q3Map2ResultDisplayType: 1
+  m_EmbedTrembleSettingsInProjectSettings: 1
+  m_FgdFormattingStyle: 1
+  m_SubdivideAllLeafs: 0
+  m_AlwaysPackBoolsIntoSpawnFlags: 1
+  m_SyncEnumsAsStringValue: 1
+  m_SyncSerializedFields: 1
+  m_SyncMaterialsAndPrefabs: 1
+  m_WorldspawnLayer: Default
+  m_DiscardMapGroups: 0
+  m_MainMeshName: worldspawn
+  m_AutoDeleteMapBackups: 0
+  m_ExtraCommandLineArgs: -threads 8 -meta -v
+  m_MaterialExportSize: 5
+  m_MaterialCaptureLightIntensity: 0.5
+  m_MaterialCaptureLightAngle: 0.75
+  m_ExportClipSkipTextures: 1
+  m_ImportScale: 0.015625
+  m_AssetMetadatas:
+  - MapName: sampleprefab_P_Player
+    Path: Assets/Tremble/Sample/Prefabs/P_Player.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: -0, y: -0, z: -0}
+  - MapName: sampleprefab_P_PrefabCrate
+    Path: Assets/Tremble/Sample/Prefabs/P_PrefabCrate.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: 0.0017999411, y: -0, z: -0}
+  - MapName: Player_Fast
+    Path: Assets/Tremble/Sample/Data/Player_Fast.asset
+    FullTypeName: TinyGoose.Tremble.Sample.PlayerData
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: Player_NoBrakes
+    Path: Assets/Tremble/Sample/Data/Player_NoBrakes.asset
+    FullTypeName: TinyGoose.Tremble.Sample.PlayerData
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: Player_Normal
+    Path: Assets/Tremble/Sample/Data/Player_Normal.asset
+    FullTypeName: TinyGoose.Tremble.Sample.PlayerData
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: Player_NoTurn
+    Path: Assets/Tremble/Sample/Data/Player_NoTurn.asset
+    FullTypeName: TinyGoose.Tremble.Sample.PlayerData
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: game/M_Black
+    Path: Assets/Tremble/Sample/Materials/Colours/M_Black.mat
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: game/M_Green
+    Path: Assets/Tremble/Sample/Materials/Colours/M_Green.mat
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: game/M_SimpleBlue
+    Path: Assets/Tremble/Sample/Materials/Colours/M_SimpleBlue.mat
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: game/M_White
+    Path: Assets/Tremble/Sample/Materials/Colours/M_White.mat
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: game/M_Asphalt
+    Path: Assets/Tremble/Sample/Materials/M_Asphalt.mat
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: game/M_FloorBrick
+    Path: Assets/Tremble/Sample/Materials/M_FloorBrick.mat
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: game/M_FloorConcrete
+    Path: Assets/Tremble/Sample/Materials/M_FloorConcrete.mat
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: game/M_GroundDirt
+    Path: Assets/Tremble/Sample/Materials/M_GroundDirt.mat
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: game/M_Skybox
+    Path: Assets/Tremble/Sample/Materials/M_Skybox.mat
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: game/M_WallBrick
+    Path: Assets/Tremble/Sample/Materials/M_WallBrick.mat
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: M_SimpleBlue
+    Path: Assets/Tremble/Sample/Materials/Colours/M_SimpleBlue.mat
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: M_White
+    Path: Assets/Tremble/Sample/Materials/Colours/M_White.mat
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: M_Black
+    Path: Assets/Tremble/Sample/Materials/Colours/M_Black.mat
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: M_FloorBrick
+    Path: Assets/Tremble/Sample/Materials/M_FloorBrick.mat
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
