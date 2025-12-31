@@ -24,7 +24,11 @@ MonoBehaviour:
   m_SpawnFlagNamingConvention: 4
   m_MaterialNamingConvention: 3
   m_IdentityPropertyName: targetname
-  m_MaterialGroups: []
+  m_MaterialGroups:
+  - Name: TexturePackI
+    Materials:
+    - {fileID: 2100000, guid: 5cb7d6462dfc10248bf9f1ecc2894ab7, type: 2}
+    - {fileID: 2100000, guid: 7d3123fd8a8bc0b4a96570973c7760d5, type: 2}
   m_MaterialRenderData:
   - m_Material: {fileID: 2100000, guid: 3f1c092690d8f42b88ea7f2abef724db, type: 2}
     m_ExportMode: 1
@@ -86,6 +90,18 @@ MonoBehaviour:
     m_ResolutionX: 2
     m_ResolutionY: 2
     m_Dirty: 0
+  - m_Material: {fileID: 2100000, guid: 5cb7d6462dfc10248bf9f1ecc2894ab7, type: 2}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 2100000, guid: 7d3123fd8a8bc0b4a96570973c7760d5, type: 2}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
   m_PipelineSplitMesh: 1
   m_PipelineSmoothMeshNormals: 1
   m_PipelineSimplifyCollisionMeshes: 1
@@ -141,44 +157,12 @@ MonoBehaviour:
     Path: Assets/Tremble/Sample/Data/Player_NoTurn.asset
     FullTypeName: TinyGoose.Tremble.Sample.PlayerData
     SpawnOffset: {x: 0, y: 0, z: 0}
-  - MapName: game/M_Black
-    Path: Assets/Tremble/Sample/Materials/Colours/M_Black.mat
+  - MapName: TexturePackI/brick_wall_1
+    Path: Assets/Materials/Texture Pack I/brick_wall_1.mat
     FullTypeName: UnityEngine.Material
     SpawnOffset: {x: 0, y: 0, z: 0}
-  - MapName: game/M_Green
-    Path: Assets/Tremble/Sample/Materials/Colours/M_Green.mat
-    FullTypeName: UnityEngine.Material
-    SpawnOffset: {x: 0, y: 0, z: 0}
-  - MapName: game/M_SimpleBlue
-    Path: Assets/Tremble/Sample/Materials/Colours/M_SimpleBlue.mat
-    FullTypeName: UnityEngine.Material
-    SpawnOffset: {x: 0, y: 0, z: 0}
-  - MapName: game/M_White
-    Path: Assets/Tremble/Sample/Materials/Colours/M_White.mat
-    FullTypeName: UnityEngine.Material
-    SpawnOffset: {x: 0, y: 0, z: 0}
-  - MapName: game/M_Asphalt
-    Path: Assets/Tremble/Sample/Materials/M_Asphalt.mat
-    FullTypeName: UnityEngine.Material
-    SpawnOffset: {x: 0, y: 0, z: 0}
-  - MapName: game/M_FloorBrick
-    Path: Assets/Tremble/Sample/Materials/M_FloorBrick.mat
-    FullTypeName: UnityEngine.Material
-    SpawnOffset: {x: 0, y: 0, z: 0}
-  - MapName: game/M_FloorConcrete
-    Path: Assets/Tremble/Sample/Materials/M_FloorConcrete.mat
-    FullTypeName: UnityEngine.Material
-    SpawnOffset: {x: 0, y: 0, z: 0}
-  - MapName: game/M_GroundDirt
-    Path: Assets/Tremble/Sample/Materials/M_GroundDirt.mat
-    FullTypeName: UnityEngine.Material
-    SpawnOffset: {x: 0, y: 0, z: 0}
-  - MapName: game/M_Skybox
-    Path: Assets/Tremble/Sample/Materials/M_Skybox.mat
-    FullTypeName: UnityEngine.Material
-    SpawnOffset: {x: 0, y: 0, z: 0}
-  - MapName: game/M_WallBrick
-    Path: Assets/Tremble/Sample/Materials/M_WallBrick.mat
+  - MapName: TexturePackI/grass_1
+    Path: Assets/Materials/Texture Pack I/grass_1.mat
     FullTypeName: UnityEngine.Material
     SpawnOffset: {x: 0, y: 0, z: 0}
   - MapName: M_SimpleBlue
