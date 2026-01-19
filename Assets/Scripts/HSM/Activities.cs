@@ -1,7 +1,7 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 
-namespace StateMachine
+namespace HSM
 {
     public enum ActivityMode
     {

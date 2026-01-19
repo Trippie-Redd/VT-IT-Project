@@ -22,7 +22,7 @@ namespace ImprovedTimers
             }
             
             PlayerLoop.SetPlayerLoop(currentPlayerLoop);
-            PlayerLoopUtils.PrintPlayerLoop(currentPlayerLoop);
+            //PlayerLoopUtils.PrintPlayerLoop(currentPlayerLoop);
             
 #if UNITY_EDITOR
             EditorApplication.playModeStateChanged -= _OnPlayModeState;

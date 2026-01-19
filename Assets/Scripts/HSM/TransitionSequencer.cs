@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading;
 
-namespace StateMachine
+namespace HSM
 {
     public class TransitionSequencer
     {
@@ -14,7 +14,7 @@ namespace StateMachine
         private State _lastFrom, _lastTo; 
 
         public TransitionSequencer(StateMachine machine)
-            => Machine = machine;
+            => (Machine, cts) = (machine, new CancellationTokenSource());
 
         /// <summary>
         /// Request a transition form one state to another
@@ -22,6 +22,8 @@ namespace StateMachine
         public void RequestTransition(State from, State to)
         {
             if (from == null || to == null) return;
+            if (!to.CanTransitionTo()) return;
+            
             if (_sequencer != null)
             {
                 _pending = (from, to);
@@ -71,9 +73,6 @@ namespace StateMachine
         /// <summary>
         /// Path from 'to' up to (but excluding) lca; returned in enter order (top->down)
         /// </summary>
-        /// <param name="to"></param>
-        /// <param name="lca"></param>
-        /// <returns></returns>
         private static List<State> _StatesToEnter(State to, State lca)
         {
             var stack = new Stack<State>();
@@ -88,9 +87,12 @@ namespace StateMachine
 
         private void _BeginTransition(State from, State to)
         {
+            cts?.Cancel();
+            cts = new CancellationTokenSource();
+            
             State lca              = Lca(from, to);
             List<State> exitChain  = _StatesToExit(from, lca);
-            List<State> enterChain = _StatesToExit(to, lca);
+            List<State> enterChain = _StatesToEnter(to, lca);
             
             // 1. Deactivate the "old branch"
             List<PhaseStep> exitSteps = _GatherPhaseSteps(exitChain, deactivate: true);

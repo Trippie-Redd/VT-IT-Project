@@ -133,51 +133,15 @@ MonoBehaviour:
   m_ExportClipSkipTextures: 1
   m_ImportScale: 0.015625
   m_AssetMetadatas:
-  - MapName: sampleprefab_P_Player
-    Path: Assets/Tremble/Sample/Prefabs/P_Player.prefab
+  - MapName: prefab_Player
+    Path: Assets/Prefabs/Player.prefab
     FullTypeName: UnityEngine.GameObject
     SpawnOffset: {x: -0, y: -0, z: -0}
-  - MapName: sampleprefab_P_PrefabCrate
-    Path: Assets/Tremble/Sample/Prefabs/P_PrefabCrate.prefab
-    FullTypeName: UnityEngine.GameObject
-    SpawnOffset: {x: 0.0017999411, y: -0, z: -0}
-  - MapName: Player_Fast
-    Path: Assets/Tremble/Sample/Data/Player_Fast.asset
-    FullTypeName: TinyGoose.Tremble.Sample.PlayerData
-    SpawnOffset: {x: 0, y: 0, z: 0}
-  - MapName: Player_NoBrakes
-    Path: Assets/Tremble/Sample/Data/Player_NoBrakes.asset
-    FullTypeName: TinyGoose.Tremble.Sample.PlayerData
-    SpawnOffset: {x: 0, y: 0, z: 0}
-  - MapName: Player_Normal
-    Path: Assets/Tremble/Sample/Data/Player_Normal.asset
-    FullTypeName: TinyGoose.Tremble.Sample.PlayerData
-    SpawnOffset: {x: 0, y: 0, z: 0}
-  - MapName: Player_NoTurn
-    Path: Assets/Tremble/Sample/Data/Player_NoTurn.asset
-    FullTypeName: TinyGoose.Tremble.Sample.PlayerData
-    SpawnOffset: {x: 0, y: 0, z: 0}
   - MapName: TexturePackI/brick_wall_1
     Path: Assets/Materials/Texture Pack I/brick_wall_1.mat
     FullTypeName: UnityEngine.Material
     SpawnOffset: {x: 0, y: 0, z: 0}
   - MapName: TexturePackI/grass_1
     Path: Assets/Materials/Texture Pack I/grass_1.mat
-    FullTypeName: UnityEngine.Material
-    SpawnOffset: {x: 0, y: 0, z: 0}
-  - MapName: M_SimpleBlue
-    Path: Assets/Tremble/Sample/Materials/Colours/M_SimpleBlue.mat
-    FullTypeName: UnityEngine.Material
-    SpawnOffset: {x: 0, y: 0, z: 0}
-  - MapName: M_White
-    Path: Assets/Tremble/Sample/Materials/Colours/M_White.mat
-    FullTypeName: UnityEngine.Material
-    SpawnOffset: {x: 0, y: 0, z: 0}
-  - MapName: M_Black
-    Path: Assets/Tremble/Sample/Materials/Colours/M_Black.mat
-    FullTypeName: UnityEngine.Material
-    SpawnOffset: {x: 0, y: 0, z: 0}
-  - MapName: M_FloorBrick
-    Path: Assets/Tremble/Sample/Materials/M_FloorBrick.mat
     FullTypeName: UnityEngine.Material
     SpawnOffset: {x: 0, y: 0, z: 0}

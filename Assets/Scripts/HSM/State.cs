@@ -1,7 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 
-namespace StateMachine
+namespace HSM
 {
     public abstract class State
     {
@@ -30,6 +31,11 @@ namespace StateMachine
         /// Target state to switch to this frame (null = stay in current state)
         /// </summary>
         protected virtual State GetTransition() => null;
+
+        /// <summary>
+        /// Returns whether you can currently transition to this state
+        /// </summary>
+        public virtual bool CanTransitionTo() => true;
         
         // Lifecycle hooks
         protected virtual void OnEnter()                 {}
@@ -53,7 +59,7 @@ namespace StateMachine
         internal void Update(float deltaTime)
         {
             State newState = GetTransition();
-            if (newState != null)
+            if (newState != ActiveChild)
             {
                 Machine.Sequencer.RequestTransition(this, newState);
                 return;
@@ -61,6 +67,11 @@ namespace StateMachine
             
             ActiveChild?.Update(deltaTime);
             OnUpdate(deltaTime);
+
+            if (ActiveChild == null)
+            {
+                _LogCurrentTree();
+            }
         }
         
         /// <summary>
@@ -82,6 +93,19 @@ namespace StateMachine
         {
             for (State s = this; s != null; s = s.Parent)
                 yield return s;
+        }
+
+        private void _LogCurrentTree()
+        {
+            string currentTree = "";
+            foreach (var state in PathToRoot())
+            {
+                currentTree += ( state + "->");
+            }
+
+            currentTree = currentTree.Remove(currentTree.Length - 2, 2);
+
+            Debug.Log(currentTree);
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace StateMachine
+namespace HSM
 {
     public class StateMachine
     {
