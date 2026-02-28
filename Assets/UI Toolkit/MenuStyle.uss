@@ -1,0 +1,13 @@
+:root {
+    --main-color: rgb(202, 125, 0);
+    --main-font: url("project://database/Assets/Media/Fonts/red-hat-mono.ttf?fileID=12800000&guid=2d6b0fcbae4b7c647a65d5b08a866892&type=3#red-hat-mono");
+}
+
+.menu-button {
+    color: var(--main-color);
+    -unity-font-definition: url("project://database/Assets/Media/Fonts/red-hat-mono.ttf?fileID=12800000&guid=2d6b0fcbae4b7c647a65d5b08a866892&type=3#red-hat-mono");
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.menu-button:hover {
+}

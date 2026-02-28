@@ -29,6 +29,8 @@ MonoBehaviour:
     Materials:
     - {fileID: 2100000, guid: 5cb7d6462dfc10248bf9f1ecc2894ab7, type: 2}
     - {fileID: 2100000, guid: 7d3123fd8a8bc0b4a96570973c7760d5, type: 2}
+    - {fileID: 2100000, guid: b2101260370a60f4d90cb563ed514fd3, type: 2}
+    - {fileID: 2100000, guid: 7e743db6d53a2864691ec4709d7a320c, type: 2}
   m_MaterialRenderData:
   - m_Material: {fileID: 2100000, guid: 3f1c092690d8f42b88ea7f2abef724db, type: 2}
     m_ExportMode: 1
@@ -102,6 +104,180 @@ MonoBehaviour:
     m_ResolutionX: 2
     m_ResolutionY: 2
     m_Dirty: 0
+  - m_Material: {fileID: 2100000, guid: e9e51b0c26ea86c43b4a5219343ae214, type: 2}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 2100000, guid: a02acbd91771fb14bb02443e4812d0eb, type: 2}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -2805906249552511605, guid: bf7ac52253cd0664da75f67387460153, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -6490205712609517149, guid: 4e2d8dd2b9187104293173be64e2cab5, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 7212686168393479223, guid: 4e2d8dd2b9187104293173be64e2cab5, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -4622025226181318897, guid: 4e2d8dd2b9187104293173be64e2cab5, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -6023396853529083479, guid: 4e2d8dd2b9187104293173be64e2cab5, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 5376438311357028446, guid: ef67e881207a8754f9bf908b64fefb08, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -1310674807920108921, guid: ef67e881207a8754f9bf908b64fefb08, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 8573444228196118551, guid: 5c0ea57898d9bc94884f5dc2075b98f4, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 3988755151743549582, guid: 5c0ea57898d9bc94884f5dc2075b98f4, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -887184163123791015, guid: 5c0ea57898d9bc94884f5dc2075b98f4, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 12044595783041190, guid: 073cd44c66f05e64bb9c5c697694dc38, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -7687327065827259800, guid: 9223a929f8e7a504eb65dad411be677d, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -6824620026053660420, guid: 7b15d41a8ae7f3b498272ed2411cbea3, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 9152396224850093644, guid: b077258ccb6173343888e5df26be5d55, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 2842735010409588573, guid: 8b63ebb67a876594e95f5b5035fbc176, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 2100000, guid: dd4473d18dd0d2b4c837b8fb3a1f3278, type: 2}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 2100000, guid: b2101260370a60f4d90cb563ed514fd3, type: 2}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -8837181895080874740, guid: 5db60fd47f37705478b69cbc2b9c2ee5, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -1889434912452181271, guid: 0c36f27024d0db944864518ba42af863, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 2100000, guid: 4fe6410cf2dcf5f4cbc39a7a0be3a664, type: 2}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 2100000, guid: 1ddfbcffa6b55be4ebc8de21ceb8f090, type: 2}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 2100000, guid: 3ab69c8baef78ed479fa04b7bf67f7fd, type: 2}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 2100000, guid: 7e743db6d53a2864691ec4709d7a320c, type: 2}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 3743947089398870447, guid: 001efe176c789664abfc5006d00f8d37, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -5900466665640947601, guid: 169599de5232fb243b607327d42c5a16, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 2100000, guid: 4027add27f304b047bdd5f6d45736bba, type: 2}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 9152396224850093644, guid: 5cc0f38171e3c204bbceba2b061270ed, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
   m_PipelineSplitMesh: 1
   m_PipelineSmoothMeshNormals: 1
   m_PipelineSimplifyCollisionMeshes: 1
@@ -133,15 +309,175 @@ MonoBehaviour:
   m_ExportClipSkipTextures: 1
   m_ImportScale: 0.015625
   m_AssetMetadatas:
+  - MapName: buildings_shed_ax_4
+    Path: Assets/Prefabs/Buildings/shed_ax_4.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: -0, y: -1.5874996, z: 0.0000009536743}
+  - MapName: debris_and_misc_bricks_stacked_mx_4_0
+    Path: Assets/Prefabs/Debris & Misc/bricks_stacked_mx_4_0.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: -0.032294065, y: -0.13499999, z: 0.010758534}
+  - MapName: debris_and_msic_debris_bricks_mx_1_0
+    Path: Assets/Prefabs/Debris & Misc/debris_bricks_mx_1_0.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: 0.001072228, y: -0.035057537, z: -0.022418678}
+  - MapName: debris_and_misc_gravel_pile_hr_1
+    Path: Assets/Prefabs/Debris & Misc/gravel_pile_hr_1.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: 0.0933069, y: -0.12833852, z: -0.16093525}
+  - MapName: debris_and_misc_gravel_pile_hr_2
+    Path: Assets/Prefabs/Debris & Misc/gravel_pile_hr_2.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: -0.012873948, y: -0.1395596, z: -0.091234505}
+  - MapName: items_and_weapons_flashlight_mp_1
+    Path: Assets/Prefabs/Items & Weapons/flashlight_mp_1.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: 0.0050169826, y: -0.038337294, z: -0}
+  - MapName: lights_flashlight_light
+    Path: Assets/Prefabs/Lights/flashlight_light.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: -0, y: -0, z: -0}
+  - MapName: nature_fern_1
+    Path: Assets/Prefabs/Nature/fern_1.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: -0.010246336, y: -0.53252494, z: 0.027414262}
+  - MapName: nature_grass_1
+    Path: Assets/Prefabs/Nature/grass_1.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: -0, y: -0.3269357, z: -0.000000029802322}
+  - MapName: nature_grass_2
+    Path: Assets/Prefabs/Nature/grass_2.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: 0.028411627, y: -0.46000004, z: -0.019969374}
+  - MapName: nature_grass_4
+    Path: Assets/Prefabs/Nature/grass_4.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: -0, y: -0.22371215, z: 0.02639854}
+  - MapName: nature_mushroom_n_2_1
+    Path: Assets/Prefabs/Nature/mushroom_n_2_1.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: -0.00020063668, y: -0.10986473, z: -0.000000014901161}
+  - MapName: nature_pine_tree_n_1
+    Path: Assets/Prefabs/Nature/pine_tree_n_1.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: -0.08628774, y: -5.0568004, z: 0.05773437}
+  - MapName: nature_pine_tree_n_3_4
+    Path: Assets/Prefabs/Nature/pine_tree_n_3_4.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: -0.039144933, y: -2.2937648, z: 0.026190162}
+  - MapName: nature_stone_1
+    Path: Assets/Prefabs/Nature/stone_1.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: -0.052222192, y: -0.30605304, z: 0.0968048}
+  - MapName: nature_tree_9
+    Path: Assets/Prefabs/Nature/tree_9.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: 0.023076653, y: -2.2370973, z: 0.2982756}
+  - MapName: nature_tree_log_1
+    Path: Assets/Prefabs/Nature/tree_log_1.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: -0.014526844, y: -0.26303566, z: -0.28711587}
   - MapName: prefab_Player
     Path: Assets/Prefabs/Player.prefab
     FullTypeName: UnityEngine.GameObject
     SpawnOffset: {x: -0, y: -0, z: -0}
+  - MapName: vans_van_1
+    Path: Assets/Prefabs/Vans/van_1.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: 0.0021852255, y: -1.5428474, z: 0.059007168}
+  - MapName: weapons_and_tools_shovel_mx_1
+    Path: Assets/Prefabs/Weapons & Tools/shovel_mx_1.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: -0, y: -0.047777254, z: -0.110000014}
   - MapName: TexturePackI/brick_wall_1
     Path: Assets/Materials/Texture Pack I/brick_wall_1.mat
     FullTypeName: UnityEngine.Material
     SpawnOffset: {x: 0, y: 0, z: 0}
   - MapName: TexturePackI/grass_1
     Path: Assets/Materials/Texture Pack I/grass_1.mat
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: TexturePackI/dirt_6
+    Path: Assets/Materials/Texture Pack I/dirt_6.mat
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: TexturePackI/pine_branch_2
+    Path: Assets/Materials/Nature/pine_branch_2.mat
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: shed_ax_4
+    Path: Assets/Media/Models/Buildings/shed_ax_4.fbx
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: bricks_stacked_mx_4_0
+    Path: Assets/Media/Models/Debris & Misc/bricks_stacked_mx_4_0.fbx
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: debris_bricks_mx_1_0
+    Path: Assets/Media/Models/Debris & Misc/debris_bricks_mx_1_0.fbx
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: gravel_pile_hr_1
+    Path: Assets/Media/Models/Debris & Misc/gravel_pile_hr_1.fbx
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: gravel_pile_hr_2
+    Path: Assets/Media/Models/Debris & Misc/gravel_pile_hr_2.fbx
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: flashlight_mp_1
+    Path: Assets/Media/Models/Items & Weapons/flashlight_mp_1.fbx
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: fern_1
+    Path: Assets/Materials/Nature/fern_1.mat
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: grass_1
+    Path: Assets/Materials/Nature/grass_1.mat
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: grass_2
+    Path: Assets/Materials/Nature/grass_2.mat
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: grass_4
+    Path: Assets/Materials/Nature/grass_4.mat
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: mushroom_n_2_1
+    Path: Assets/Media/Models/Nature/mushroom_n_2_1.fbx
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: pine_tree_n_1
+    Path: Assets/Materials/Nature/pine_tree_n_1.mat
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: pine_branch_3
+    Path: Assets/Materials/Nature/pine_branch_3.mat
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: pine_branch_2
+    Path: Assets/Materials/Nature/pine_branch_2.mat
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: stone_1
+    Path: Assets/Media/Models/Nature/stone_1.fbx
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: tree_9
+    Path: Assets/Media/Models/Nature/tree_9.fbx
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: tree_log_1
+    Path: Assets/Media/Models/Nature/tree_log_1.fbx
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: van_1
+    Path: Assets/Media/Models/Vans/van_1.fbx
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: shovel_mx_1
+    Path: Assets/Media/Models/Weapons & Tools/shovel_mx_1.fbx
     FullTypeName: UnityEngine.Material
     SpawnOffset: {x: 0, y: 0, z: 0}
