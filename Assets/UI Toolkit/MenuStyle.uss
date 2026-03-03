@@ -1,13 +1,29 @@
-:root {
-    --main-color: rgb(202, 125, 0);
-    --main-font: url("project://database/Assets/Media/Fonts/red-hat-mono.ttf?fileID=12800000&guid=2d6b0fcbae4b7c647a65d5b08a866892&type=3#red-hat-mono");
+.menu-buttons-container {
+    display: flex;
+    background-size: 100% 100%;
 }
 
 .menu-button {
     color: var(--main-color);
-    -unity-font-definition: url("project://database/Assets/Media/Fonts/red-hat-mono.ttf?fileID=12800000&guid=2d6b0fcbae4b7c647a65d5b08a866892&type=3#red-hat-mono");
     background-color: rgba(0, 0, 0, 0);
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    font-size: 18px;
+    -unity-font-definition: url("project://database/Assets/Media/Fonts/red-hat-mono.ttf?fileID=12800000&guid=2d6b0fcbae4b7c647a65d5b08a866892&type=3#red-hat-mono");
 }
 
 .menu-button:hover {
+    font-size: 18px;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    align-content: center;
+    background-color: var(--main-color);
+    color: rgb(0, 0, 0);
+}
+
+:root {
+    --main-color: rgb(202, 125, 0);
 }
