@@ -1,6 +1,14 @@
+:root {
+    --main-color: rgb(202, 125, 0);
+    --main-color-active: rgb(245, 162, 26);
+    -unity-font-definition: url("project://database/Assets/Media/Fonts/red-hat-mono.ttf?fileID=12800000&guid=2d6b0fcbae4b7c647a65d5b08a866892&type=3#red-hat-mono");
+    color: var(--main-color);
+}
+
 .menu-buttons-container {
     display: flex;
-    background-size: 100% 100%;
+    width: 33%;
+    height: 100%;
 }
 
 .menu-button {
@@ -24,6 +32,34 @@
     color: rgb(0, 0, 0);
 }
 
-:root {
-    --main-color: rgb(202, 125, 0);
+.menu-button:active {
+    background-color: var(--main-color-active);
+}
+
+.menu-panel-container {
+    width: 67%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-panel-header {
+    height: 5%;
+    position: relative;
+    width: 90%;
+}
+
+.menu-panel-header-text {
+    height: auto;
+    color: var(--main-color);
+    font-size: 27px;
+    position: absolute;
+}
+
+
+
+.menu-panel {
+    width: 90%;
+    height: 75%;
+    background-color: var(--main-color);
 }

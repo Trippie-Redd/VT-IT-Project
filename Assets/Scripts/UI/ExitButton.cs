@@ -15,6 +15,10 @@ public class ExitButton : MonoBehaviour
 
     void _OnClick(PointerDownEvent evt)
     {
-        
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
     }
 }
