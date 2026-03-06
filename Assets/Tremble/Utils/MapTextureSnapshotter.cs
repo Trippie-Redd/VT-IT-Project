@@ -99,6 +99,27 @@ namespace TinyGoose.Tremble
 				});
 			}
 
+			// TODO - Fix, this is a temporary solution
+			Vector2Int[] extraResolutions = { new(128, 256), new(128, 64), new(1024, 1024), new(512, 256), new(128, 512) };
+			foreach (Vector2Int res in extraResolutions)
+			{
+				if (m_RenderTextures.ContainsKey(res)) continue;
+				
+				RenderTexture rt = new(res.x, res.y, 8, GraphicsFormat.R8G8B8A8_UNorm);
+				rt.Create();
+				RenderTexture rtSrgb = new(res.x, res.y, 8, GraphicsFormat.R8G8B8A8_SRGB);
+				rtSrgb.Create();
+				Texture2D output = new(res.x, res.y, rt.graphicsFormat, TextureCreationFlags.None);
+				Texture2D outputSrgb = new(res.x, res.y, rtSrgb.graphicsFormat, TextureCreationFlags.None);
+				m_RenderTextures.Add(res, new()
+				{
+					Texture = output,
+					TextureSrgb = outputSrgb,
+					RenderTexture = rtSrgb,
+					RenderTextureSrgb = rtSrgb
+				});
+			}
+
 			// Move far away!
 			m_SceneRoot.transform.position = Vector3.up * 10000f;
 
@@ -176,9 +197,9 @@ namespace TinyGoose.Tremble
 				{
 					renderData.ExportMode = MaterialImportMode.Legacy;
 					Debug.LogWarning($"Couldn't find a Main Texture for material \"{m.name}\"," +
-					                 "falling back to legacy render mode." +
-					                 "Make sure the shader has a texture marked as [Main Texture] or" +
-					                 "a texture named _MainTex, _BaseColor, or _Color.");
+									 "falling back to legacy render mode." +
+									 "Make sure the shader has a texture marked as [Main Texture] or" +
+									 "a texture named _MainTex, _BaseColor, or _Color.");
 				}
 
 				if (mainTex && !renderData.IsResolutionOverridden)
@@ -186,6 +207,8 @@ namespace TinyGoose.Tremble
 					res = new(mainTex.width, mainTex.height);
 				}
 			}
+
+			
 
 			TexturePair tex = m_RenderTextures[res];
 
@@ -253,7 +276,7 @@ namespace TinyGoose.Tremble
 			}
 #endif
 
-		}
+			}
 
 		private static readonly Dictionary<string, string> s_ShaderRemaps = new()
 		{

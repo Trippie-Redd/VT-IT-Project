@@ -1,20 +1,30 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
+[RequireComponent(typeof(UIDocument))]
 public class StartButton : MonoBehaviour
 {
+    Button _button;
+
     void OnEnable()
     {
-        GetComponent<UIDocument>().rootVisualElement.Q("start-button").RegisterCallback<PointerDownEvent>(_OnClick);
+        var document = GetComponent<UIDocument>();
+
+        _button = document.rootVisualElement.Q<Button>("start-button");
+
+        Debug.Assert(_button != null);
+
+        _button.RegisterCallback<ClickEvent>(_OnClick);
     }
 
     void OnDisable()
     {
-        GetComponent<UIDocument>().rootVisualElement.Q("start-button").UnregisterCallback<PointerDownEvent>(_OnClick);
+        _button.UnregisterCallback<ClickEvent>(_OnClick);
     }
 
-    void _OnClick(PointerDownEvent evt)
+    void _OnClick(ClickEvent evt)
     {
-        
     }
+
 }

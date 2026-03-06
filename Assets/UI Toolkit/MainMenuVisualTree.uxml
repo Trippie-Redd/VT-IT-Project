@@ -1,22 +1,36 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI%20Toolkit/MenuStyle.uss?fileID=7433441132597879392&amp;guid=21e959e33ba399c428c32134e3bce283&amp;type=3#MenuStyle"/>
-    <ui:VisualElement name="container" class="highlight-container" style="flex-grow: 1; color: rgba(27, 27, 27, 0); background-color: rgb(0, 0, 0); flex-direction: row; justify-content: flex-end;">
-        <ui:VisualElement name="buttons-container" class="menu-buttons-container">
-            <ui:VisualElement name="button-container" style="flex-grow: 1; align-items: center; justify-content: center;">
-                <ui:Button text="START" name="start-button" class="menu-button" style="-unity-font-definition: url(&quot;project://database/Assets/Media/Fonts/red-hat-mono.ttf?fileID=12800000&amp;guid=2d6b0fcbae4b7c647a65d5b08a866892&amp;type=3#red-hat-mono&quot;); align-items: center; justify-content: center; align-self: center; align-content: center;"/>
+    <ui:VisualElement name="container" class="highlight-container" style="flex-grow: 1; color: rgba(27, 27, 27, 0); background-color: rgb(0, 0, 0); flex-direction: row; justify-content: space-around; align-items: flex-start;">
+        <ui:VisualElement name="menu-container" class="menu-container" style="flex-grow: 1;">
+            <ui:VisualElement name="buttons-container" class="menu-buttons-container" style="display: flex;">
+                <ui:VisualElement name="button-container" style="flex-grow: 1; align-items: center; justify-content: center;">
+                    <ui:Button text="START" name="start-button" class="menu-button" style="align-items: center; justify-content: center; align-self: center; align-content: center;"/>
+                </ui:VisualElement>
+                <ui:VisualElement name="button-container" style="flex-grow: 1; align-items: center; justify-content: center;">
+                    <ui:Button text="OPTIONS" name="options-button" class="menu-button" style="align-items: center; justify-content: center; align-self: center; align-content: center;"/>
+                </ui:VisualElement>
+                <ui:VisualElement name="button-container" style="flex-grow: 1; align-items: center; justify-content: space-around;">
+                    <ui:Button text="EXIT" name="exit-button" class="menu-button" style="align-items: center; justify-content: center; align-self: center; align-content: center; white-space: pre;"/>
+                </ui:VisualElement>
             </ui:VisualElement>
-            <ui:VisualElement name="button-container" style="flex-grow: 1; align-items: center; justify-content: center;">
-                <ui:Button text="OPTIONS" name="options-button" class="menu-button" style="-unity-font-definition: url(&quot;project://database/Assets/Media/Fonts/red-hat-mono.ttf?fileID=12800000&amp;guid=2d6b0fcbae4b7c647a65d5b08a866892&amp;type=3#red-hat-mono&quot;); align-items: center; justify-content: center; align-self: center; align-content: center;"/>
+            <ui:VisualElement name="spacer" class="spacer" style="flex-grow: 1; align-self: flex-start; display: none; height: 100%;"/>
+            <ui:VisualElement name="panel-container" class="menu-panel-container" style="display: flex;">
+                <ui:VisualElement name="panel-header" class="menu-panel-header">
+                    <ui:Label text="PAUSE MENU/MISSION BRIEF" name="panel-header-text" class="menu-panel-header-text"/>
+                </ui:VisualElement>
+                <ui:VisualElement name="panel" class="menu-panel">
+                    <ui:VisualElement name="mission-brief-container" class="menu-mission-brief-container">
+                        <ui:Label text="MISSION BRIEF" style="color: rgb(202, 125, 0); font-size: 30px; margin-top: 10px; margin-left: 10px;"/>
+                        <ui:Label text="-----------------------------------------" style="color: rgb(202, 125, 0); font-size: 20px; margin-top: 2px; margin-left: 10px;"/>
+                        <ui:Label text="CheckId: The identifier of the rule. Support includes both a short and long name for the rule identifier. The short name is CAXXXX; the long name is CAXXXX:FriendlyTypeName.&#10;&#10;Justification: The text used to document the reason for suppressing the message.&#10;&#10;MessageId: The unique identifier of the problem for each message.&#10;&#10;Scope: The target on which the warning is being suppressed. If the target isn&apos;t specified, the system sets it to the target of the attribute. Supported scopes include:&#10;&#10;    module: This scope suppresses warnings against an assembly. It&apos;s a global suppression that applies to the entire project.&#10;&#10;    resource: (legacy analysis only) This scope suppresses warnings in diagnostic info written to resource files that are part of the module (assembly). This scope isn&apos;t read or respected in C#/VB compilers for Roslyn analyzer diagnostics, which only analyze source files.&#10;&#10;    type: This scope suppresses warnings against a type.&#10;&#10;    member: This scope suppresses warnings against a member.&#10;&#10;    namespace: This scope suppresses warnings against the namespace itself. It doesn&apos;t suppress warnings against types within the namespace.&#10;&#10;    namespaceanddescendants: (Requires compiler version 3.x or higher and Visual Studio 2019 or later) This scope suppresses warnings in a namespace and all its descendant symbols. Legacy analysis ignores the namespaceanddescendants value.&#10;&#10;" style="color: rgb(202, 125, 0); font-size: 18px; margin-top: 2px; margin-left: 10px; height: auto; white-space: normal; width: 85%;"/>
+                        <ui:VisualElement name="targets-description-container" class="menu-targets-description-container" style="height: auto;">
+                            <ui:Image name="2slimey" class="menu-target-description" style="--unity-image: url(&quot;project://database/Assets/Media/Images/2slimey.jpg?fileID=2800000&amp;guid=98df7dbe10ec5885d9efa638032e1d41&amp;type=3#2slimey&quot;); translate: 0% 0;"/>
+                            <ui:Image name="nettspend" source="project://database/Assets/Media/Images/nettspend.jpg?fileID=2800000&amp;guid=060dcfad46ea2e88f955c46f84e99dc5&amp;type=3#nettspend" class="menu-target-description" style="--unity-image: url(&quot;project://database/Assets/Media/Images/2slimey.jpg?fileID=2800000&amp;guid=98df7dbe10ec5885d9efa638032e1d41&amp;type=3#2slimey&quot;);"/>
+                            <ui:Image name="che" source="project://database/Assets/Media/Images/che.jpg?fileID=2800000&amp;guid=9e1c6f983b5ebf338945c6ca0faccf7d&amp;type=3#che" class="menu-target-description" style="--unity-image: url(&quot;project://database/Assets/Media/Images/2slimey.jpg?fileID=2800000&amp;guid=98df7dbe10ec5885d9efa638032e1d41&amp;type=3#2slimey&quot;);"/>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:VisualElement>
             </ui:VisualElement>
-            <ui:VisualElement name="button-container" style="flex-grow: 1; align-items: center; justify-content: space-around;">
-                <ui:Button text="EXIT" name="exit-button" class="menu-button" style="-unity-font-definition: url(&quot;project://database/Assets/Media/Fonts/red-hat-mono.ttf?fileID=12800000&amp;guid=2d6b0fcbae4b7c647a65d5b08a866892&amp;type=3#red-hat-mono&quot;); align-items: center; justify-content: center; align-self: center; align-content: center; white-space: pre;"/>
-            </ui:VisualElement>
-        </ui:VisualElement>
-        <ui:VisualElement name="panel-container" class="menu-panel-container">
-            <ui:VisualElement name="panel-header" class="menu-panel-header">
-                <ui:Label text="Options" name="panel-header-text" class="menu-panel-header-text"/>
-            </ui:VisualElement>
-            <ui:VisualElement name="panel" class="menu-panel"/>
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

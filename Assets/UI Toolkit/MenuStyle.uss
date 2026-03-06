@@ -1,8 +1,15 @@
 :root {
     --main-color: rgb(202, 125, 0);
     --main-color-active: rgb(245, 162, 26);
-    -unity-font-definition: url("project://database/Assets/Media/Fonts/red-hat-mono.ttf?fileID=12800000&guid=2d6b0fcbae4b7c647a65d5b08a866892&type=3#red-hat-mono");
     color: var(--main-color);
+    -unity-font-definition: url("project://database/Assets/Media/Fonts/white-rabbit.ttf?fileID=12800000&guid=e62c1b6d8ef14e64c8ebe635e3ae950d&type=3#white-rabbit");
+}
+
+.menu-container {
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    flex-direction: row;
 }
 
 .menu-buttons-container {
@@ -18,12 +25,10 @@
     border-right-width: 0;
     border-bottom-width: 0;
     border-left-width: 0;
-    font-size: 18px;
-    -unity-font-definition: url("project://database/Assets/Media/Fonts/red-hat-mono.ttf?fileID=12800000&guid=2d6b0fcbae4b7c647a65d5b08a866892&type=3#red-hat-mono");
+    font-size: 20px;
 }
 
 .menu-button:hover {
-    font-size: 18px;
     align-items: center;
     justify-content: center;
     align-self: center;
@@ -52,14 +57,44 @@
 .menu-panel-header-text {
     height: auto;
     color: var(--main-color);
-    font-size: 27px;
+    font-size: 30px;
     position: absolute;
 }
-
-
 
 .menu-panel {
     width: 90%;
     height: 75%;
-    background-color: var(--main-color);
+    background-color: black;
+    justify-content: flex-start;
+    align-items: flex-start;
+    border-width: 5%;
+    border-color: var(--main-color);
+}
+
+.spacer {
+    width: 67%;
+}
+
+.menu-mission-brief-container {
+    width: 100%;
+    height: 100%;
+}
+
+.menu-targets-description-container {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-target-description {
+    height: 100%;
+    width: auto;
+    aspect-ratio: 1;
+    left: auto;
+    right: auto;
+    margin-right: 3%;
+    margin-left: 3%;
+    filter: sepia(0.4);
 }

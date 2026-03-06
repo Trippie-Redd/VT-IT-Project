@@ -1,19 +1,23 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 
+[RequireComponent(typeof(UIDocument))]
 public class ExitButton : MonoBehaviour
 {
+    Button _button;
+
     void OnEnable()
     {
-        GetComponent<UIDocument>().rootVisualElement.Q("exit-button").RegisterCallback<PointerDownEvent>(_OnClick);
+        _button = GetComponent<UIDocument>().rootVisualElement.Q<Button>("exit-button");
+        _button.RegisterCallback<ClickEvent>(_OnClick);
     }
 
     void OnDisable()
     {
-        GetComponent<UIDocument>().rootVisualElement.Q("exit-button").UnregisterCallback<PointerDownEvent>(_OnClick);
+        _button.UnregisterCallback<ClickEvent>(_OnClick);
     }
 
-    void _OnClick(PointerDownEvent evt)
+    void _OnClick(ClickEvent evt)
     {
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
