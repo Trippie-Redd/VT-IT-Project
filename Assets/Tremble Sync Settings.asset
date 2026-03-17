@@ -29,6 +29,8 @@ MonoBehaviour:
     Materials:
     - {fileID: 2100000, guid: 5cb7d6462dfc10248bf9f1ecc2894ab7, type: 2}
     - {fileID: 2100000, guid: 7d3123fd8a8bc0b4a96570973c7760d5, type: 2}
+    - {fileID: 2100000, guid: 50948239ed72541719c2ed383664d12f, type: 2}
+    - {fileID: 2100000, guid: f669396623d6f0ec4a9a2b0f4b53dd1a, type: 2}
   m_MaterialRenderData:
   - m_Material: {fileID: 2100000, guid: 3f1c092690d8f42b88ea7f2abef724db, type: 2}
     m_ExportMode: 1
@@ -102,6 +104,660 @@ MonoBehaviour:
     m_ResolutionX: 2
     m_ResolutionY: 2
     m_Dirty: 0
+  - m_Material: {fileID: 2100000, guid: 50948239ed72541719c2ed383664d12f, type: 2}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 7212686168393479223, guid: 6adde3436eebf5b468ccb4cc958ebde9, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -4622025226181318897, guid: 6adde3436eebf5b468ccb4cc958ebde9, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -5095955952026300874, guid: 6adde3436eebf5b468ccb4cc958ebde9, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 1023836959898591828, guid: 6adde3436eebf5b468ccb4cc958ebde9, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 3947524086040191879, guid: 6adde3436eebf5b468ccb4cc958ebde9, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -7988569330098938446, guid: 6adde3436eebf5b468ccb4cc958ebde9, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -6023396853529083479, guid: 6adde3436eebf5b468ccb4cc958ebde9, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 3119221099823914479, guid: 6adde3436eebf5b468ccb4cc958ebde9, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -7606089277537659969, guid: 6adde3436eebf5b468ccb4cc958ebde9, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 7212686168393479223, guid: a36a875c2de9d71478e055a4cdb5efb0, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -4622025226181318897, guid: a36a875c2de9d71478e055a4cdb5efb0, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -5095955952026300874, guid: a36a875c2de9d71478e055a4cdb5efb0, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 363671474794702218, guid: a36a875c2de9d71478e055a4cdb5efb0, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -1274590205102748695, guid: a36a875c2de9d71478e055a4cdb5efb0, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -7988569330098938446, guid: a36a875c2de9d71478e055a4cdb5efb0, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -6023396853529083479, guid: a36a875c2de9d71478e055a4cdb5efb0, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 3119221099823914479, guid: a36a875c2de9d71478e055a4cdb5efb0, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -2203434835570675349, guid: a36a875c2de9d71478e055a4cdb5efb0, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -7606089277537659969, guid: a36a875c2de9d71478e055a4cdb5efb0, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -4622025226181318897, guid: d543a91a3a331a5469f915bc7a0a7069, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -5095955952026300874, guid: d543a91a3a331a5469f915bc7a0a7069, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -1166576843902909436, guid: d543a91a3a331a5469f915bc7a0a7069, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -5392996009222373006, guid: d543a91a3a331a5469f915bc7a0a7069, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -7988569330098938446, guid: d543a91a3a331a5469f915bc7a0a7069, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -6023396853529083479, guid: d543a91a3a331a5469f915bc7a0a7069, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 634795293250057915, guid: d543a91a3a331a5469f915bc7a0a7069, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 6621623630959533806, guid: d543a91a3a331a5469f915bc7a0a7069, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -7606089277537659969, guid: d543a91a3a331a5469f915bc7a0a7069, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -4622025226181318897, guid: c75117ed5617cd74db919c47dfee1185, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -5095955952026300874, guid: c75117ed5617cd74db919c47dfee1185, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 8187779712458834819, guid: c75117ed5617cd74db919c47dfee1185, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -2876916379461062506, guid: c75117ed5617cd74db919c47dfee1185, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -7988569330098938446, guid: c75117ed5617cd74db919c47dfee1185, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -6023396853529083479, guid: c75117ed5617cd74db919c47dfee1185, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 634795293250057915, guid: c75117ed5617cd74db919c47dfee1185, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -2203434835570675349, guid: c75117ed5617cd74db919c47dfee1185, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 6621623630959533806, guid: c75117ed5617cd74db919c47dfee1185, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -7606089277537659969, guid: c75117ed5617cd74db919c47dfee1185, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 7212686168393479223, guid: 9414420e5eeccf448b48c4045183649b, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -5095955952026300874, guid: 9414420e5eeccf448b48c4045183649b, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 3947524086040191879, guid: 9414420e5eeccf448b48c4045183649b, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -2876916379461062506, guid: 9414420e5eeccf448b48c4045183649b, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -463643423289549408, guid: 9414420e5eeccf448b48c4045183649b, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -8424161285540589180, guid: 9414420e5eeccf448b48c4045183649b, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -7988569330098938446, guid: 9414420e5eeccf448b48c4045183649b, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -7606089277537659969, guid: 9414420e5eeccf448b48c4045183649b, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -4622025226181318897, guid: fb1a70a9356ade247a20afcb14504ccd, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -6023396853529083479, guid: fb1a70a9356ade247a20afcb14504ccd, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 634795293250057915, guid: fb1a70a9356ade247a20afcb14504ccd, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 6621623630959533806, guid: fb1a70a9356ade247a20afcb14504ccd, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 7212686168393479223, guid: c0eb1d68720691d42a07b0b18870e4a8, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -4622025226181318897, guid: c0eb1d68720691d42a07b0b18870e4a8, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -6023396853529083479, guid: c0eb1d68720691d42a07b0b18870e4a8, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -5152253376215331963, guid: c0eb1d68720691d42a07b0b18870e4a8, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 7212686168393479223, guid: 082b8bdfc04e8c84c97dddfcf9e01ca2, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -4622025226181318897, guid: 082b8bdfc04e8c84c97dddfcf9e01ca2, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 2494317557393298835, guid: 082b8bdfc04e8c84c97dddfcf9e01ca2, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -6023396853529083479, guid: 082b8bdfc04e8c84c97dddfcf9e01ca2, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -6490205712609517149, guid: 082b8bdfc04e8c84c97dddfcf9e01ca2, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -2203434835570675349, guid: 082b8bdfc04e8c84c97dddfcf9e01ca2, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 7212686168393479223, guid: 4e2d8dd2b9187104293173be64e2cab5, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -4622025226181318897, guid: 4e2d8dd2b9187104293173be64e2cab5, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -6023396853529083479, guid: 4e2d8dd2b9187104293173be64e2cab5, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -6490205712609517149, guid: 4e2d8dd2b9187104293173be64e2cab5, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 7654307335345495095, guid: 64db8c35a49632c4d8ef9ba1b1f333f0, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -6739398283305643800, guid: 64db8c35a49632c4d8ef9ba1b1f333f0, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 8703711913101311065, guid: 64db8c35a49632c4d8ef9ba1b1f333f0, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -7988569330098938446, guid: 64db8c35a49632c4d8ef9ba1b1f333f0, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -8502437875382508561, guid: 64db8c35a49632c4d8ef9ba1b1f333f0, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -7375421006619401608, guid: 64db8c35a49632c4d8ef9ba1b1f333f0, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -1658043031466362763, guid: 64db8c35a49632c4d8ef9ba1b1f333f0, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -8873775854786319984, guid: 64db8c35a49632c4d8ef9ba1b1f333f0, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 9201228592391959439, guid: 64db8c35a49632c4d8ef9ba1b1f333f0, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 7654307335345495095, guid: 79f9ef0cc2ed6004e815ee87016d629d, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -6739398283305643800, guid: 79f9ef0cc2ed6004e815ee87016d629d, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 8703711913101311065, guid: 79f9ef0cc2ed6004e815ee87016d629d, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -7988569330098938446, guid: 79f9ef0cc2ed6004e815ee87016d629d, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -8502437875382508561, guid: 79f9ef0cc2ed6004e815ee87016d629d, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -7375421006619401608, guid: 79f9ef0cc2ed6004e815ee87016d629d, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -94355356705193476, guid: 79f9ef0cc2ed6004e815ee87016d629d, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 5113183079975578194, guid: 79f9ef0cc2ed6004e815ee87016d629d, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -6739398283305643800, guid: a3f5835ac9588d74ba20a258e22188e4, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 8728048905496222810, guid: a3f5835ac9588d74ba20a258e22188e4, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 8703711913101311065, guid: a3f5835ac9588d74ba20a258e22188e4, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -7988569330098938446, guid: a3f5835ac9588d74ba20a258e22188e4, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -8502437875382508561, guid: a3f5835ac9588d74ba20a258e22188e4, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -7375421006619401608, guid: a3f5835ac9588d74ba20a258e22188e4, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -3647585227621680605, guid: a3f5835ac9588d74ba20a258e22188e4, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -8873775854786319984, guid: a3f5835ac9588d74ba20a258e22188e4, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 9201228592391959439, guid: a3f5835ac9588d74ba20a258e22188e4, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 7654307335345495095, guid: a0655615c47c5904193cd021a593b833, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -6739398283305643800, guid: a0655615c47c5904193cd021a593b833, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 8703711913101311065, guid: a0655615c47c5904193cd021a593b833, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -7988569330098938446, guid: a0655615c47c5904193cd021a593b833, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -8502437875382508561, guid: a0655615c47c5904193cd021a593b833, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -7375421006619401608, guid: a0655615c47c5904193cd021a593b833, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -1658043031466362763, guid: a0655615c47c5904193cd021a593b833, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -8873775854786319984, guid: a0655615c47c5904193cd021a593b833, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 9201228592391959439, guid: a0655615c47c5904193cd021a593b833, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -6739398283305643800, guid: c4b4c21dba7b1e14eb36cba7a1dc3e80, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 8703711913101311065, guid: c4b4c21dba7b1e14eb36cba7a1dc3e80, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -7375421006619401608, guid: c4b4c21dba7b1e14eb36cba7a1dc3e80, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -1658043031466362763, guid: c4b4c21dba7b1e14eb36cba7a1dc3e80, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 2100000, guid: f669396623d6f0ec4a9a2b0f4b53dd1a, type: 2}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 1482201375220387886, guid: bcfa6c673e5701349959202906241989, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 1482201375220387886, guid: c8a1e08eeb9db5349a05d5f9f1365928, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 1482201375220387886, guid: 2ec4b84e37debb247a096f270aab4d7e, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -3764266704395576511, guid: e32db69380598c346829db808cbed0cf, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
   m_PipelineSplitMesh: 1
   m_PipelineSmoothMeshNormals: 1
   m_PipelineSimplifyCollisionMeshes: 1
@@ -114,7 +770,7 @@ MonoBehaviour:
   m_EntityIconStyle: 1
   m_PrefabOverrideHandling: 2
   m_UseClassicQuakeCulling: 0
-  m_Q3Map2ResultDisplayType: 1
+  m_Q3Map2ResultDisplayType: 2
   m_EmbedTrembleSettingsInProjectSettings: 1
   m_FgdFormattingStyle: 1
   m_SubdivideAllLeafs: 0
@@ -133,6 +789,62 @@ MonoBehaviour:
   m_ExportClipSkipTextures: 1
   m_ImportScale: 0.015625
   m_AssetMetadatas:
+  - MapName: buildings_garage_hl_1
+    Path: Assets/Prefabs/Buildings/garage_hl_1.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: -0.6999998, y: -2, z: 0.047499657}
+  - MapName: buildings_garage_hm_2
+    Path: Assets/Prefabs/Buildings/garage_hm_2.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: -0.10000038, y: -2.3500016, z: -0.45000017}
+  - MapName: buildings_garages_block_hr_1
+    Path: Assets/Prefabs/Buildings/garages_block_hr_1.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: -0, y: -2.1500015, z: 0.20000029}
+  - MapName: Buildings_pine_tree_n_1_4
+    Path: Assets/Prefabs/Buildings/pine_tree_n_1_4.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: -0.039144933, y: -2.2937648, z: 0.026190162}
+  - MapName: Buildings_pine_tree_n_2_1
+    Path: Assets/Prefabs/Buildings/pine_tree_n_2_1.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: 0.03352189, y: -4.5511203, z: 0.038926482}
+  - MapName: Buildings_pine_tree_n_2_2
+    Path: Assets/Prefabs/Buildings/pine_tree_n_2_2.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: -0.012165666, y: -4.0960083, z: 0.023163676}
+  - MapName: Buildings_pine_tree_n_2_3
+    Path: Assets/Prefabs/Buildings/pine_tree_n_2_3.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: -0.00578928, y: -2.8672059, z: 0.016775012}
+  - MapName: buildings_shed_ax_1
+    Path: Assets/Prefabs/Buildings/shed_ax_1.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: -0, y: -1.3874996, z: 0.0000009536743}
+  - MapName: buildings_shed_ax_2
+    Path: Assets/Prefabs/Buildings/shed_ax_2.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: -0, y: -1.5874996, z: -0.5499996}
+  - MapName: buildings_shed_ax_4
+    Path: Assets/Prefabs/Buildings/shed_ax_4.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: -0, y: -1.5874996, z: 0.0000009536743}
+  - MapName: buildings_warehouse_mx_1
+    Path: Assets/Prefabs/Buildings/warehouse_mx_1.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: -0, y: -4.435, z: -1.1499996}
+  - MapName: buildings_warehouse_mx_2
+    Path: Assets/Prefabs/Buildings/warehouse_mx_2.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: -0, y: -3.1599998, z: 0.5}
+  - MapName: buildings_warehouse_mx_4
+    Path: Assets/Prefabs/Buildings/warehouse_mx_4.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: -1.8000019, y: -4.4349995, z: -0.0000038146973}
+  - MapName: buildings_warehouse_mx_4_1
+    Path: Assets/Prefabs/Buildings/warehouse_mx_4_1.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: -1.8000019, y: -4.4349995, z: -0}
   - MapName: prefab_Player
     Path: Assets/Prefabs/Player.prefab
     FullTypeName: UnityEngine.GameObject
@@ -143,5 +855,69 @@ MonoBehaviour:
     SpawnOffset: {x: 0, y: 0, z: 0}
   - MapName: TexturePackI/grass_1
     Path: Assets/Materials/Texture Pack I/grass_1.mat
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: TexturePackI/grass_6
+    Path: Assets/Materials/Texture Pack I/grass_6.mat
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: TexturePackI/grass_7
+    Path: Assets/Media/Textures/Texture Pack I/Color Maps/Materials/grass_7.mat
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: garage_hl_1
+    Path: Assets/Media/Models/Buildings/garage_hl_1.fbx
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: shed_ax_2
+    Path: Assets/Media/Models/Buildings/shed_ax_2.fbx
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: garage_hm_2
+    Path: Assets/Media/Models/Buildings/garage_hm_2.fbx
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: garages_block_hr_1
+    Path: Assets/Media/Models/Buildings/garages_block_hr_1.fbx
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: pine_tree_n_1_4
+    Path: Assets/Media/Models/Nature/pine_tree_n_1_4.fbx
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: pine_tree_n_2_1
+    Path: Assets/Media/Models/Nature/pine_tree_n_2_1.fbx
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: pine_tree_n_2_2
+    Path: Assets/Media/Models/Nature/pine_tree_n_2_2.fbx
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: pine_tree_n_2_3
+    Path: Assets/Media/Models/Nature/pine_tree_n_2_3.fbx
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: shed_ax_1
+    Path: Assets/Media/Models/Buildings/shed_ax_1.fbx
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: shed_ax_4
+    Path: Assets/Media/Models/Buildings/shed_ax_4.fbx
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: warehouse_mx_1
+    Path: Assets/Media/Models/Buildings/warehouse_mx_1.fbx
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: warehouse_mx_2
+    Path: Assets/Media/Models/Buildings/warehouse_mx_2.fbx
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: warehouse_mx_4
+    Path: Assets/Media/Models/Buildings/warehouse_mx_4.fbx
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: warehouse_mx_4_1
+    Path: Assets/Media/Models/Buildings/warehouse_mx_4_1.fbx
     FullTypeName: UnityEngine.Material
     SpawnOffset: {x: 0, y: 0, z: 0}
