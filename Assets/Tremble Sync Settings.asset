@@ -788,12 +788,6 @@ MonoBehaviour:
     m_ResolutionX: 2
     m_ResolutionY: 2
     m_Dirty: 0
-  - m_Material: {fileID: 2100000, guid: 31f113431afa50e65984c0747fd825aa, type: 2}
-    m_ExportMode: 0
-    m_IsResolutionOverridden: 0
-    m_ResolutionX: 2
-    m_ResolutionY: 2
-    m_Dirty: 0
   m_PipelineSplitMesh: 1
   m_PipelineSmoothMeshNormals: 1
   m_PipelineSimplifyCollisionMeshes: 1
@@ -999,10 +993,6 @@ MonoBehaviour:
     SpawnOffset: {x: 0, y: 0, z: 0}
   - MapName: mushroom_n_1_0
     Path: Assets/Media/Models/Nature/mushroom_n_1_0.fbx
-    FullTypeName: UnityEngine.Material
-    SpawnOffset: {x: 0, y: 0, z: 0}
-  - MapName: pine_branch_1
-    Path: Assets/Materials/Nature/pine_branch_1.mat
     FullTypeName: UnityEngine.Material
     SpawnOffset: {x: 0, y: 0, z: 0}
   - MapName: stone_1
