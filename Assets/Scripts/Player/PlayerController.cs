@@ -97,16 +97,16 @@ namespace Player
             inputReader.Move   += _OnMove;
             inputReader.Sprint += _OnSprint;
             inputReader.Crouch += _OnCrouch;
-            
+            inputReader.Attack += GetComponent<Shooter>().Shooting;
             inputReader.EnablePlayerActions();
         }
 
-        ~PlayerController()
+        private void OnDestroy()
         {
             inputReader.Move   -= _OnMove;
             inputReader.Sprint -= _OnSprint;
             inputReader.Crouch -= _OnCrouch;
-            
+            inputReader.Attack -= GetComponent<Shooter>().Shooting;
             inputReader.DisablePlayerActions();
         }
         
@@ -140,7 +140,6 @@ namespace Player
 
             IsCrouching = !IsCrouching;
         }
-        
         #endregion
     }
 }

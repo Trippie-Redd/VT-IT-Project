@@ -29,6 +29,7 @@ MonoBehaviour:
     Materials:
     - {fileID: 2100000, guid: 5cb7d6462dfc10248bf9f1ecc2894ab7, type: 2}
     - {fileID: 2100000, guid: 7d3123fd8a8bc0b4a96570973c7760d5, type: 2}
+    - {fileID: 2100000, guid: 1c2d685df4551c685a2365beca142255, type: 2}
   m_MaterialRenderData:
   - m_Material: {fileID: 2100000, guid: 3f1c092690d8f42b88ea7f2abef724db, type: 2}
     m_ExportMode: 1
@@ -120,6 +121,138 @@ MonoBehaviour:
     m_ResolutionX: 2
     m_ResolutionY: 2
     m_Dirty: 0
+  - m_Material: {fileID: 2100000, guid: 1c2d685df4551c685a2365beca142255, type: 2}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 1482201375220387886, guid: c8a1e08eeb9db5349a05d5f9f1365928, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 1482201375220387886, guid: 2ec4b84e37debb247a096f270aab4d7e, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 1482201375220387886, guid: bcfa6c673e5701349959202906241989, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -3764266704395576511, guid: e32db69380598c346829db808cbed0cf, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -1889434912452181271, guid: 8fe2647b114b3eb4a98eef87a8c33790, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -1889434912452181271, guid: 20ffa281c2f03d649a38639c02432b58, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -1889434912452181271, guid: a1a6936f88507a34cafae43596822c24, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -1889434912452181271, guid: ac7bb27a46d19db48b099f388527b854, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -1889434912452181271, guid: 1b883c46f5c6ef74e955a194648a749c, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -1889434912452181271, guid: 13f29e87e7c70764aa1d8fe64c75ce01, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -1889434912452181271, guid: 0c36f27024d0db944864518ba42af863, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -1889434912452181271, guid: d93fe67c2806c1d4a83958bb107ae302, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -1889434912452181271, guid: 4aa62c5ac94b48a448e9dda90babf094, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -1889434912452181271, guid: 8d942ab0d0ad2404f9ab77e9c908266b, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -1889434912452181271, guid: a90fbee61867d50419e800b7c491a8ef, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -1889434912452181271, guid: 019fd188481d836488715ca49258f3f8, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -8837181895080874740, guid: 5db60fd47f37705478b69cbc2b9c2ee5, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -7148545965702738195, guid: e2fa733ea28978746ab526c1867b1c24, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -8837181895080874740, guid: 7303dc3087a8bbd4891c4694596ef5a4, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -8837181895080874740, guid: 9d3a2c1711371a347832c622e7760505, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -8837181895080874740, guid: f7151b6642fd31e4ab994e3646d788e4, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
   m_PipelineSplitMesh: 1
   m_PipelineSmoothMeshNormals: 1
   m_PipelineSimplifyCollisionMeshes: 1
@@ -151,15 +284,91 @@ MonoBehaviour:
   m_ExportClipSkipTextures: 1
   m_ImportScale: 0.015625
   m_AssetMetadatas:
+  - MapName: Buildings_mushroom_n_1
+    Path: Assets/Prefabs/mushroom_n_1.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: 0.00018461049, y: -0.14398669, z: -0.00022003055}
+  - MapName: Buildings_mushroom_n_1_0
+    Path: Assets/Prefabs/mushroom_n_1_0.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: 0.00027690828, y: -0.21598002, z: -0.00033004582}
+  - MapName: Buildings_pine_tree_n_1_4
+    Path: Assets/Prefabs/pine_tree_n_1_4.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: -0.039144933, y: -2.2937648, z: 0.026190162}
+  - MapName: Buildings_pine_tree_n_2_1
+    Path: Assets/Prefabs/pine_tree_n_2_1.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: 0.03352189, y: -4.5511203, z: 0.038926482}
+  - MapName: Buildings_pine_tree_n_2_2
+    Path: Assets/Prefabs/pine_tree_n_2_2.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: -0.012165666, y: -4.0960083, z: 0.023163676}
+  - MapName: Buildings_pine_tree_n_2_3
+    Path: Assets/Prefabs/pine_tree_n_2_3.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: -0.00578928, y: -2.8672059, z: 0.016775012}
   - MapName: prefab_Player
     Path: Assets/Prefabs/Player.prefab
     FullTypeName: UnityEngine.GameObject
     SpawnOffset: {x: -0, y: -0, z: -0}
+  - MapName: Buildings_stone_1
+    Path: Assets/Prefabs/stone_1.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: -0.052222192, y: -0.30605304, z: 0.0968048}
+  - MapName: Buildings_stone_3
+    Path: Assets/Prefabs/stone_3.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: 0.034500718, y: -0.665645, z: 0.677006}
+  - MapName: Buildings_stone_4
+    Path: Assets/Prefabs/stone_4.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: -0.05916246, y: -0.10012615, z: -0.06601916}
   - MapName: TexturePackI/brick_wall_1
     Path: Assets/Materials/Texture Pack I/brick_wall_1.mat
     FullTypeName: UnityEngine.Material
     SpawnOffset: {x: 0, y: 0, z: 0}
   - MapName: TexturePackI/grass_1
     Path: Assets/Materials/Texture Pack I/grass_1.mat
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: TexturePackI/grass_7
+    Path: Assets/Materials/Texture Pack I/grass_7.mat
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: mushroom_n_1
+    Path: Assets/Media/Models/Nature/mushroom_n_1.fbx
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: mushroom_n_1_0
+    Path: Assets/Media/Models/Nature/mushroom_n_1_0.fbx
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: pine_tree_n_1_4
+    Path: Assets/Media/Models/Nature/pine_tree_n_1_4.fbx
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: pine_tree_n_2_1
+    Path: Assets/Media/Models/Nature/pine_tree_n_2_1.fbx
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: pine_tree_n_2_2
+    Path: Assets/Media/Models/Nature/pine_tree_n_2_2.fbx
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: pine_tree_n_2_3
+    Path: Assets/Media/Models/Nature/pine_tree_n_2_3.fbx
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: stone_1
+    Path: Assets/Media/Models/Nature/stone_1.fbx
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: stone_3
+    Path: Assets/Media/Models/Nature/stone_3.fbx
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: stone_4
+    Path: Assets/Media/Models/Nature/stone_4.fbx
     FullTypeName: UnityEngine.Material
     SpawnOffset: {x: 0, y: 0, z: 0}
