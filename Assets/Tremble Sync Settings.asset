@@ -849,6 +849,18 @@ MonoBehaviour:
     Path: Assets/Prefabs/Player.prefab
     FullTypeName: UnityEngine.GameObject
     SpawnOffset: {x: -0, y: -0, z: -0}
+  - MapName: Buildings_stone_1
+    Path: Assets/Prefabs/stone_1.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: -0.052222192, y: -0.30605304, z: 0.0968048}
+  - MapName: Buildings_stone_3
+    Path: Assets/Prefabs/stone_3.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: 0.034500718, y: -0.665645, z: 0.677006}
+  - MapName: Buildings_stone_4
+    Path: Assets/Prefabs/stone_4.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: -0.05916246, y: -0.10012615, z: -0.06601916}
   - MapName: TexturePackI/brick_wall_1
     Path: Assets/Materials/Texture Pack I/brick_wall_1.mat
     FullTypeName: UnityEngine.Material
