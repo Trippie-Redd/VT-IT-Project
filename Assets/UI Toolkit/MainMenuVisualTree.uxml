@@ -26,7 +26,7 @@
                         <ui:VisualElement name="targets-description-container" class="menu-targets-description-container" style="height: auto;">
                             <ui:Image name="2slimey" class="menu-target-description" style="--unity-image: url(&quot;project://database/Assets/Media/Images/2slimey.jpg?fileID=2800000&amp;guid=98df7dbe10ec5885d9efa638032e1d41&amp;type=3#2slimey&quot;); translate: 0% 0;"/>
                             <ui:Image name="nettspend" source="project://database/Assets/Media/Images/nettspend.jpg?fileID=2800000&amp;guid=060dcfad46ea2e88f955c46f84e99dc5&amp;type=3#nettspend" class="menu-target-description" style="--unity-image: url(&quot;project://database/Assets/Media/Images/2slimey.jpg?fileID=2800000&amp;guid=98df7dbe10ec5885d9efa638032e1d41&amp;type=3#2slimey&quot;);"/>
-                            <ui:Image name="che" source="project://database/Assets/Media/Images/che.jpg?fileID=2800000&amp;guid=9e1c6f983b5ebf338945c6ca0faccf7d&amp;type=3#che" class="menu-target-description" style="--unity-image: url(&quot;project://database/Assets/Media/Images/2slimey.jpg?fileID=2800000&amp;guid=98df7dbe10ec5885d9efa638032e1d41&amp;type=3#2slimey&quot;);"/>
+                            <ui:Image name="epstein" source="project://database/Assets/Media/Images/epstein.png?fileID=2800000&amp;guid=a417c7e736907b01dbc8d75e80b5d517&amp;type=3#epstein" class="menu-target-description" style="--unity-image: url(&quot;project://database/Assets/Media/Images/2slimey.jpg?fileID=2800000&amp;guid=98df7dbe10ec5885d9efa638032e1d41&amp;type=3#2slimey&quot;);"/>
                         </ui:VisualElement>
                     </ui:VisualElement>
                 </ui:VisualElement>

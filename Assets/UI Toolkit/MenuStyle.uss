@@ -3,6 +3,7 @@
     --main-color-active: rgb(245, 162, 26);
     color: var(--main-color);
     -unity-font-definition: url("project://database/Assets/Media/Fonts/white-rabbit.ttf?fileID=12800000&guid=e62c1b6d8ef14e64c8ebe635e3ae950d&type=3#white-rabbit");
+    --eliminated-color: rgb(0, 0, 0);
 }
 
 .menu-container {
@@ -97,4 +98,24 @@
     margin-right: 3%;
     margin-left: 3%;
     filter: sepia(0.4);
+}
+
+.menu-target-description-name {
+    border-width: 4%;
+    border-color: var(--main-color);
+    position: absolute;
+    min-width: 5%;
+    min-height: 5%;
+    font-size: 15px;
+}
+
+.menu-target-description-name-dead {
+    border-width: 4%;
+    border-color: var(--eliminated);
+    position: absolute;
+    min-width: 5%;
+    min-height: 5%;
+    font-size: 15px;
+    --eliminated: rgb(180, 16, 16);
+    color: var(--eliminated);
 }

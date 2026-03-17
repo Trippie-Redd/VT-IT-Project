@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
 [RequireComponent(typeof(UIDocument))]
@@ -12,22 +13,78 @@ public class TargetDescriptions : MonoBehaviour
         public bool eliminated;
     }
 
-    List<Target> _targets = new();
+    List<Image> _targets = new();
+
+    VisualElement _root;
+
+    Label _nameLabel;
 
     void OnEnable()
     {
-        var root = GetComponent<UIDocument>().rootVisualElement;
+        _root = GetComponent<UIDocument>().rootVisualElement;
 
-        var targetElements = root.Query<Image>(className: "menu-target-description").ToList();
+        _targets = _root.Query<Image>(className: "menu-target-description").ToList();
 
-        foreach(VisualElement element in targetElements)
+        TargetsTracker._aliveTargets.Add(Targets.TooSlimey);
+        TargetsTracker._aliveTargets.Add(Targets.Nettspend);
+
+        foreach (Image element in _targets)
         {
-            throw new NotImplementedException();
+            var target = TargetsTracker.EnumFromString(element.name);
+            if (TargetsTracker.IsAlive(target))
+            {
+                var grayscale = new FilterFunction(FilterFunctionType.Grayscale);
+                grayscale.AddParameter(new FilterParameter(1.0f));
+
+                // maybe remove on disable, don't think it's needed tho
+                element.style.filter = new StyleList<FilterFunction>(new List<FilterFunction> { grayscale });
+            }
+
+            element.RegisterCallback<MouseEnterEvent>(_OnMouseEnter);
+            element.RegisterCallback<MouseLeaveEvent>(_OnMouseLeave);
         }
+
+        _nameLabel = new Label();
     }
 
     void OnDisable()
     {
+        foreach (Image element in _targets)
+        {
+            element.UnregisterCallback<MouseEnterEvent>(_OnMouseEnter);
+            element.UnregisterCallback<MouseLeaveEvent>(_OnMouseLeave);
+        }
+    }
+    
+    void update()
+    {
+        Vector2 mousePos = Mouse.current.position.ReadValue();
 
+        _nameLabel.style.marginLeft = mousePos.x;
+        _nameLabel.style.marginTop = mousePos.y;
+    }
+
+    void _OnMouseEnter(MouseEnterEvent evt)
+    {
+        var element = evt.target as VisualElement;
+        string elementName = element.name;
+        if (TargetsTracker.IsAlive(TargetsTracker.EnumFromString(elementName)))
+        {
+            _nameLabel.AddToClassList("menu-target-description-name");
+            _nameLabel.text = elementName;
+        }
+        else
+        {
+            _nameLabel.AddToClassList("menu-target-description-name-dead");
+            _nameLabel.text = elementName + "\n(eliminated)";
+        }
+
+        _root.Add(_nameLabel);
+    }
+    
+    void _OnMouseLeave(MouseLeaveEvent evt)
+    {
+        _nameLabel.ClearClassList();
+        _root.Remove(_nameLabel);
     }
 }
