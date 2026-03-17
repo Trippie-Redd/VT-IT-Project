@@ -758,6 +758,36 @@ MonoBehaviour:
     m_ResolutionX: 2
     m_ResolutionY: 2
     m_Dirty: 0
+  - m_Material: {fileID: -1889434912452181271, guid: 8fe2647b114b3eb4a98eef87a8c33790, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -1889434912452181271, guid: 20ffa281c2f03d649a38639c02432b58, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -8837181895080874740, guid: 5db60fd47f37705478b69cbc2b9c2ee5, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -8837181895080874740, guid: 7303dc3087a8bbd4891c4694596ef5a4, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -8837181895080874740, guid: 9d3a2c1711371a347832c622e7760505, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
   m_PipelineSplitMesh: 1
   m_PipelineSmoothMeshNormals: 1
   m_PipelineSimplifyCollisionMeshes: 1
@@ -845,6 +875,30 @@ MonoBehaviour:
     Path: Assets/Prefabs/Buildings/warehouse_mx_4_1.prefab
     FullTypeName: UnityEngine.GameObject
     SpawnOffset: {x: -1.8000019, y: -4.4349995, z: -0}
+  - MapName: Buildings_mushroom_n_1
+    Path: Assets/Prefabs/mushroom_n_1.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: 0.00018461049, y: -0.14398669, z: -0.00022003055}
+  - MapName: Buildings_mushroom_n_1_0
+    Path: Assets/Prefabs/mushroom_n_1_0.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: 0.00027690828, y: -0.21598002, z: -0.00033004582}
+  - MapName: Buildings_pine_tree_n_1_4
+    Path: Assets/Prefabs/pine_tree_n_1_4.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: -0.039144933, y: -2.2937648, z: 0.026190162}
+  - MapName: Buildings_pine_tree_n_2_1
+    Path: Assets/Prefabs/pine_tree_n_2_1.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: 0.03352189, y: -4.5511203, z: 0.038926482}
+  - MapName: Buildings_pine_tree_n_2_2
+    Path: Assets/Prefabs/pine_tree_n_2_2.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: -0.012165666, y: -4.0960083, z: 0.023163676}
+  - MapName: Buildings_pine_tree_n_2_3
+    Path: Assets/Prefabs/pine_tree_n_2_3.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: -0.00578928, y: -2.8672059, z: 0.016775012}
   - MapName: prefab_Player
     Path: Assets/Prefabs/Player.prefab
     FullTypeName: UnityEngine.GameObject
@@ -931,5 +985,25 @@ MonoBehaviour:
     SpawnOffset: {x: 0, y: 0, z: 0}
   - MapName: warehouse_mx_4_1
     Path: Assets/Media/Models/Buildings/warehouse_mx_4_1.fbx
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: mushroom_n_1
+    Path: Assets/Media/Models/Nature/mushroom_n_1.fbx
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: mushroom_n_1_0
+    Path: Assets/Media/Models/Nature/mushroom_n_1_0.fbx
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: stone_1
+    Path: Assets/Media/Models/Nature/stone_1.fbx
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: stone_3
+    Path: Assets/Media/Models/Nature/stone_3.fbx
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: stone_4
+    Path: Assets/Media/Models/Nature/stone_4.fbx
     FullTypeName: UnityEngine.Material
     SpawnOffset: {x: 0, y: 0, z: 0}
