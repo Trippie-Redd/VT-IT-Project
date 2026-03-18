@@ -7,17 +7,13 @@ using UnityEngine.UIElements;
 [RequireComponent(typeof(UIDocument))]
 public class TargetDescriptions : MonoBehaviour
 {
-    struct Target
-    {
-        public string name;
-        public bool eliminated;
-    }
-
     List<Image> _targets = new();
 
     VisualElement _root;
 
     Label _nameLabel;
+
+    TargetsTracker _targetsTracker;
 
     void OnEnable()
     {
@@ -25,13 +21,12 @@ public class TargetDescriptions : MonoBehaviour
 
         _targets = _root.Query<Image>(className: "menu-target-description").ToList();
 
-        TargetsTracker._aliveTargets.Add(Targets.TooSlimey);
-        TargetsTracker._aliveTargets.Add(Targets.Nettspend);
-
         foreach (Image element in _targets)
         {
+            _targetsTracker = FindFirstObjectByType<TargetsTracker>().GetComponent<TargetsTracker>();
+
             var target = TargetsTracker.EnumFromString(element.name);
-            if (TargetsTracker.IsAlive(target))
+            if (!_targetsTracker.IsAlive(target))
             {
                 var grayscale = new FilterFunction(FilterFunctionType.Grayscale);
                 grayscale.AddParameter(new FilterParameter(1.0f));
@@ -56,19 +51,19 @@ public class TargetDescriptions : MonoBehaviour
         }
     }
     
-    void update()
+    void Update()
     {
         Vector2 mousePos = Mouse.current.position.ReadValue();
 
-        _nameLabel.style.marginLeft = mousePos.x;
-        _nameLabel.style.marginTop = mousePos.y;
+        _nameLabel.style.left = mousePos.x;
+        _nameLabel.style.top = Screen.height - mousePos.y;
     }
 
     void _OnMouseEnter(MouseEnterEvent evt)
     {
         var element = evt.target as VisualElement;
         string elementName = element.name;
-        if (TargetsTracker.IsAlive(TargetsTracker.EnumFromString(elementName)))
+        if (_targetsTracker.IsAlive(TargetsTracker.EnumFromString(elementName)))
         {
             _nameLabel.AddToClassList("menu-target-description-name");
             _nameLabel.text = elementName;
