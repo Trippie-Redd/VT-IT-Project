@@ -13,8 +13,8 @@
                     <ui:Button text="EXIT" name="exit-button" class="menu-button" style="align-items: center; justify-content: center; align-self: center; align-content: center; white-space: pre;"/>
                 </ui:VisualElement>
             </ui:VisualElement>
-            <ui:VisualElement name="spacer" class="spacer" style="flex-grow: 1; align-self: flex-start; display: none; height: 100%;"/>
-            <ui:VisualElement name="panel-container" class="menu-panel-container" style="display: flex;">
+            <ui:VisualElement name="spacer" class="spacer" style="flex-grow: 1; align-self: flex-start; display: flex; height: 100%;"/>
+            <ui:VisualElement name="panel-container" class="menu-panel-container" style="display: none;">
                 <ui:VisualElement name="panel-header" class="menu-panel-header">
                     <ui:Label text="PAUSE MENU/MISSION BRIEF" name="panel-header-text" class="menu-panel-header-text"/>
                 </ui:VisualElement>

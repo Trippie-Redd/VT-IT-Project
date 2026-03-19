@@ -4,6 +4,7 @@
     color: var(--main-color);
     -unity-font-definition: url("project://database/Assets/Media/Fonts/white-rabbit.ttf?fileID=12800000&guid=e62c1b6d8ef14e64c8ebe635e3ae950d&type=3#white-rabbit");
     --eliminated-color: rgb(0, 0, 0);
+    background-image: url("project://database/Assets/Levels/Main%20Menu/Camera%20Render%20Texture.renderTexture?fileID=8400000&guid=07ee7aa4796d96963b08a1567bcd6b9f&type=2#Camera Render Texture");
 }
 
 .menu-container {
@@ -11,6 +12,7 @@
     height: 100%;
     justify-content: center;
     flex-direction: row;
+    background-image: url("project://database/Assets/Levels/Main%20Menu/Camera%20Render%20Texture.renderTexture?fileID=8400000&guid=07ee7aa4796d96963b08a1567bcd6b9f&type=2#Camera Render Texture");
 }
 
 .menu-buttons-container {
@@ -104,8 +106,6 @@
     border-width: 4%;
     border-color: var(--main-color);
     position: absolute;
-    min-width: 5%;
-    min-height: 5%;
     font-size: 15px;
 }
 

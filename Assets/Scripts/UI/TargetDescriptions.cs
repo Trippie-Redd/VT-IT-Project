@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
+// TODO - Fix positioning of name label
 [RequireComponent(typeof(UIDocument))]
 public class TargetDescriptions : MonoBehaviour
 {
@@ -15,7 +16,20 @@ public class TargetDescriptions : MonoBehaviour
 
     TargetsTracker _targetsTracker;
 
+    bool _active;
+
+    void Start()
+    {
+        if (!_active) _EnableTracker();
+    }
     void OnEnable()
+    {
+
+        if (!_active) _EnableTracker();
+    }
+    
+    // TODO - fix wack NullReferenceException 
+    void _EnableTracker()
     {
         _root = GetComponent<UIDocument>().rootVisualElement;
 
@@ -26,6 +40,7 @@ public class TargetDescriptions : MonoBehaviour
             _targetsTracker = FindFirstObjectByType<TargetsTracker>().GetComponent<TargetsTracker>();
 
             var target = TargetsTracker.EnumFromString(element.name);
+
             if (!_targetsTracker.IsAlive(target))
             {
                 var grayscale = new FilterFunction(FilterFunctionType.Grayscale);
@@ -40,6 +55,8 @@ public class TargetDescriptions : MonoBehaviour
         }
 
         _nameLabel = new Label();
+
+        _active = true;
     }
 
     void OnDisable()
@@ -49,6 +66,8 @@ public class TargetDescriptions : MonoBehaviour
             element.UnregisterCallback<MouseEnterEvent>(_OnMouseEnter);
             element.UnregisterCallback<MouseLeaveEvent>(_OnMouseLeave);
         }
+
+        _active = false;
     }
     
     void Update()
@@ -56,7 +75,7 @@ public class TargetDescriptions : MonoBehaviour
         Vector2 mousePos = Mouse.current.position.ReadValue();
 
         _nameLabel.style.left = mousePos.x;
-        _nameLabel.style.top = Screen.height - mousePos.y;
+        _nameLabel.style.top = (Screen.height - mousePos.y);
     }
 
     void _OnMouseEnter(MouseEnterEvent evt)

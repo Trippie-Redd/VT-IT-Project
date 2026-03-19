@@ -10,7 +10,7 @@ public class TargetsTracker : MonoBehaviour
 {
     public HashSet<Targets> _aliveTargets;
 
-    void Awake()
+    void OnEnable()
     {
         _aliveTargets = new HashSet<Targets>
         {
