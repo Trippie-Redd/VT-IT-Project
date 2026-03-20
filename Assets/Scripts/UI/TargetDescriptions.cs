@@ -61,6 +61,11 @@ public class TargetDescriptions : MonoBehaviour
 
     void OnDisable()
     {
+        _DisableTracker();
+    }
+
+    void _DisableTracker()
+    {
         foreach (Image element in _targets)
         {
             element.UnregisterCallback<MouseEnterEvent>(_OnMouseEnter);
