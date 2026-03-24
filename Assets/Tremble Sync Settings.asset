@@ -905,22 +905,6 @@ MonoBehaviour:
     Path: Assets/Prefabs/mushroom_n_1_0.prefab
     FullTypeName: UnityEngine.GameObject
     SpawnOffset: {x: 0.00027690828, y: -0.21598002, z: -0.00033004582}
-  - MapName: Buildings_pine_tree_n_1_4
-    Path: Assets/Prefabs/pine_tree_n_1_4.prefab
-    FullTypeName: UnityEngine.GameObject
-    SpawnOffset: {x: -0.039144933, y: -2.2937648, z: 0.026190162}
-  - MapName: Buildings_pine_tree_n_2_1
-    Path: Assets/Prefabs/pine_tree_n_2_1.prefab
-    FullTypeName: UnityEngine.GameObject
-    SpawnOffset: {x: 0.03352189, y: -4.5511203, z: 0.038926482}
-  - MapName: Buildings_pine_tree_n_2_2
-    Path: Assets/Prefabs/pine_tree_n_2_2.prefab
-    FullTypeName: UnityEngine.GameObject
-    SpawnOffset: {x: -0.012165666, y: -4.0960083, z: 0.023163676}
-  - MapName: Buildings_pine_tree_n_2_3
-    Path: Assets/Prefabs/pine_tree_n_2_3.prefab
-    FullTypeName: UnityEngine.GameObject
-    SpawnOffset: {x: -0.00578928, y: -2.8672059, z: 0.016775012}
   - MapName: prefab_Player
     Path: Assets/Prefabs/Player.prefab
     FullTypeName: UnityEngine.GameObject
@@ -973,8 +957,16 @@ MonoBehaviour:
     Path: Assets/Media/Models/Nature/pine_tree_n_1_4.fbx
     FullTypeName: UnityEngine.Material
     SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: pine_branch_3
+    Path: Assets/Materials/Nature/pine_branch_3.mat
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
   - MapName: pine_tree_n_2_1
     Path: Assets/Media/Models/Nature/pine_tree_n_2_1.fbx
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: pine_branch_1
+    Path: Assets/Materials/Nature/pine_branch_1.mat
     FullTypeName: UnityEngine.Material
     SpawnOffset: {x: 0, y: 0, z: 0}
   - MapName: pine_tree_n_2_2
@@ -1019,14 +1011,6 @@ MonoBehaviour:
     SpawnOffset: {x: 0, y: 0, z: 0}
   - MapName: mushroom_n_1_0
     Path: Assets/Media/Models/Nature/mushroom_n_1_0.fbx
-    FullTypeName: UnityEngine.Material
-    SpawnOffset: {x: 0, y: 0, z: 0}
-  - MapName: pine_branch_3
-    Path: Assets/Materials/Nature/pine_branch_3.mat
-    FullTypeName: UnityEngine.Material
-    SpawnOffset: {x: 0, y: 0, z: 0}
-  - MapName: pine_branch_1
-    Path: Assets/Materials/Nature/pine_branch_1.mat
     FullTypeName: UnityEngine.Material
     SpawnOffset: {x: 0, y: 0, z: 0}
   - MapName: stone_1
