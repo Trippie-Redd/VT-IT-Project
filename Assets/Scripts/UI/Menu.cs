@@ -8,13 +8,20 @@ public class Menu : MonoBehaviour
 {
     public VisualElement RootVE { private set; get; }
 
+    public bool inGame = false;
+
     State _root;
     StateMachine _machine;
 
     void Start()
     {
         RootVE = GetComponent<UIDocument>().rootVisualElement;
-        Debug.Assert(RootVE != null);
+
+        var allElements = RootVE.Query<VisualElement>().ToList();
+        foreach (VisualElement element in allElements)
+        {
+            element.style.display = DisplayStyle.None;
+        }
 
         _root = new MenuRoot(null, this);
         var builder = new StateMachineBuilder(_root);
@@ -24,5 +31,7 @@ public class Menu : MonoBehaviour
     void Update()
     {
         _machine.Tick(Time.deltaTime);
+
+        print(_root.PathToRoot().ToString());
     }
 }

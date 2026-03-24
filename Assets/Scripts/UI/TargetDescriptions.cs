@@ -18,6 +18,12 @@ public class TargetDescriptions : MonoBehaviour
 
     bool _active;
 
+    // this mad goofy
+    void Awake()
+    {
+        if (!_active) _EnableTracker();
+    }
+
     void Start()
     {
         if (!_active) _EnableTracker();
