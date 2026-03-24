@@ -1,7 +1,7 @@
 ﻿<Solution>
   <Project Path="TinyGoose.Tremble.Editor.csproj" />
-  <Project Path="TinyGoose.Tremble.csproj" />
   <Project Path="Assembly-CSharp.csproj" />
+  <Project Path="TinyGoose.Tremble.csproj" />
   <Project Path="TinyGoose.Tremble.Sample.csproj" />
   <Project Path="TinyGoose.Tremble.Sample.Editor.csproj" />
 </Solution>
