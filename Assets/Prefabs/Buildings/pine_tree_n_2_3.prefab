@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pine_tree_n_2_3
       objectReference: {fileID: 0}
+    - target: {fileID: 2524926678931422322, guid: 2ec4b84e37debb247a096f270aab4d7e, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 31f113431afa50e65984c0747fd825aa, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
