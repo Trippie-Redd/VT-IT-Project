@@ -10,14 +10,12 @@ public class ControlsOptionsMenu : MenuState
 
     protected override void OnEnter()
     {
-        var root = menu.RootVE;
-
-        root.Q<VisualElement>("controls-options-menu").style.display = DisplayStyle.Flex;
+        ShowVE("controls-options-container");
     }
 
 
     protected override void OnExit()
     {
-        menu.RootVE.Q<VisualElement>("controls-options-menu").style.display = DisplayStyle.None;
+        HideVE("controls-options-container");
     }
 }

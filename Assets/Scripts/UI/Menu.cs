@@ -1,5 +1,4 @@
 using HSM;
-using Player;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -17,11 +16,12 @@ public class Menu : MonoBehaviour
     {
         RootVE = GetComponent<UIDocument>().rootVisualElement;
 
-        var allElements = RootVE.Query<VisualElement>().ToList();
-        foreach (VisualElement element in allElements)
-        {
-            element.style.display = DisplayStyle.None;
-        }
+        RootVE.Q<VisualElement>("menu-container").style.display           = DisplayStyle.None;
+        RootVE.Q<VisualElement>("options-button-container").style.display = DisplayStyle.None;
+        RootVE.Q<VisualElement>("main-buttons-container").style.display   = DisplayStyle.None;
+        RootVE.Q<VisualElement>("panel-container").style.display          = DisplayStyle.None;
+        RootVE.Q<VisualElement>("panel-header").style.display             = DisplayStyle.None;
+        RootVE.Q<VisualElement>("panel").style.display                    = DisplayStyle.None;
 
         _root = new MenuRoot(null, this);
         var builder = new StateMachineBuilder(_root);
@@ -31,7 +31,5 @@ public class Menu : MonoBehaviour
     void Update()
     {
         _machine.Tick(Time.deltaTime);
-
-        print(_root.PathToRoot().ToString());
     }
 }

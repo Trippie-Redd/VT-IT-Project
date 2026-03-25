@@ -26,7 +26,11 @@ public class OptionsMenu : MenuState
     {
         var root = menu.RootVE;
 
-        root.Q<VisualElement>("options-container").style.display = DisplayStyle.Flex;
+        ShowVE("options-button-container");
+        ShowVE("panel-container");
+        ShowVE("panel-header");
+        ShowVE("panel");
+        ShowVE("options-container");
 
         _audioButton = root.Q<Button>("audio-button");
         _gameplayButton = root.Q<Button>("gameplay-button");
@@ -43,7 +47,11 @@ public class OptionsMenu : MenuState
 
     protected override void OnExit()
     {
-        menu.RootVE.Q<VisualElement>("options-container").style.display = DisplayStyle.None;
+        HideVE("options-button-container");
+        HideVE("panel-container");
+        HideVE("panel-header");
+        HideVE("panel");
+        HideVE("options-container");
 
         _audioButton.UnregisterCallback<ClickEvent>(_AudioClicked);
         _gameplayButton.UnregisterCallback<ClickEvent>(_GameplayClicked);
@@ -53,7 +61,7 @@ public class OptionsMenu : MenuState
 
     protected override State GetTransition()
     {
-        State result = null;
+        State result = this;
 
         if (_transitionToAudio)         result = audioOptionsMenu;
         else if (_transitionToGameplay) result = gameplayOptionsMenu;

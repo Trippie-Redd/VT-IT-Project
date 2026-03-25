@@ -10,14 +10,12 @@ public class AudioOptionsMenu : MenuState
 
     protected override void OnEnter()
     {
-        var root = menu.RootVE;
-
-        root.Q<VisualElement>("audio-options-menu").style.display = DisplayStyle.Flex;
+        ShowVE("audio-options-container");
     }
 
 
     protected override void OnExit()
     {
-        menu.RootVE.Q<VisualElement>("audio-options-menu").style.display = DisplayStyle.None;
+        HideVE("audio-options-container");
     }
 }

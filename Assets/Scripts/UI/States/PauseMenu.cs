@@ -1,5 +1,6 @@
 using HSM;
 using UnityEngine.UIElements;
+using UnityEngine;
 
 public class PauseMenu : MenuState
 {
@@ -16,8 +17,11 @@ public class PauseMenu : MenuState
     {
         var root = menu.RootVE;
 
-        root.Q<VisualElement>("main-buttons-container").style.display = DisplayStyle.Flex;
-        root.Q<VisualElement>("panel-container").style.display = DisplayStyle.Flex;
+        ShowVE("main-button-container");
+        ShowVE("panel-container");
+        ShowVE("panel-header");
+        ShowVE("panel");
+        ShowVE("mission-brief-container");
 
         _startButton = root.Q<Button>("start-button");
         _optionsButton = root.Q<Button>("options-button");
@@ -30,8 +34,11 @@ public class PauseMenu : MenuState
 
     protected override void OnExit()
     {
-        menu.RootVE.Q<VisualElement>("main-buttons-container").style.display = DisplayStyle.None;
-        menu.RootVE.Q<VisualElement>("panel-container").style.display = DisplayStyle.None;
+        HideVE("main-button-container");
+        HideVE("panel-container");
+        HideVE("panel-header");
+        HideVE("panel");
+        HideVE("mission-brief-container");
 
         _startButton.UnregisterCallback<ClickEvent>(_StartClicked);
         _optionsButton.UnregisterCallback<ClickEvent>(_OptionsClicked);

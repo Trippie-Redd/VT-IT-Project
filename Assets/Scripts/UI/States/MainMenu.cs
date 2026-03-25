@@ -1,6 +1,7 @@
-using System.Diagnostics;
 using HSM;
 using UnityEngine.UIElements;
+using UnityEngine;
+using System.Linq;
 
 public class MainMenu : MenuState
 {
@@ -8,7 +9,7 @@ public class MainMenu : MenuState
 
     Button _startButton, _exitButton, _optionsButton;
 
-    public bool TransitionToOptions { set; get; } 
+    public bool TransitionToOptions { set; get; }
 
     public MainMenu(StateMachine machine, State parent, Menu menu) : base(machine, parent, menu)
     {
@@ -19,8 +20,9 @@ public class MainMenu : MenuState
     {
         var root = menu.RootVE;
 
-        root.Q<VisualElement>("main-buttons-container").style.display = DisplayStyle.Flex;
-        root.Q<VisualElement>("panel-container").style.display = DisplayStyle.Flex;
+        ShowVE("main-buttons-container");
+        ShowVE("panel-container");
+        ShowVE("menu-container");
 
         _startButton = root.Q<Button>("start-button");
         _optionsButton = root.Q<Button>("options-button");
@@ -33,8 +35,11 @@ public class MainMenu : MenuState
 
     protected override void OnExit()
     {
-        menu.RootVE.Q<VisualElement>("main-buttons-container").style.display = DisplayStyle.None;
-        menu.RootVE.Q<VisualElement>("panel-container").style.display = DisplayStyle.None;
+        var root = menu.RootVE;
+
+        HideVE("main-buttons-container");
+        HideVE("panel-container");
+        HideVE("menu-container");
 
         _startButton.UnregisterCallback<ClickEvent>(_StartClicked);
         _optionsButton.UnregisterCallback<ClickEvent>(_OptionsClicked);
@@ -50,6 +55,12 @@ public class MainMenu : MenuState
     void _OptionsClicked(ClickEvent evt)
     {
         TransitionToOptions = true;
+
+        Debug.Log("OPTIONS CLICKED");
+        Leaf()
+            .PathToRoot()
+            .ToList()
+            .ForEach(state => Debug.Log(state.ToString()));
     }
 
     void _ExitClicked(ClickEvent evt)

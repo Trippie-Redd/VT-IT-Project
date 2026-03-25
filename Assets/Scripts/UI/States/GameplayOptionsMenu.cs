@@ -10,14 +10,12 @@ public class GameplayOptionsMenu : MenuState
 
     protected override void OnEnter()
     {
-        var root = menu.RootVE;
-
-        root.Q<VisualElement>("gameplay-options-menu").style.display = DisplayStyle.Flex;
+        ShowVE("gameplay-options-container");
     }
 
 
     protected override void OnExit()
     {
-        menu.RootVE.Q<VisualElement>("gameplay-options-menu").style.display = DisplayStyle.None;
+        HideVE("gameplay-options-container");
     }
 }

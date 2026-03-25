@@ -1,4 +1,5 @@
 using HSM;
+using UnityEngine;
 
 public class MenuRoot : MenuState
 {
@@ -19,12 +20,11 @@ public class MenuRoot : MenuState
     }
 
     protected override State GetInitialState()
-    {
-        return menu.inGame ? notInMenu : mainMenu;
-    }
+        => menu.inGame ? notInMenu : mainMenu;
+
     protected override State GetTransition()
     {
-        State result = null;
+        State result = this;
 
         if (ActiveChild is MainMenu)
         {

@@ -8,16 +8,11 @@ using UnityEngine;
 // TODO - Make not static
 public class TargetsTracker : MonoBehaviour
 {
-    public HashSet<Targets> _aliveTargets;
-
-    void OnEnable()
+    public HashSet<Targets> _aliveTargets = new()
     {
-        _aliveTargets = new HashSet<Targets>
-        {
-            Targets.Nettspend,
-            Targets.TooSlimey
-        };
-    }
+        Targets.Nettspend,
+        Targets.TooSlimey
+    };
 
     public bool IsAlive(Targets target)
         => _aliveTargets.Contains(target);
