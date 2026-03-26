@@ -61,7 +61,7 @@ public class OptionsMenu : MenuState
 
     protected override State GetTransition()
     {
-        State result = this;
+        State result = audioOptionsMenu;
 
         if (_transitionToAudio)         result = audioOptionsMenu;
         else if (_transitionToGameplay) result = gameplayOptionsMenu;

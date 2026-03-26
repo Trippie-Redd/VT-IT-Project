@@ -11,6 +11,10 @@ public class MenuRoot : MenuState
 
     public readonly NotInMenu notInMenu;
 
+    public bool TransitionToOptions = false;
+    public bool TransitionToMainMenu { get; set; } = false;
+    public bool TransitionToPauseMenu { get; set; } = false;
+
     public MenuRoot(StateMachine machine, Menu menu) : base(machine, null, menu)
     {
         mainMenu = new MainMenu(machine, this, menu);
@@ -24,36 +28,27 @@ public class MenuRoot : MenuState
 
     protected override State GetTransition()
     {
-        State result = this;
-
-        if (ActiveChild is MainMenu)
+        if (TransitionToOptions)
         {
-            if (mainMenu.TransitionToOptions)
-            {
-                mainMenu.TransitionToOptions = false;
-                result = optionsMenu;
-            }
-        }
-        else if (ActiveChild is PauseMenu)
-        {
-            if (pauseMenu.TransitionToOptions)
-            {
-                pauseMenu.TransitionToOptions = false;
-                result = optionsMenu;
-            }
-        }
-        else if (ActiveChild is not NotInMenu)
-        {
-            if (optionsMenu.TransitionFromOptions)
-            {
-                optionsMenu.TransitionFromOptions = false;
-
-                result = menu.inGame
-                    ? pauseMenu
-                    : mainMenu;
-            }
+            Debug.Log("Reached options");
+            TransitionToOptions = false;
+            return optionsMenu;
         }
 
-        return result;
+        if (TransitionToMainMenu)
+        {
+            Debug.Log("Reached main");
+            TransitionToMainMenu = false;
+            return mainMenu;
+        }
+
+        if (TransitionToPauseMenu)
+        {
+            Debug.Log("Reached pause");
+            TransitionToMainMenu = false;
+            return pauseMenu;
+        }
+
+        return ActiveChild;
     }
 }

@@ -56,11 +56,7 @@ public class MainMenu : MenuState
     {
         TransitionToOptions = true;
 
-        Debug.Log("OPTIONS CLICKED");
-        Leaf()
-            .PathToRoot()
-            .ToList()
-            .ForEach(state => Debug.Log(state.ToString()));
+        Leaf().LogCurrentTree();
     }
 
     void _ExitClicked(ClickEvent evt)

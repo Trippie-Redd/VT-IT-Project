@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class PauseMenu : MenuState
 {
-
     Button _startButton, _exitButton, _optionsButton;
-
-    public bool TransitionToOptions { set; get; } 
 
     public PauseMenu(StateMachine machine, State parent, Menu menu) : base(machine, parent, menu)
     {
@@ -53,7 +50,8 @@ public class PauseMenu : MenuState
 
     void _OptionsClicked(ClickEvent evt)
     {
-        TransitionToOptions = true;
+        var parent = (MenuRoot)Parent;
+        parent.TransitionToOptions = true;
     }
 
     void _ExitClicked(ClickEvent evt)

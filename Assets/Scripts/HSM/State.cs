@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace HSM
@@ -61,7 +62,12 @@ namespace HSM
             State newState = GetTransition();
             if (newState != ActiveChild)
             {
-                Machine.Sequencer.RequestTransition(this, newState);
+                Machine.Sequencer.RequestTransition(ActiveChild, newState);
+                
+                Debug.Assert(ActiveChild != null);
+                Debug.Assert(newState != null);
+                Debug.Log($"Transition requested from {ActiveChild.GetType()} to {newState.GetType()}");
+                
                 return;
             }
             
@@ -70,7 +76,7 @@ namespace HSM
 
             if (ActiveChild == null)
             {
-                _LogCurrentTree();
+                //_LogCurrentTree();
             }
         }
         
@@ -95,17 +101,18 @@ namespace HSM
                 yield return s;
         }
 
-        private void _LogCurrentTree()
+        public void LogCurrentTree()
         {
             string currentTree = "";
-            foreach (var state in PathToRoot())
+            var path = PathToRoot();
+            foreach (var state in PathToRoot().AsEnumerable().Reverse())
             {
-                currentTree += ( state + "->");
+                currentTree += state + "->";
             }
 
-            currentTree = currentTree.Remove(currentTree.Length - 2, 2);
+            currentTree = currentTree[..^2];
 
-            Debug.Log(currentTree);
+            Debug.Log($"{currentTree}");
         }
     }
 }
