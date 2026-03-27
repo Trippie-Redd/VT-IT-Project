@@ -6,11 +6,13 @@ using static InputSystem_Actions;
 
 namespace Input
 {
+    // TODO - Remove this whole thing and add a "Player Input" component to the player instead
+    // https://www.youtube.com/watch?v=phzU5k2hB4s
     [CreateAssetMenu(fileName = "InputReader", menuName = "InputReader")]
     public class InputReader : ScriptableObject, IPlayerActions
     {
         public event UnityAction<Vector2> Move = delegate { };
-        public event UnityAction<Vector2, bool> Look = delegate { };
+        public event UnityAction MouseX = delegate { };
         public event UnityAction Attack = delegate { };
         public event UnityAction Interact = delegate { };
         public event UnityAction Jump = delegate { };
@@ -21,7 +23,6 @@ namespace Input
         private InputSystem_Actions _inputActions;
 
         public Vector3 Direction => _inputActions.Player.Move.ReadValue<Vector2>();
-        public Vector3 LookDirection => _inputActions.Player.Look.ReadValue<Vector2>();
         
         public void EnablePlayerActions()
         {
@@ -46,8 +47,10 @@ namespace Input
         public void OnMove(InputAction.CallbackContext context)
             => Move.Invoke(context.ReadValue<Vector2>());
 
-        public void OnLook(InputAction.CallbackContext context)
-            => Look.Invoke(context.ReadValue<Vector2>(), _IsDeviceMouse(context));
+        public void OnMouseX(InputAction.CallbackContext context)
+        {
+            
+        }
 
         private bool _IsDeviceMouse(InputAction.CallbackContext context)
             => context.control.device.name == "Mouse";

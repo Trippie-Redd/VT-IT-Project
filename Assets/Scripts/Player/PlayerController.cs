@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Player
 {
-    [RequireComponent(typeof(CharacterController))]
+    [RequireComponent(typeof(CharacterController), typeof(Shooter))]
     public class PlayerController : MonoBehaviour
     {
         [Flags]
@@ -29,7 +29,7 @@ namespace Player
 
         [HideInInspector] public Vector3 velocity;
 
-        private Flags _flags;
+        Flags _flags;
         
         public bool IsGrounded => characterController.isGrounded;
 
@@ -85,7 +85,7 @@ namespace Player
 
         #endregion
         
-        private void Start()
+        void Start()
         {
             characterController = gameObject.GetComponent<CharacterController>();
             inputReader = ScriptableObject.CreateInstance<InputReader>();
@@ -101,7 +101,7 @@ namespace Player
             inputReader.EnablePlayerActions();
         }
 
-        private void OnDestroy()
+        void OnDestroy()
         {
             inputReader.Move   -= _OnMove;
             inputReader.Sprint -= _OnSprint;
@@ -110,7 +110,7 @@ namespace Player
             inputReader.DisablePlayerActions();
         }
         
-        private void Update()
+        void Update()
         {
             machine.Tick(Time.deltaTime);
 
@@ -122,19 +122,19 @@ namespace Player
 
         #region InputCallbacks
 
-        private void _OnMove(Vector2 movement)
+        void _OnMove(Vector2 movement)
         {
             IsMoving = movement.magnitude > .1f;
         }
 
-        private void _OnSprint(bool pressed)
+        void _OnSprint(bool pressed)
         {
             if (IsCrouching) IsCrouching = false;
             
             IsSprinting = pressed;
         }
 
-        private void _OnCrouch(bool pressed)
+        void _OnCrouch(bool pressed)
         {
             if (!pressed) return;
 

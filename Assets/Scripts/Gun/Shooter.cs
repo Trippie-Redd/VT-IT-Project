@@ -6,7 +6,6 @@ public class Shooter : MonoBehaviour
 {
     public Transform FirePoint;
  
-
     public void Shooting()
     {
         RaycastHit hit;
@@ -14,7 +13,7 @@ public class Shooter : MonoBehaviour
         if(Physics.Raycast(FirePoint.position , transform.TransformDirection(Vector3.forward), out hit, 100))
         {
             Debug.DrawRay(FirePoint.position , transform.TransformDirection(Vector3.forward)* hit.distance , Color.yellow);
-            if(hit.transform.tag == "Enemy")
+            if(hit.transform.CompareTag("Enemy"))
             {
                 hit.transform.GetComponent<Enemy>().OnHit();
             }
