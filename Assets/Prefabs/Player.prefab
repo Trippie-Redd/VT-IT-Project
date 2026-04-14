@@ -153,7 +153,6 @@ MonoBehaviour:
   xSens: 20
   ySens: 20
   orientation: {fileID: 8720296012704772878}
-  inputReader: {fileID: 11400000, guid: 0c4ef68089f415c4d9f6d8674f4eeb02, type: 2}
 --- !u!1 &6427797557513613282
 GameObject:
   m_ObjectHideFlags: 0
@@ -247,6 +246,10 @@ MonoBehaviour:
   characterController: {fileID: 0}
   inputReader: {fileID: 11400000, guid: 0c4ef68089f415c4d9f6d8674f4eeb02, type: 2}
   velocity: {x: 0, y: 0, z: 0}
+  jumpHeight: 1.25
+  jumpAirTime: 0.75
+  jumpForce: 0
+  gravity: 0
 --- !u!33 &933624168481797229
 MeshFilter:
   m_ObjectHideFlags: 0

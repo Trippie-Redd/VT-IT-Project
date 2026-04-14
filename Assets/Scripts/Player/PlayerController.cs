@@ -94,13 +94,20 @@ namespace Player
             }
         }
 
-        public float jumpForce = 5f;
+        public float jumpHeight = 1.27f;
+        public float jumpAirTime = 1.02f;
+
+        [HideInInspector] public float jumpForce;
+        [HideInInspector] public float gravity;
 
         #endregion
         
         void Start()
         {
             characterController = gameObject.GetComponent<CharacterController>();
+
+            jumpForce = 4f * jumpHeight / jumpAirTime;
+            gravity   = 8f * jumpHeight / (jumpAirTime * jumpAirTime);
 
             root = new Root(null, this);
             var builder = new StateMachineBuilder(root);
@@ -129,7 +136,7 @@ namespace Player
             machine.Tick(Time.deltaTime);
 
             if (UsingGravity)
-                velocity += new Vector3(0f, -9.82f * Time.deltaTime, 0f);
+                velocity += new Vector3(0f, -gravity * Time.deltaTime, 0f);
             
             characterController.Move(velocity * Time.deltaTime);
         }
