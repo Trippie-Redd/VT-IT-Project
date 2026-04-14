@@ -944,6 +944,10 @@ MonoBehaviour:
     Path: Assets/Prefabs/stone_4.prefab
     FullTypeName: UnityEngine.GameObject
     SpawnOffset: {x: -0.05916246, y: -0.10012615, z: -0.06601916}
+  - MapName: Van_van_1
+    Path: Assets/Prefabs/van_1.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: 0.0021852255, y: -1.5428474, z: 0.059007168}
   - MapName: TexturePackI/brick_wall_1
     Path: Assets/Materials/Texture Pack I/brick_wall_1.mat
     FullTypeName: UnityEngine.Material
@@ -1058,5 +1062,9 @@ MonoBehaviour:
     SpawnOffset: {x: 0, y: 0, z: 0}
   - MapName: stone_4
     Path: Assets/Media/Models/Nature/stone_4.fbx
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: van_1
+    Path: Assets/Media/Models/Vans/van_1.fbx
     FullTypeName: UnityEngine.Material
     SpawnOffset: {x: 0, y: 0, z: 0}
