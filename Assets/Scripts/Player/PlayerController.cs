@@ -15,8 +15,9 @@ namespace Player
             IsMoving     = 1 << 1,
             IsCrouching  = 1 << 2,
             IsSprinting  = 1 << 3,
-            
-            UsingGravity = 1 << 4
+
+            UsingGravity = 1 << 4,
+            IsJumping    = 1 << 5,
         }
         
         #region Fields
@@ -83,13 +84,24 @@ namespace Player
             }
         }
 
+        [HideInInspector] public bool IsJumping
+        {
+            get => _flags.HasFlag(Flags.IsJumping);
+            set
+            {
+                if (value) _flags |= Flags.IsJumping;
+                else       _flags &= ~Flags.IsJumping;
+            }
+        }
+
+        public float jumpForce = 5f;
+
         #endregion
         
         void Start()
         {
             characterController = gameObject.GetComponent<CharacterController>();
-            inputReader = ScriptableObject.CreateInstance<InputReader>();
-            
+
             root = new Root(null, this);
             var builder = new StateMachineBuilder(root);
             machine = builder.Build();
@@ -97,6 +109,7 @@ namespace Player
             inputReader.Move   += _OnMove;
             inputReader.Sprint += _OnSprint;
             inputReader.Crouch += _OnCrouch;
+            inputReader.Jump   += _OnJump;
             inputReader.Attack += GetComponent<Shooter>().Shooting;
             inputReader.EnablePlayerActions();
         }
@@ -106,6 +119,7 @@ namespace Player
             inputReader.Move   -= _OnMove;
             inputReader.Sprint -= _OnSprint;
             inputReader.Crouch -= _OnCrouch;
+            inputReader.Jump   -= _OnJump;
             inputReader.Attack -= GetComponent<Shooter>().Shooting;
             inputReader.DisablePlayerActions();
         }
@@ -139,6 +153,12 @@ namespace Player
             if (!pressed) return;
 
             IsCrouching = !IsCrouching;
+        }
+
+        void _OnJump()
+        {
+            if (IsGrounded)
+                IsJumping = true;
         }
         #endregion
     }

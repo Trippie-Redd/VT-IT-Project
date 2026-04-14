@@ -150,8 +150,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8022444adf6520b6eb7eb5b43d3e41ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player.PlayerCam
-  xSens: 100
-  ySens: 100
+  xSens: 20
+  ySens: 20
   orientation: {fileID: 8720296012704772878}
   inputReader: {fileID: 11400000, guid: 0c4ef68089f415c4d9f6d8674f4eeb02, type: 2}
 --- !u!1 &6427797557513613282

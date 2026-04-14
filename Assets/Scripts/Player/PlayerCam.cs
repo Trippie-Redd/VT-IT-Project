@@ -1,15 +1,18 @@
 using UnityEngine;
-using Input;
+using UnityEngine.InputSystem;
 
 namespace Player
 {
+
+    // Yo this fuckahh camera to annoying it keeps feeling bad and snappy and jittery
+    // especially when i tried to use the new input system
+    // if there is time i will fix/change this to the new input system but for rn this is fine
     public class PlayerCam : MonoBehaviour
     {
-        public float xSens = 100f;
-        public float ySens = 100f;
+        public float xSens = 0.1f;
+        public float ySens = 0.1f;
 
         public Transform orientation;
-        public InputReader inputReader;
 
         float xRotation;
         float yRotation;
@@ -18,27 +21,25 @@ namespace Player
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
-
-            Debug.Assert(inputReader != null);
-            inputReader.Look += _OnLook;
         }
 
-        void OnDestroy()
+        void LateUpdate()
         {
-            if (inputReader != null)
-                inputReader.Look -= _OnLook;
-        }
+            var mouse = Mouse.current;
+            if (mouse == null) return;
 
-        void _OnLook(Vector2 delta)
-        {
+            Vector2 delta = mouse.delta.ReadValue();
+
             yRotation += delta.x * xSens * Time.deltaTime;
-
             xRotation -= delta.y * ySens * Time.deltaTime;
             xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-            transform.rotation = Quaternion.Euler(xRotation, yRotation, 0f);
+            // Set player yaw first so camera inherits it via the parent transform
             if (orientation != null)
                 orientation.rotation = Quaternion.Euler(0f, yRotation, 0f);
+
+            // Camera only handles pitch via local rotation; yaw comes from the parent
+            transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         }
     }
 }

@@ -33,7 +33,12 @@ namespace Player
             _controller.velocity.x = move.x * Options.targetSpeed;
             _controller.velocity.z = move.z * Options.targetSpeed;
 
-            if (_controller.velocity.y < 0)
+            if (_controller.IsJumping)
+            {
+                _controller.velocity.y = _controller.jumpForce;
+                _controller.IsJumping = false;
+            }
+            else if (_controller.velocity.y < 0)
             {
                 _controller.velocity.y = -2f; // Small downward force to keep grounded
             }
