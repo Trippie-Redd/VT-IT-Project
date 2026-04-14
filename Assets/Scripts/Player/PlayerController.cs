@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace Player
 {
+    // TS IS WAY TOO BIG AND MESSY AND SHI
+    // TODO - move a lot of the responsibility of the class to the state machine/states
+    // on 4nem
     [RequireComponent(typeof(CharacterController), typeof(Shooter))]
     public class PlayerController : MonoBehaviour
     {

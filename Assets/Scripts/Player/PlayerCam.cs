@@ -34,11 +34,9 @@ namespace Player
             xRotation -= delta.y * ySens * Time.deltaTime;
             xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-            // Set player yaw first so camera inherits it via the parent transform
             if (orientation != null)
                 orientation.rotation = Quaternion.Euler(0f, yRotation, 0f);
 
-            // Camera only handles pitch via local rotation; yaw comes from the parent
             transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         }
     }
