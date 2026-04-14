@@ -12,7 +12,7 @@ namespace Input
     public class InputReader : ScriptableObject, IPlayerActions
     {
         public event UnityAction<Vector2> Move = delegate { };
-        public event UnityAction MouseX = delegate { };
+        public event UnityAction<Vector2> Look = delegate { };
         public event UnityAction Attack = delegate { };
         public event UnityAction Interact = delegate { };
         public event UnityAction Jump = delegate { };
@@ -47,10 +47,8 @@ namespace Input
         public void OnMove(InputAction.CallbackContext context)
             => Move.Invoke(context.ReadValue<Vector2>());
 
-        public void OnMouseX(InputAction.CallbackContext context)
-        {
-            
-        }
+        public void OnLook(InputAction.CallbackContext context)
+            => Look.Invoke(context.ReadValue<Vector2>());
 
         private bool _IsDeviceMouse(InputAction.CallbackContext context)
             => context.control.device.name == "Mouse";

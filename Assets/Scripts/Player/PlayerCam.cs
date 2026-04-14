@@ -5,11 +5,10 @@ namespace Player
 {
     public class PlayerCam : MonoBehaviour
     {
-        public float xSens;
-        public float ySens;
+        public float xSens = 100f;
+        public float ySens = 100f;
 
         public Transform orientation;
-
         public InputReader inputReader;
 
         float xRotation;
@@ -21,26 +20,25 @@ namespace Player
             Cursor.visible = false;
 
             Debug.Assert(inputReader != null);
-
+            inputReader.Look += _OnLook;
         }
 
-        void _OnLook(Vector2 direction, bool idfk)
+        void OnDestroy()
         {
-            var sensitivity = new Vector2(xSens, ySens);
-            sensitivity *= Time.deltaTime;
+            if (inputReader != null)
+                inputReader.Look -= _OnLook;
+        }
 
-            var mouse = direction * sensitivity;
+        void _OnLook(Vector2 delta)
+        {
+            yRotation += delta.x * xSens * Time.deltaTime;
 
-            yRotation += mouse.x;
-
-            xRotation -= mouse.y;
+            xRotation -= delta.y * ySens * Time.deltaTime;
             xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-            transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
-            orientation.rotation = Quaternion.Euler(0, yRotation, 0);
-
-            transform.rotation = Quaternion.Euler(inputReader.Direction);
-
+            transform.rotation = Quaternion.Euler(xRotation, yRotation, 0f);
+            if (orientation != null)
+                orientation.rotation = Quaternion.Euler(0f, yRotation, 0f);
         }
     }
 }

@@ -25,14 +25,14 @@ namespace Player
 
         protected override void OnUpdate(float deltaTime)
         {
-            Vector3 direction = _controller.inputReader.Direction.normalized;
-            CharacterController controller = _controller.characterController;
-            
-            if (direction.magnitude >= 0.1f)
-            {
-                controller.Move(direction * (Options.targetSpeed * deltaTime));
-            }
-            
+            Vector2 input = _controller.inputReader.Direction;
+            Transform t = _controller.transform;
+            Vector3 move = (t.right * input.x + t.forward * input.y);
+            if (move.sqrMagnitude > 1f) move.Normalize();
+
+            _controller.velocity.x = move.x * Options.targetSpeed;
+            _controller.velocity.z = move.z * Options.targetSpeed;
+
             if (_controller.velocity.y < 0)
             {
                 _controller.velocity.y = -2f; // Small downward force to keep grounded
