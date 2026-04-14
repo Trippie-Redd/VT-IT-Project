@@ -250,6 +250,10 @@ MonoBehaviour:
   jumpAirTime: 0.75
   jumpForce: 0
   gravity: 0
+  standingHeight: 2
+  crouchingHeight: 1.2
+  crouchSpeed: 8
+  cameraTransform: {fileID: 317743569901683428}
 --- !u!33 &933624168481797229
 MeshFilter:
   m_ObjectHideFlags: 0

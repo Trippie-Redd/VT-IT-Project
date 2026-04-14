@@ -100,6 +100,13 @@ namespace Player
         [HideInInspector] public float jumpForce;
         [HideInInspector] public float gravity;
 
+        public float standingHeight = 2f;
+        public float crouchingHeight = 1.2f;
+        public float crouchSpeed = 8f;
+        public Transform cameraTransform;
+
+        float _standingCameraY;
+
         #endregion
         
         void Start()
@@ -108,6 +115,9 @@ namespace Player
 
             jumpForce = 4f * jumpHeight / jumpAirTime;
             gravity   = 8f * jumpHeight / (jumpAirTime * jumpAirTime);
+
+            Debug.Assert(cameraTransform != null, "PlayerController: cameraTransform is not assigned.", this);
+            _standingCameraY = cameraTransform != null ? cameraTransform.localPosition.y : 0f;
 
             root = new Root(null, this);
             var builder = new StateMachineBuilder(root);
@@ -137,8 +147,37 @@ namespace Player
 
             if (UsingGravity)
                 velocity += new Vector3(0f, -gravity * Time.deltaTime, 0f);
-            
+
+            _UpdateCrouch();
+
             characterController.Move(velocity * Time.deltaTime);
+        }
+
+        bool _CanStandUp()
+        {
+            float radius = characterController.radius;
+            // Cast from the top sphere of the crouching capsule upward to where the standing top sphere would be
+            float crouchTopSphereY = crouchingHeight - standingHeight / 2f - radius;
+            Vector3 origin = transform.position + Vector3.up * crouchTopSphereY;
+            float castDistance = standingHeight - crouchingHeight;
+            return !Physics.SphereCast(origin, radius, Vector3.up, out _, castDistance);
+        }
+
+        void _UpdateCrouch()
+        {
+            if (cameraTransform == null) return;
+            float targetHeight = IsCrouching ? crouchingHeight : standingHeight;
+            float newHeight = Mathf.Lerp(characterController.height, targetHeight, crouchSpeed * Time.deltaTime);
+            characterController.height = newHeight;
+            // Keep capsule bottom fixed so the player doesn't float up when crouching
+            characterController.center = new Vector3(0f, (newHeight - standingHeight) / 2f, 0f);
+
+            float targetCamY = IsCrouching
+                ? _standingCameraY - (standingHeight - crouchingHeight)
+                : _standingCameraY;
+            Vector3 camPos = cameraTransform.localPosition;
+            camPos.y = Mathf.Lerp(camPos.y, targetCamY, crouchSpeed * Time.deltaTime);
+            cameraTransform.localPosition = camPos;
         }
 
         #region InputCallbacks
@@ -150,8 +189,8 @@ namespace Player
 
         void _OnSprint(bool pressed)
         {
-            if (IsCrouching) IsCrouching = false;
-            
+            if (IsCrouching && !_CanStandUp()) return;
+            IsCrouching = false;
             IsSprinting = pressed;
         }
 
@@ -159,13 +198,18 @@ namespace Player
         {
             if (!pressed) return;
 
+            if (IsCrouching && !_CanStandUp()) return;
             IsCrouching = !IsCrouching;
+            if (IsCrouching) IsSprinting = false;
         }
 
         void _OnJump()
         {
-            if (IsGrounded)
+            if (IsGrounded && _CanStandUp())
+            {
+                IsCrouching = false;
                 IsJumping = true;
+            }
         }
         #endregion
     }
