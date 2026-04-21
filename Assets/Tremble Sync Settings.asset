@@ -829,6 +829,12 @@ MonoBehaviour:
     m_ResolutionX: 2
     m_ResolutionY: 2
     m_Dirty: 0
+  - m_Material: {fileID: -2805906249552511605, guid: bf7ac52253cd0664da75f67387460153, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
   m_PipelineSplitMesh: 1
   m_PipelineSmoothMeshNormals: 1
   m_PipelineSimplifyCollisionMeshes: 1
