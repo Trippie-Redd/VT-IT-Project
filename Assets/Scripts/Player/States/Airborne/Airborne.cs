@@ -1,5 +1,4 @@
-﻿using HSM;
-using UnityEngine;
+using HSM;
 
 namespace Player
 {
@@ -18,13 +17,8 @@ namespace Player
 
         protected override void OnUpdate(float deltaTime)
         {
-            Vector2 input = _controller.inputReader.Direction;
-            Transform t = _controller.transform;
-            Vector3 move = t.right * input.x + t.forward * input.y;
-            if (move.sqrMagnitude > 1f) move.Normalize();
-
-            _controller.velocity.x = move.x * 5f;
-            _controller.velocity.z = move.z * 5f;
+            ApplyHorizontalMovement(5f);
+            _controller.velocity.y -= _controller.gravity * deltaTime;
         }
 
         protected override State GetTransition() => _controller.velocity.y > 0f ? jumping : falling;

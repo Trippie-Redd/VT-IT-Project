@@ -15,7 +15,7 @@ namespace Player
         }
 
         protected override State GetTransition()
-            => _controller.IsCrouching ? crouching : standing;
+            => _controller.root.IsCrouching ? crouching : standing;
 
         protected override void OnUpdate(float deltaTime)
         {
