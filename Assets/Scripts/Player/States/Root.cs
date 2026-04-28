@@ -49,6 +49,7 @@ namespace Player
         public void OnCrouchInput(bool pressed)
         {
             if (!pressed) return;
+            if (_controller.IsSubmerged) return; // crouch is swim-down while submerged
             if (IsCrouching && !_controller.CanStandUp()) return;
             IsCrouching = !IsCrouching;
             if (IsCrouching) IsSprinting = false;

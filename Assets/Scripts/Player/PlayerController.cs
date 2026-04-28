@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using HSM;
 using Input;
 using UnityEngine;
@@ -14,8 +15,9 @@ namespace Player
         public InputReader inputReader;
 
         [HideInInspector] public Vector3 velocity;
-        [HideInInspector] public bool IsSubmerged;
 
+        readonly HashSet<Water> _waters = new();
+        public bool IsSubmerged => _waters.Count > 0;
         public bool IsGrounded => characterController.isGrounded;
 
         public float jumpHeight = 1.27f;
@@ -61,6 +63,17 @@ namespace Player
         {
             machine.Tick(Time.deltaTime);
             characterController.Move(velocity * Time.deltaTime);
+            Debug.Log(_waters.Count);
+        }
+
+        void OnTriggerEnter(Collider other)
+        {
+            if (other.TryGetComponent(out Water water)) _waters.Add(water);
+        }
+
+        void OnTriggerExit(Collider other)
+        {
+            if (other.TryGetComponent(out Water water)) _waters.Remove(water);
         }
 
         public bool CanStandUp()

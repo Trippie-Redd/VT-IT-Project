@@ -23,6 +23,8 @@ namespace Input
         private InputSystem_Actions _inputActions;
 
         public Vector3 Direction => _inputActions.Player.Move.ReadValue<Vector2>();
+        public bool IsJumpHeld   => _inputActions != null && _inputActions.Player.Jump.IsPressed();
+        public bool IsCrouchHeld => _inputActions != null && _inputActions.Player.Crouch.IsPressed();
         
         public void EnablePlayerActions()
         {
