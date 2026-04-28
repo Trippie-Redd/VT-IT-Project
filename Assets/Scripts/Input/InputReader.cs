@@ -14,6 +14,7 @@ namespace Input
         public event UnityAction<Vector2> Move = delegate { };
         public event UnityAction<Vector2> Look = delegate { };
         public event UnityAction Attack = delegate { };
+        public event UnityAction Reload = delegate { };
         public event UnityAction Interact = delegate { };
         public event UnityAction Jump = delegate { };
 
@@ -58,6 +59,11 @@ namespace Input
         public void OnAttack(InputAction.CallbackContext context)
         {
             if (context.performed) Attack.Invoke();
+        }
+
+        public void OnReload(InputAction.CallbackContext context)
+        {
+            if (context.performed) Reload.Invoke();
         }
 
         public void OnInteract(InputAction.CallbackContext context)

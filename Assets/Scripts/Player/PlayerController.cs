@@ -1,11 +1,11 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using HSM;
 using Input;
 using UnityEngine;
 
 namespace Player
 {
-    [RequireComponent(typeof(CharacterController), typeof(Gun))]
+    [RequireComponent(typeof(CharacterController))]
     public class PlayerController : MonoBehaviour
     {
         public Root root;
@@ -46,7 +46,7 @@ namespace Player
             inputReader.Sprint += _OnSprint;
             inputReader.Crouch += _OnCrouch;
             inputReader.Jump   += _OnJump;
-            inputReader.Attack += GetComponent<Gun>().Shooting;
+            //inputReader.Attack += GetComponent<Gun>().Shooting;
             inputReader.EnablePlayerActions();
         }
 
@@ -55,7 +55,7 @@ namespace Player
             inputReader.Sprint -= _OnSprint;
             inputReader.Crouch -= _OnCrouch;
             inputReader.Jump   -= _OnJump;
-            inputReader.Attack -= GetComponent<Gun>().Shooting;
+            //inputReader.Attack -= GetComponent<Gun>().Shooting;
             inputReader.DisablePlayerActions();
         }
 
