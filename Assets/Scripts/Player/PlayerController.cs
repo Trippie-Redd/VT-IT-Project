@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Player
 {
-    [RequireComponent(typeof(CharacterController), typeof(Shooter))]
+    [RequireComponent(typeof(CharacterController), typeof(Gun))]
     public class PlayerController : MonoBehaviour
     {
         public Root root;
@@ -46,7 +46,7 @@ namespace Player
             inputReader.Sprint += _OnSprint;
             inputReader.Crouch += _OnCrouch;
             inputReader.Jump   += _OnJump;
-            inputReader.Attack += GetComponent<Shooter>().Shooting;
+            inputReader.Attack += GetComponent<Gun>().Shooting;
             inputReader.EnablePlayerActions();
         }
 
@@ -55,7 +55,7 @@ namespace Player
             inputReader.Sprint -= _OnSprint;
             inputReader.Crouch -= _OnCrouch;
             inputReader.Jump   -= _OnJump;
-            inputReader.Attack -= GetComponent<Shooter>().Shooting;
+            inputReader.Attack -= GetComponent<Gun>().Shooting;
             inputReader.DisablePlayerActions();
         }
 
