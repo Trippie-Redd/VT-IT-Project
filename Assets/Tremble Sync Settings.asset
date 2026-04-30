@@ -935,7 +935,7 @@ MonoBehaviour:
   - MapName: prefab_lamp_mx_2_on
     Path: Assets/Prefabs/lamp_mx_2_on.prefab
     FullTypeName: UnityEngine.GameObject
-    SpawnOffset: {x: -0, y: 0.12322295, z: -0.23899993}
+    SpawnOffset: {x: -0, y: 0.12322295, z: -0.18400005}
   - MapName: Buildings_mushroom_n_1
     Path: Assets/Prefabs/mushroom_n_1.prefab
     FullTypeName: UnityEngine.GameObject
