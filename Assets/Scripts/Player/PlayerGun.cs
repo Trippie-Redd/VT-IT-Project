@@ -64,7 +64,7 @@ namespace Player
 
         public void TryReload()
         {
-            switch(CanReload())
+            switch (CanReload())
             {
                 case CanReloadResult.NoAmmo:
                     // Play some sound
@@ -83,7 +83,7 @@ namespace Player
                     break;
                 case CanReloadResult.CanReload:
                     // Play reload sound
-                    // Reload();
+                    // Reloadfunction();
                     break;
             }
         }
@@ -109,7 +109,23 @@ namespace Player
 
         public void Reload()
         {
-            
+            // Begin reload animation
+            // await finish
+            // Use either a callback
+            // Or make this function async
+
+            // if successful:
+            int magDifference = gunData.maxMagAmmo - _currentAmmoMag;
+            if (_currentAmmoBackup >= magDifference)
+            {
+                _currentAmmoMag += magDifference;
+                _currentAmmoBackup -= magDifference;
+            }
+            else
+            {
+                _currentAmmoMag += _currentAmmoBackup;
+                _currentAmmoBackup = 0;
+            }
         }
     }
 }
