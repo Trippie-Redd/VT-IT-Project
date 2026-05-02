@@ -31,7 +31,6 @@ MonoBehaviour:
     - {fileID: 2100000, guid: 7d3123fd8a8bc0b4a96570973c7760d5, type: 2}
     - {fileID: 2100000, guid: 50948239ed72541719c2ed383664d12f, type: 2}
     - {fileID: 2100000, guid: f669396623d6f0ec4a9a2b0f4b53dd1a, type: 2}
-    - {fileID: 2100000, guid: 1b1f00bffd215f304a3f33ccf396d031, type: 2}
   m_MaterialRenderData:
   - m_Material: {fileID: 2100000, guid: 3f1c092690d8f42b88ea7f2abef724db, type: 2}
     m_ExportMode: 1
@@ -807,6 +806,36 @@ MonoBehaviour:
     m_ResolutionX: 2
     m_ResolutionY: 2
     m_Dirty: 0
+  - m_Material: {fileID: 2100000, guid: d403e99138ccb661281b88637eeb281f, type: 2}
+    m_ExportMode: 1
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 2100000, guid: b0f59cd05885ec4c99a451a8ac81db51, type: 2}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 2100000, guid: a161519912d5c2c77bb3a20a3268631e, type: 2}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -2805906249552511605, guid: bf7ac52253cd0664da75f67387460153, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 8869115791428241986, guid: 8e2f7380161d1d0408d66f88a4c3bf40, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
   - m_Material: {fileID: 2100000, guid: 1b1f00bffd215f304a3f33ccf396d031, type: 2}
     m_ExportMode: 0
     m_IsResolutionOverridden: 0
@@ -910,6 +939,10 @@ MonoBehaviour:
     Path: Assets/Prefabs/grass_1.prefab
     FullTypeName: UnityEngine.GameObject
     SpawnOffset: {x: -0, y: -0.3269357, z: -0.000000029802322}
+  - MapName: prefab_lamp_mx_2_on
+    Path: Assets/Prefabs/lamp_mx_2_on.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: -0, y: 0.12322295, z: -0.18400005}
   - MapName: Buildings_mushroom_n_1
     Path: Assets/Prefabs/mushroom_n_1.prefab
     FullTypeName: UnityEngine.GameObject
@@ -934,6 +967,10 @@ MonoBehaviour:
     Path: Assets/Prefabs/stone_4.prefab
     FullTypeName: UnityEngine.GameObject
     SpawnOffset: {x: -0.05916246, y: -0.10012615, z: -0.06601916}
+  - MapName: Van_van_1
+    Path: Assets/Prefabs/van_1.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: 0.0021852255, y: -1.5428474, z: 0.059007168}
   - MapName: TexturePackI/brick_wall_1
     Path: Assets/Materials/Texture Pack I/brick_wall_1.mat
     FullTypeName: UnityEngine.Material
@@ -948,10 +985,6 @@ MonoBehaviour:
     SpawnOffset: {x: 0, y: 0, z: 0}
   - MapName: TexturePackI/grass_7
     Path: Assets/Media/Textures/Texture Pack I/Color Maps/Materials/grass_7.mat
-    FullTypeName: UnityEngine.Material
-    SpawnOffset: {x: 0, y: 0, z: 0}
-  - MapName: TexturePackI/tiles_floor_1
-    Path: Assets/Materials/Texture Pack I/tiles_floor_1.mat
     FullTypeName: UnityEngine.Material
     SpawnOffset: {x: 0, y: 0, z: 0}
   - MapName: garage_hl_1
@@ -1022,6 +1055,10 @@ MonoBehaviour:
     Path: Assets/Materials/Nature/grass_1.mat
     FullTypeName: UnityEngine.Material
     SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: lamp_mx_2_on
+    Path: Assets/Media/Models/Light Sources/lamp_mx_2_on.fbx
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
   - MapName: mushroom_n_1
     Path: Assets/Media/Models/Nature/mushroom_n_1.fbx
     FullTypeName: UnityEngine.Material
@@ -1044,5 +1081,9 @@ MonoBehaviour:
     SpawnOffset: {x: 0, y: 0, z: 0}
   - MapName: stone_4
     Path: Assets/Media/Models/Nature/stone_4.fbx
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: van_1
+    Path: Assets/Media/Models/Vans/van_1.fbx
     FullTypeName: UnityEngine.Material
     SpawnOffset: {x: 0, y: 0, z: 0}
