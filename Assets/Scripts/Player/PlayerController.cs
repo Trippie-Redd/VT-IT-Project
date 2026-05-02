@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using HSM;
 using Input;
 using UnityEngine;
@@ -8,20 +8,7 @@ namespace Player
     [RequireComponent(typeof(CharacterController))]
     public class PlayerController : MonoBehaviour
     {
-        [Flags]
-        public enum Flags
-        {
-            IsSubmerged  = 1 << 0,
-            IsMoving     = 1 << 1,
-            IsCrouching  = 1 << 2,
-            IsSprinting  = 1 << 3,
-            
-            UsingGravity = 1 << 4
-        }
-        
-        #region Fields
-        
-        public State root;
+        public Root root;
         public StateMachine machine;
 
         [HideInInspector] public CharacterController characterController;
@@ -29,117 +16,76 @@ namespace Player
 
         [HideInInspector] public Vector3 velocity;
 
-        private Flags _flags;
-        
+        readonly HashSet<Water> _waters = new();
+        public bool IsSubmerged => _waters.Count > 0;
         public bool IsGrounded => characterController.isGrounded;
 
-        [HideInInspector] public bool IsSubmerged
-        {
-            get => _flags.HasFlag(Flags.IsSubmerged);
-            set
-            {
-                if (value) _flags |= Flags.IsSubmerged;
-                else       _flags &= ~Flags.IsSubmerged;
-            }
-        }
+        public float jumpHeight = 1.27f;
+        public float jumpAirTime = 1.02f;
+        [HideInInspector] public float jumpForce;
+        [HideInInspector] public float gravity;
 
-        [HideInInspector] public bool IsMoving
-        {
-            get => _flags.HasFlag(Flags.IsMoving);
-            set
-            {
-                if (value) _flags |= Flags.IsMoving;
-                else       _flags &= ~Flags.IsMoving;
-            }
-        }
-        
-        [HideInInspector] public bool IsCrouching
-        {
-            get => _flags.HasFlag(Flags.IsCrouching);
-            set
-            {
-                if (value) _flags |= Flags.IsCrouching;
-                else       _flags &= ~Flags.IsCrouching;
-            }
-        }
-        
-        [HideInInspector] public bool IsSprinting
-        {
-            get => _flags.HasFlag(Flags.IsSprinting);
-            set
-            {
-                if (value) _flags |= Flags.IsSprinting;
-                else       _flags &= ~Flags.IsSprinting;
-            }
-        }
+        public float standingHeight = 2f;
+        public float crouchingHeight = 1.2f;
+        public float crouchSpeed = 8f;
+        public Transform cameraTransform;
 
-        [HideInInspector] public bool UsingGravity
-        {
-            get => _flags.HasFlag(Flags.UsingGravity);
-            set
-            {
-                if (value) _flags |= Flags.UsingGravity;
-                else       _flags &= ~Flags.UsingGravity;
-            }
-        }
-
-        #endregion
-        
-        private void Start()
+        void Start()
         {
             characterController = gameObject.GetComponent<CharacterController>();
-            inputReader = ScriptableObject.CreateInstance<InputReader>();
-            
+
+            jumpForce = 4f * jumpHeight / jumpAirTime;
+            gravity   = 8f * jumpHeight / (jumpAirTime * jumpAirTime);
+
+            Debug.Assert(cameraTransform != null, "PlayerController: cameraTransform is not assigned.", this);
+
             root = new Root(null, this);
             var builder = new StateMachineBuilder(root);
             machine = builder.Build();
 
-            inputReader.Move   += _OnMove;
             inputReader.Sprint += _OnSprint;
             inputReader.Crouch += _OnCrouch;
-            inputReader.Attack += GetComponent<Shooter>().Shooting;
+            inputReader.Jump   += _OnJump;
             inputReader.EnablePlayerActions();
         }
 
-        private void OnDestroy()
+        void OnDestroy()
         {
-            inputReader.Move   -= _OnMove;
             inputReader.Sprint -= _OnSprint;
             inputReader.Crouch -= _OnCrouch;
-            inputReader.Attack -= GetComponent<Shooter>().Shooting;
+            inputReader.Jump   -= _OnJump;
             inputReader.DisablePlayerActions();
         }
-        
-        private void Update()
+
+        void Update()
         {
             machine.Tick(Time.deltaTime);
-
-            if (UsingGravity)
-                velocity += new Vector3(0f, -9.82f * Time.deltaTime, 0f);
-            
             characterController.Move(velocity * Time.deltaTime);
+            Debug.Log(_waters.Count);
         }
 
-        #region InputCallbacks
-
-        private void _OnMove(Vector2 movement)
+        void OnTriggerEnter(Collider other)
         {
-            IsMoving = movement.magnitude > .1f;
+            if (other.TryGetComponent(out Water water)) _waters.Add(water);
         }
 
-        private void _OnSprint(bool pressed)
+        void OnTriggerExit(Collider other)
         {
-            if (IsCrouching) IsCrouching = false;
-            
-            IsSprinting = pressed;
+            if (other.TryGetComponent(out Water water)) _waters.Remove(water);
         }
 
-        private void _OnCrouch(bool pressed)
+        public bool CanStandUp()
         {
-            if (!pressed) return;
-
-            IsCrouching = !IsCrouching;
+            float radius = characterController.radius;
+            // Cast from the top sphere of the crouching capsule upward to where the standing top sphere would be
+            float crouchTopSphereY = crouchingHeight - standingHeight / 2f - radius;
+            Vector3 origin = transform.position + Vector3.up * crouchTopSphereY;
+            float castDistance = standingHeight - crouchingHeight;
+            return !Physics.SphereCast(origin, radius, Vector3.up, out _, castDistance);
         }
-        #endregion
+
+        void _OnSprint(bool pressed) => root.OnSprintInput(pressed);
+        void _OnCrouch(bool pressed) => root.OnCrouchInput(pressed);
+        void _OnJump()               => root.grounded.OnJumpInput();
     }
 }

@@ -20,9 +20,9 @@ namespace Player
 
         protected override State GetTransition()
         {
-            if (_controller.IsSprinting) return sprinting;
-            if (_controller.IsCrouching)  return crouching;
-            return                       walking;
+            if (_controller.root.IsSprinting) return sprinting;
+            if (_controller.root.IsCrouching) return crouching;
+            return                            walking;
         }
     }
 }

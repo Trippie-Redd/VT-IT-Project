@@ -6,12 +6,15 @@ using static InputSystem_Actions;
 
 namespace Input
 {
+    // TODO - Remove this whole thing and add a "Player Input" component to the player instead
+    // https://www.youtube.com/watch?v=phzU5k2hB4s
     [CreateAssetMenu(fileName = "InputReader", menuName = "InputReader")]
     public class InputReader : ScriptableObject, IPlayerActions
     {
         public event UnityAction<Vector2> Move = delegate { };
-        public event UnityAction<Vector2, bool> Look = delegate { };
+        public event UnityAction<Vector2> Look = delegate { };
         public event UnityAction Attack = delegate { };
+        public event UnityAction Reload = delegate { };
         public event UnityAction Interact = delegate { };
         public event UnityAction Jump = delegate { };
 
@@ -21,7 +24,9 @@ namespace Input
         private InputSystem_Actions _inputActions;
 
         public Vector3 Direction => _inputActions.Player.Move.ReadValue<Vector2>();
-        public Vector3 LookDirection => _inputActions.Player.Look.ReadValue<Vector2>();
+        public bool IsJumpHeld   => _inputActions != null && _inputActions.Player.Jump.IsPressed();
+        public bool IsCrouchHeld => _inputActions != null && _inputActions.Player.Crouch.IsPressed();
+        public bool IsAttackHeld => _inputActions != null && _inputActions.Player.Attack.IsPressed();
         
         public void EnablePlayerActions()
         {
@@ -47,7 +52,7 @@ namespace Input
             => Move.Invoke(context.ReadValue<Vector2>());
 
         public void OnLook(InputAction.CallbackContext context)
-            => Look.Invoke(context.ReadValue<Vector2>(), _IsDeviceMouse(context));
+            => Look.Invoke(context.ReadValue<Vector2>());
 
         private bool _IsDeviceMouse(InputAction.CallbackContext context)
             => context.control.device.name == "Mouse";
@@ -55,6 +60,11 @@ namespace Input
         public void OnAttack(InputAction.CallbackContext context)
         {
             if (context.performed) Attack.Invoke();
+        }
+
+        public void OnReload(InputAction.CallbackContext context)
+        {
+            if (context.performed) Reload.Invoke();
         }
 
         public void OnInteract(InputAction.CallbackContext context)

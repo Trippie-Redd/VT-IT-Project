@@ -31,11 +31,6 @@ MonoBehaviour:
     - {fileID: 2100000, guid: 7d3123fd8a8bc0b4a96570973c7760d5, type: 2}
     - {fileID: 2100000, guid: 50948239ed72541719c2ed383664d12f, type: 2}
     - {fileID: 2100000, guid: f669396623d6f0ec4a9a2b0f4b53dd1a, type: 2}
-    - {fileID: 2100000, guid: b0f59cd05885ec4c99a451a8ac81db51, type: 2}
-    - {fileID: 2100000, guid: a161519912d5c2c77bb3a20a3268631e, type: 2}
-  - Name: Shaders
-    Materials:
-    - {fileID: 2100000, guid: d403e99138ccb661281b88637eeb281f, type: 2}
   m_MaterialRenderData:
   - m_Material: {fileID: 2100000, guid: 3f1c092690d8f42b88ea7f2abef724db, type: 2}
     m_ExportMode: 1
@@ -841,6 +836,18 @@ MonoBehaviour:
     m_ResolutionX: 2
     m_ResolutionY: 2
     m_Dirty: 0
+  - m_Material: {fileID: 2100000, guid: 1b1f00bffd215f304a3f33ccf396d031, type: 2}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 2100000, guid: 1d90abb6cf8dcc59c9ae610f755a0f07, type: 2}
+    m_ExportMode: 1
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
   m_PipelineSplitMesh: 1
   m_PipelineSmoothMeshNormals: 1
   m_PipelineSimplifyCollisionMeshes: 1
@@ -947,7 +954,7 @@ MonoBehaviour:
   - MapName: prefab_Player
     Path: Assets/Prefabs/Player.prefab
     FullTypeName: UnityEngine.GameObject
-    SpawnOffset: {x: -0, y: -0, z: -0}
+    SpawnOffset: {x: -0.20503, y: -0.26903, z: -0.297}
   - MapName: Buildings_stone_1
     Path: Assets/Prefabs/stone_1.prefab
     FullTypeName: UnityEngine.GameObject
@@ -978,18 +985,6 @@ MonoBehaviour:
     SpawnOffset: {x: 0, y: 0, z: 0}
   - MapName: TexturePackI/grass_7
     Path: Assets/Media/Textures/Texture Pack I/Color Maps/Materials/grass_7.mat
-    FullTypeName: UnityEngine.Material
-    SpawnOffset: {x: 0, y: 0, z: 0}
-  - MapName: TexturePackI/wood_4
-    Path: Assets/Materials/Texture Pack I/wood_4.mat
-    FullTypeName: UnityEngine.Material
-    SpawnOffset: {x: 0, y: 0, z: 0}
-  - MapName: TexturePackI/dirt_5
-    Path: Assets/Materials/Texture Pack I/dirt_5.mat
-    FullTypeName: UnityEngine.Material
-    SpawnOffset: {x: 0, y: 0, z: 0}
-  - MapName: Shaders/vatten
-    Path: Assets/Materials/Nature/vatten.mat
     FullTypeName: UnityEngine.Material
     SpawnOffset: {x: 0, y: 0, z: 0}
   - MapName: garage_hl_1
@@ -1070,6 +1065,10 @@ MonoBehaviour:
     SpawnOffset: {x: 0, y: 0, z: 0}
   - MapName: mushroom_n_1_0
     Path: Assets/Media/Models/Nature/mushroom_n_1_0.fbx
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: Invisible
+    Path: Assets/Materials/Invisible.mat
     FullTypeName: UnityEngine.Material
     SpawnOffset: {x: 0, y: 0, z: 0}
   - MapName: stone_1
