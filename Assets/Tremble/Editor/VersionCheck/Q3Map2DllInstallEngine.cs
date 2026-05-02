@@ -71,7 +71,7 @@ namespace TinyGoose.Tremble.Editor
 				return Q3Map2DllInstallState.Installed;
 
 				return currentGitHash.EqualsInvariant(expectedCurrentGitHash)
-					? Q3Map2DllInstallState.Installed 						// Has matching Q3Map2 - nothing to do
+					? Q3Map2DllInstallState.Installed                       // Has matching Q3Map2 - nothing to do
 					: Q3Map2DllInstallState.InstalledButWrongVersion;	// Version mismatch - needs update
 			}
 		}

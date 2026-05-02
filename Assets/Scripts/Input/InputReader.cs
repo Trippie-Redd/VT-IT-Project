@@ -18,6 +18,8 @@ namespace Input
         public event UnityAction Interact = delegate { };
         public event UnityAction Jump = delegate { };
 
+        public event UnityAction Pause = delegate { };
+
         public event UnityAction<bool> Sprint = delegate { };
         public event UnityAction<bool> Crouch = delegate { };
 
@@ -70,6 +72,11 @@ namespace Input
         public void OnInteract(InputAction.CallbackContext context)
         {
             if (context.performed) Interact.Invoke();
+        }
+
+        public void OnPause(InputAction.CallbackContext context)
+        {
+            if (context.performed) Pause.Invoke();
         }
 
         public void OnCrouch(InputAction.CallbackContext context)
