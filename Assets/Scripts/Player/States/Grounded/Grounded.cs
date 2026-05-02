@@ -1,5 +1,4 @@
-﻿using HSM;
-using UnityEngine;
+using HSM;
 
 namespace Player
 {
@@ -9,7 +8,7 @@ namespace Player
         public readonly Idle idle;
 
         public PlayerGroundedOptions Options;
-        
+
         public Grounded(StateMachine machine, State parent, PlayerController controller) : base(machine, parent, controller)
         {
             moving = new Moving(machine, this, controller);
@@ -18,30 +17,23 @@ namespace Player
 
         protected override State GetInitialState() => idle;
 
-        protected override void OnEnter()
-        {
-            _controller.UsingGravity = true;
-        }
-
         protected override void OnUpdate(float deltaTime)
         {
-            Vector3 direction = _controller.inputReader.Direction.normalized;
-            CharacterController controller = _controller.characterController;
-            
-            if (direction.magnitude >= 0.1f)
-            {
-                controller.Move(direction * (Options.targetSpeed * deltaTime));
-            }
-            
-            if (_controller.velocity.y < 0)
-            {
+            ApplyHorizontalMovement(Options.targetSpeed);
+
+            if (_controller.velocity.y < 0f)
                 _controller.velocity.y = -2f; // Small downward force to keep grounded
-            }
         }
 
         protected override State GetTransition()
+            => _controller.inputReader.Direction.sqrMagnitude > 0.01f ? moving : idle;
+
+        public void OnJumpInput()
         {
-            return _controller.IsMoving ? moving : idle;
+            if (!_controller.IsGrounded) return;
+            if (_controller.root.IsCrouching && !_controller.CanStandUp()) return;
+            _controller.root.IsCrouching = false;
+            _controller.velocity.y = _controller.jumpForce;
         }
     }
 }

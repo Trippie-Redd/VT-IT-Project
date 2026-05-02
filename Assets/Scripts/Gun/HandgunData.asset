@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95e9afb0519a13c629bfd5d3fc5a2a38, type: 3}
+  m_Name: HandgunData
+  m_EditorClassIdentifier: Assembly-CSharp::Gun.GunData
+  fireMode: 1
+  fireRate: 10
+  damage: 20
+  range: 100
+  maxMagAmmo: 12
+  maxBackupAmmo: 52
+  reloadTime: 1.5
+  burstCount: 0
+  noiseStrength: 10
+  fireSound: {fileID: 8300000, guid: 16950e59be5475f40bcf81f4fef9c2cf, type: 3}
+  magEmptyFireSound: {fileID: 8300000, guid: 1b2b5ea860e50ba40859f9d72e393f86, type: 3}
+  reloadSound: {fileID: 8300000, guid: 6488f4ad50a12904f883f98ac5fac863, type: 3}
+  backupEmptyReloadSound: {fileID: 8300000, guid: eac68c9af776d83429e95e794e36c8cc, type: 3}
+  muzzleFlash: {fileID: 2800000, guid: 1383521cb6627b7a0b0d2f5519a92465, type: 3}
