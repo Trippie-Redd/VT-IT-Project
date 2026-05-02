@@ -26,6 +26,7 @@ namespace Input
         public Vector3 Direction => _inputActions.Player.Move.ReadValue<Vector2>();
         public bool IsJumpHeld   => _inputActions != null && _inputActions.Player.Jump.IsPressed();
         public bool IsCrouchHeld => _inputActions != null && _inputActions.Player.Crouch.IsPressed();
+        public bool IsAttackHeld => _inputActions != null && _inputActions.Player.Attack.IsPressed();
         
         public void EnablePlayerActions()
         {

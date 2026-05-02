@@ -46,7 +46,6 @@ namespace Player
             inputReader.Sprint += _OnSprint;
             inputReader.Crouch += _OnCrouch;
             inputReader.Jump   += _OnJump;
-            //inputReader.Attack += GetComponent<Gun>().Shooting;
             inputReader.EnablePlayerActions();
         }
 
@@ -55,7 +54,6 @@ namespace Player
             inputReader.Sprint -= _OnSprint;
             inputReader.Crouch -= _OnCrouch;
             inputReader.Jump   -= _OnJump;
-            //inputReader.Attack -= GetComponent<Gun>().Shooting;
             inputReader.DisablePlayerActions();
         }
 

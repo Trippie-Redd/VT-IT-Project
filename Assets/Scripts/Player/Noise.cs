@@ -1,12 +1,13 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using UnityEngine;
+using UnityEngine.Events;
 
 namespace Player
 {
-    public event UnityAction<Void, Vector3, float> Emit = delegate { };
+    public static class Noise
+    {
+        public static event UnityAction<Vector3, float> Emit = delegate { };
 
-    public static void EmitNoise(NoiseVector3 origin, float strength)
-        => emit.Invoke(origin, strength);
+        public static void EmitNoise(Vector3 origin, float strength)
+            => Emit.Invoke(origin, strength);
+    }
 }
