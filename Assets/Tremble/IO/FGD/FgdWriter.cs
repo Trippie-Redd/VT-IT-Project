@@ -1,6 +1,6 @@
 //
 // This file is part of the Tremble package by Tiny Goose.
-// Copyright (c) 2024-2025 TinyGoose Ltd., All Rights Reserved.
+// Copyright (c) 2024-2026 TinyGoose Ltd., All Rights Reserved.
 //
 
 using System;
@@ -44,6 +44,12 @@ namespace TinyGoose.Tremble
 
 		public void AddClass(FgdClass entityClass)
 		{
+			if (entityClass.Name.Length > 31)
+			{
+				Debug.LogError($"Class '{entityClass.Name}' is too long - it cannot be longer than 31 characters." +
+				               " Add a custom [PrefabEntity], [BrushEntity], or [PointEntity] attribute to this MonoBehaviour and set a shorter name!");
+			}
+
 			if (entityClass.Type == FgdClassType.Base)
 			{
 				int insertionIdx = m_BaseClasses.BinarySearch(entityClass, Comparer<FgdClass>.Create((c1, c2) => String.Compare(c1.Name, c2.Name, StringComparison.Ordinal)));

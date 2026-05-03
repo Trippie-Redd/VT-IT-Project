@@ -1,6 +1,6 @@
 //
 // This file is part of the Tremble package by Tiny Goose.
-// Copyright (c) 2024-2025 TinyGoose Ltd., All Rights Reserved.
+// Copyright (c) 2024-2026 TinyGoose Ltd., All Rights Reserved.
 //
 
 using System;
@@ -226,6 +226,7 @@ namespace TinyGoose.Tremble
 						}
 						else if (typename.EqualsInvariant("flags"))
 						{
+							//TODO(jwf): this assumes all "flags" are "spawnflags" - we should support other flags
 							while (!tokenParser.PeekToken("]"))
 							{
 								int flagBit = (int)Math.Log(int.Parse(tokenParser.ReadToken(), NumberStyles.Any, CultureInfo.InvariantCulture), 2);

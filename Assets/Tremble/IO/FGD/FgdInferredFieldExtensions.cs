@@ -1,6 +1,6 @@
 //
 // This file is part of the Tremble package by Tiny Goose.
-// Copyright (c) 2024-2025 TinyGoose Ltd., All Rights Reserved.
+// Copyright (c) 2024-2026 TinyGoose Ltd., All Rights Reserved.
 //
 
 using System;
@@ -14,7 +14,7 @@ namespace TinyGoose.Tremble
 		{
 			// ID property (or "targetname")
 			string identityProperty = TrembleSyncSettings.Get().IdentityPropertyName;
-			if (key.EqualsInvariant("target") || key.EqualsInvariant(identityProperty, caseSensitive: true))
+			if (key.EqualsInvariant("targetname") || key.EqualsInvariant(identityProperty, caseSensitive: true))
 			{
 				return;
 			}

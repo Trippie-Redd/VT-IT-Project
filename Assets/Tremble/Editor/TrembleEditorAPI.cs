@@ -1,6 +1,6 @@
 // 
 // This file is part of the Tremble package by Tiny Goose.
-// Copyright (c) 2024-2025 TinyGoose Ltd., All Rights Reserved.
+// Copyright (c) 2024-2026 TinyGoose Ltd., All Rights Reserved.
 //
 
 using System;
@@ -30,17 +30,7 @@ namespace TinyGoose.Tremble.Editor
 		/// <summary>
 		/// Open the settings window
 		/// </summary>
-		public static void OpenSettings()
-		{
-			if (TrembleSyncSettings.Get().EmbedTrembleSettingsInProjectSettings)
-			{
-				SettingsService.OpenProjectSettings("Project/Tremble");
-			}
-			else
-			{
-				TrembleSyncSettingsWindow.OpenSettings();
-			}
-		}
+		public static void OpenSettings() => SettingsService.OpenProjectSettings("Project/Tremble");
 
 		/// <summary>
 		/// Open the manual window

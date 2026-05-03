@@ -1,6 +1,6 @@
 // 
 // This file is part of the Tremble package by Tiny Goose.
-// Copyright (c) 2024-2025 TinyGoose Ltd., All Rights Reserved.
+// Copyright (c) 2024-2026 TinyGoose Ltd., All Rights Reserved.
 //
 
 using System;
@@ -22,6 +22,7 @@ namespace TinyGoose.Tremble
 		Version2024_1,
 		Version2024_2,
 		Version2025_3,
+		Version2026_1,
 		VersionNext,
 	}
 	
@@ -132,9 +133,6 @@ namespace TinyGoose.Tremble
 			return s_TrembleSyncSettings;
 		}
 
-		// Show inline help
-		[SerializeField] private bool m_ShowExpanded = true;
-
 		// -----------------------------------------------------------------------------------------------------------------------------
 		//		Basic Settings
 		// -----------------------------------------------------------------------------------------------------------------------------
@@ -145,7 +143,7 @@ namespace TinyGoose.Tremble
 		private bool m_AllowStandaloneImport = false;
 
 		[SerializeField, Tooltip("TrenchBroom Version (2023 = GameConfig v4, 2024_1 = GameConfig v8, 2024_2, 2025_3 = GameConfig v9).")]
-		private TrenchBroomVersion m_TrenchBroomVersion = TrenchBroomVersion.Version2025_3;
+		private TrenchBroomVersion m_TrenchBroomVersion = TrenchBroomVersion.Version2026_1;
 
 		public bool IsTrenchBroomVersionAtLeast(TrenchBroomVersion version) => (int)m_TrenchBroomVersion >= (int)version;
 
@@ -229,10 +227,7 @@ namespace TinyGoose.Tremble
 
 		[SerializeField, Tooltip("Under which circumstances would you like to see the output from Q3Map2? This can be used to debug map issues.")]
 		private Q3Map2ResultDisplayType m_Q3Map2ResultDisplayType = Q3Map2ResultDisplayType.ShowWhenWarningsOccur;
-
-		[SerializeField, Tooltip("Open Tremble's settings inside Project Settings by default?")]
-		private bool m_EmbedTrembleSettingsInProjectSettings = true;
-
+		
 		[SerializeField, Tooltip("When writing the entities.fgd file for TrenchBroom, how should it be formatted? Very Verbose will be much slower to parse but great for debugging issues manually. We recommend Human Readable.")]
 		private FgdFormattingStyle m_FgdFormattingStyle = FgdFormattingStyle.HumanReadable;
 
@@ -306,8 +301,6 @@ namespace TinyGoose.Tremble
 		// -----------------------------------------------------------------------------------------------------------------------------
 		//		Public API
 		// -----------------------------------------------------------------------------------------------------------------------------
-		public bool ShowExpanded => m_ShowExpanded;
-
 		// Basic Settings
 		public bool AutoSyncOnCompile => m_AutoSyncOnCompile;
 		public bool AllowStandaloneImport => m_AllowStandaloneImport;
@@ -318,6 +311,7 @@ namespace TinyGoose.Tremble
 			TrenchBroomVersion.Version2024_1 => "8",
 			TrenchBroomVersion.Version2024_2 => "9",
 			TrenchBroomVersion.Version2025_3 => "9",
+			TrenchBroomVersion.Version2026_1 => "9",
 			TrenchBroomVersion.VersionNext => "9",
 			_ => "0"
 		};
@@ -381,7 +375,6 @@ namespace TinyGoose.Tremble
 		public PrefabOverrideHandling PrefabOverrideHandling => m_PrefabOverrideHandling;
 		public bool UseClassicQuakeCulling => m_UseClassicQuakeCulling;
 		public Q3Map2ResultDisplayType Q3Map2ResultDisplayType => m_Q3Map2ResultDisplayType;
-		public bool EmbedTrembleSettingsInProjectSettings => m_EmbedTrembleSettingsInProjectSettings;
 		public FgdFormattingStyle FgdFormattingStyle => m_FgdFormattingStyle;
 		public bool SubdivideAllLeafs => m_SubdivideAllLeafs;
 		public bool AlwaysPackBoolsIntoSpawnFlags => m_AlwaysPackBoolsIntoSpawnFlags;

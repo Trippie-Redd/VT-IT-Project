@@ -77,6 +77,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3770c55e1e67e4805bcf322ae01885f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: TinyGoose.Tremble::TinyGoose.Tremble.TrembleSpawnablePrefab
-  m_Category: debris_and_msic
+  m_Category: misc
   m_OverrideSprite: {fileID: 0}
   m_OnlyVariants: 0

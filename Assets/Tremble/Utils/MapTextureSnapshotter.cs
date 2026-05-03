@@ -1,6 +1,6 @@
 // 
 // This file is part of the Tremble package by Tiny Goose.
-// Copyright (c) 2024-2025 TinyGoose Ltd., All Rights Reserved.
+// Copyright (c) 2024-2026 TinyGoose Ltd., All Rights Reserved.
 //
 
 using System;
@@ -50,9 +50,7 @@ namespace TinyGoose.Tremble
 		private struct TexturePair
 		{
 			public Texture2D Texture;
-			public Texture2D TextureSrgb;
 			public RenderTexture RenderTexture;
-			public RenderTexture RenderTextureSrgb;
 		}
 
 		public void Init(TrembleSyncSettings settings)
@@ -84,40 +82,7 @@ namespace TinyGoose.Tremble
 
 			foreach (Vector2Int res in resolutions)
 			{
-				RenderTexture rt = new(res.x, res.y, 8, GraphicsFormat.R8G8B8A8_UNorm);
-				rt.Create();
-				RenderTexture rtSrgb = new(res.x, res.y, 8, GraphicsFormat.R8G8B8A8_SRGB);
-				rtSrgb.Create();
-				Texture2D output = new(res.x, res.y, rt.graphicsFormat, TextureCreationFlags.None);
-				Texture2D outputSrgb = new(res.x, res.y, rtSrgb.graphicsFormat, TextureCreationFlags.None);
-				m_RenderTextures.Add(res, new()
-				{
-					Texture = output,
-					TextureSrgb = outputSrgb,
-					RenderTexture = rtSrgb,
-					RenderTextureSrgb = rtSrgb
-				});
-			}
-
-			// TODO - Fix, this is a temporary solution
-			Vector2Int[] extraResolutions = { new(128, 256), new(128, 64), new(1024, 1024), new(512, 256), new(128, 512) };
-			foreach (Vector2Int res in extraResolutions)
-			{
-				if (m_RenderTextures.ContainsKey(res)) continue;
-				
-				RenderTexture rt = new(res.x, res.y, 8, GraphicsFormat.R8G8B8A8_UNorm);
-				rt.Create();
-				RenderTexture rtSrgb = new(res.x, res.y, 8, GraphicsFormat.R8G8B8A8_SRGB);
-				rtSrgb.Create();
-				Texture2D output = new(res.x, res.y, rt.graphicsFormat, TextureCreationFlags.None);
-				Texture2D outputSrgb = new(res.x, res.y, rtSrgb.graphicsFormat, TextureCreationFlags.None);
-				m_RenderTextures.Add(res, new()
-				{
-					Texture = output,
-					TextureSrgb = outputSrgb,
-					RenderTexture = rtSrgb,
-					RenderTextureSrgb = rtSrgb
-				});
+				GetOrCreateTexturePair(res);
 			}
 
 			// Move far away!
@@ -161,16 +126,16 @@ namespace TinyGoose.Tremble
 #if UNITY_EDITOR
 				EditorApplication.delayCall += () =>
 				{
-					if (texPair.RenderTexture || texPair.RenderTextureSrgb)
+					if (texPair.RenderTexture)
 					{
 #endif
 						texPair.RenderTexture.Release();
-						texPair.RenderTextureSrgb.Release();
 #if UNITY_EDITOR
 					}
 				};
 #endif
 			}
+			m_RenderTextures.Clear();
 
 			foreach (GameObject foundLight in m_Lights)
 			{
@@ -184,6 +149,25 @@ namespace TinyGoose.Tremble
 			RenderSettings.ambientIntensity = m_OriginalAmbientIntensity;
 		}
 
+		private TexturePair GetOrCreateTexturePair(Vector2Int resolution)
+		{
+			if (!m_RenderTextures.TryGetValue(resolution, out TexturePair texturePair))
+			{
+				RenderTexture rt = new(resolution.x, resolution.y, 8, GraphicsFormat.R8G8B8A8_UNorm);
+				rt.Create();
+
+				Texture2D output = new(resolution.x, resolution.y, rt.graphicsFormat, TextureCreationFlags.None);
+
+				m_RenderTextures[resolution] = texturePair = new()
+				{
+					Texture = output,
+					RenderTexture = rt,
+				};
+			}
+
+			return texturePair;
+		}
+
 		public void SnapshotMaterial(Material m, string outPath)
 		{
 			MaterialRenderData renderData = m_Settings.GetMaterialRenderData(m);
@@ -191,15 +175,15 @@ namespace TinyGoose.Tremble
 			Vector2Int res = renderData.GetResolutionOrDefault();
 
 			Texture2D mainTex = null;
-			if (renderData.ExportMode == MaterialImportMode.MainTex)
+			if (renderData.ExportMode == MaterialImportMode.Dynamic)
 			{
 				if (!m.TryGetMainTex(out mainTex))
 				{
-					renderData.ExportMode = MaterialImportMode.Legacy;
+					renderData.ExportMode = MaterialImportMode.FixedSize;
 					Debug.LogWarning($"Couldn't find a Main Texture for material \"{m.name}\"," +
-									 "falling back to legacy render mode." +
-									 "Make sure the shader has a texture marked as [Main Texture] or" +
-									 "a texture named _MainTex, _BaseColor, or _Color.");
+					                 "falling back to legacy render mode." +
+					                 "Make sure the shader has a texture marked as [Main Texture] or" +
+					                 "a texture named _MainTex, _BaseColor, or _Color.");
 				}
 
 				if (mainTex && !renderData.IsResolutionOverridden)
@@ -208,15 +192,17 @@ namespace TinyGoose.Tremble
 				}
 			}
 
-			
+			TexturePair tex = GetOrCreateTexturePair(res);
 
-			TexturePair tex = m_RenderTextures[res];
+			// Do not remove - these are used in HDRP
+			bool createdTempMaterial = false;
+			Material tempMaterial = null;
 
 			switch (renderData.ExportMode)
 			{
-				case MaterialImportMode.Legacy:
+				case MaterialImportMode.FixedSize:
 					// Set up RT and material - we have to save it for HDRP
-					bool createdTempMaterial = TryCreateUnlitCopy(m, out Material tempMaterial, renderData.ExportMode);
+					createdTempMaterial = TryCreateUnlitCopy(m, out tempMaterial, renderData.ExportMode);
 
 #if HDRP_INSTALLED && UNITY_EDITOR
 					if (createdTempMaterial)
@@ -241,7 +227,7 @@ namespace TinyGoose.Tremble
 					File.WriteAllBytes(outPath, tex.Texture.EncodeToPNG());
 
 					break;
-				case MaterialImportMode.MainTex:
+				case MaterialImportMode.Dynamic:
 #if UNITY_EDITOR
 					string path = AssetDatabase.GetAssetPath(mainTex);
 
@@ -258,25 +244,24 @@ namespace TinyGoose.Tremble
 					// Else we make a copy to resize
 					m_Camera.targetTexture = null;
 					GL.sRGBWrite = true;
-					Graphics.Blit(mainTex, tex.RenderTextureSrgb);
+					Graphics.Blit(mainTex, tex.RenderTexture);
 
-					RenderTexture.active = tex.RenderTextureSrgb;
+					RenderTexture.active = tex.RenderTexture;
 
 					// Copy texture from RT
-					tex.TextureSrgb.ReadPixels(new(0, 0, res.x, res.y), 0, 0);
-					File.WriteAllBytes(outPath, tex.TextureSrgb.EncodeToPNG());
+					tex.Texture.ReadPixels(new(0, 0, res.x, res.y), 0, 0);
+					File.WriteAllBytes(outPath, tex.Texture.EncodeToPNG());
 					break;
 			}
 
-			// Delete temp material
-#if HDRP_INSTALLED
+			// Delete temp material, if we made one
+#if HDRP_INSTALLED && UNITY_EDITOR
 			if (createdTempMaterial)
 			{
 			  AssetDatabase.DeleteAsset(AssetDatabase.GetAssetPath(tempMaterial));
 			}
 #endif
-
-			}
+		}
 
 		private static readonly Dictionary<string, string> s_ShaderRemaps = new()
 		{
@@ -287,9 +272,8 @@ namespace TinyGoose.Tremble
 
 		private bool TryCreateUnlitCopy(Material material, out Material newMaterial, MaterialImportMode mode)
 		{
-
 			// No lights in the scene. Assume we don't need to tweak materials as they're using ambient colour
-			if (mode is MaterialImportMode.MainTex || (m_Lights.Count == 0 && mode is MaterialImportMode.Legacy))
+			if (mode is MaterialImportMode.Dynamic || (m_Lights.Count == 0 && mode is MaterialImportMode.FixedSize))
 			{
 				newMaterial = material;
 				return false;
@@ -301,7 +285,7 @@ namespace TinyGoose.Tremble
 				if (!material.shader.name.Equals(originalShader))
 					continue;
 
-				newMaterial = mode is MaterialImportMode.Legacy ? new(Shader.Find(remapShader)) : new(Shader.Find(originalShader));
+				newMaterial = mode is MaterialImportMode.FixedSize ? new(Shader.Find(remapShader)) : new(Shader.Find(originalShader));
 				CopyMaterialProperties_Recursive(material, newMaterial);
 
 				// Ensure colours/textures set properly

@@ -1,6 +1,6 @@
 //
 // This file is part of the Tremble package by Tiny Goose.
-// Copyright (c) 2024-2025 TinyGoose Ltd., All Rights Reserved.
+// Copyright (c) 2024-2026 TinyGoose Ltd., All Rights Reserved.
 // This class based on BSP Map Tools for Unity by John Evans (evans3d512@gmail.com)
 //
 
@@ -50,13 +50,6 @@ namespace TinyGoose.Tremble.Editor
 			if (!Directory.Exists(TrembleConsts.BASEQ3_PATH))
 			{
 				ctx.LogImportWarning($"Can't import map {Path.GetFileName(ctx.assetPath)}. Please sync first.");
-				return;
-			}
-
-			// Check we have our Q3Map2 DLL
-			if (Q3Map2DllDownloaderWindow.OpenIfRequired())
-			{
-				ctx.LogImportError($"Can't import map {Path.GetFileName(ctx.assetPath)}. Please install Q3Map2 first.");
 				return;
 			}
 

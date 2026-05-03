@@ -1,6 +1,6 @@
 //
 // This file is part of the Tremble package by Tiny Goose.
-// Copyright (c) 2024-2025 TinyGoose Ltd., All Rights Reserved.
+// Copyright (c) 2024-2026 TinyGoose Ltd., All Rights Reserved.
 //
 
 using System;
@@ -93,7 +93,7 @@ namespace TinyGoose.Tremble.Editor
 
 				EditorGUI.showMixedValue = datas.Select(x => x.ExportMode).Distinct().Count() > 1;
 				{
-					int mode = (int)(data?.ExportMode ?? MaterialImportMode.MainTex);
+					int mode = (int)(data?.ExportMode ?? MaterialImportMode.FixedSize);
 					EditorGUI.BeginChangeCheck();
 					int newMode = EditorGUILayout.Popup("Render Mode", mode, Enum.GetNames(typeof(MaterialImportMode)), EditorStyles.miniPullDown);
 
@@ -106,61 +106,80 @@ namespace TinyGoose.Tremble.Editor
 					}
 				}
 
-				EditorGUILayout.BeginHorizontal();
+				if (datas.Any(x => x.ExportMode == MaterialImportMode.Dynamic))
 				{
-					EditorGUILayout.LabelField(new GUIContent
+					EditorGUILayout.BeginHorizontal();
 					{
-						text = "Resolution",
-						tooltip = "Override this to force the texture to render at a certain resolution."
-					}, GUILayout.MaxWidth(82));
-
-					EditorGUI.BeginChangeCheck();
-
-					GUIStyle miniLabel = EditorStyles.centeredGreyMiniLabel;
-					miniLabel.alignment = TextAnchor.MiddleRight;
-
-					EditorGUILayout.LabelField("Override", EditorStyles.centeredGreyMiniLabel);
-
-					bool overrideRes = EditorGUILayout.Toggle(data?.IsResolutionOverridden ?? false, GUILayout.MinWidth(0));
-					if (EditorGUI.EndChangeCheck())
-					{
-						foreach (Material mat in selectedMaterials)
+						EditorGUILayout.LabelField(new GUIContent
 						{
-							mat.SetMaterialResolutionOverridden( overrideRes);
-						}
-					}
+							text = "Resolution",
+							tooltip = "Override this to force the texture to render at a certain resolution."
+						}, GUILayout.MaxWidth(82));
 
-					string[] resolutionLabels = MaterialExportSizeUtils.Names;
-					using (new EditorGUI.DisabledScope(!data?.IsResolutionOverridden ?? true))
-					{
-						MaterialExportSize sizeX = data?.ResolutionX ?? MaterialExportSizeUtils.GetDefault();
-						MaterialExportSize sizeY = data?.ResolutionY ?? MaterialExportSizeUtils.GetDefault();
-
-						// X Resolution
 						EditorGUI.BeginChangeCheck();
-						sizeX = (MaterialExportSize)EditorGUILayout.Popup((int)sizeX, resolutionLabels, EditorStyles.miniPullDown);
+
+						GUIStyle miniLabel = EditorStyles.centeredGreyMiniLabel;
+						miniLabel.alignment = TextAnchor.MiddleRight;
+
+						EditorGUILayout.LabelField("Override", EditorStyles.centeredGreyMiniLabel);
+
+						bool overrideRes = EditorGUILayout.Toggle(data?.IsResolutionOverridden ?? false, GUILayout.MinWidth(0));
 						if (EditorGUI.EndChangeCheck())
 						{
 							foreach (Material mat in selectedMaterials)
 							{
-								mat.SetMaterialResolutionX(sizeX);
+								mat.SetMaterialResolutionOverridden(overrideRes);
 							}
 						}
 
-						// Y Resolution
-						EditorGUI.BeginChangeCheck();
-						sizeY = (MaterialExportSize)EditorGUILayout.Popup((int)sizeY, resolutionLabels, EditorStyles.miniPullDown);
-						if (EditorGUI.EndChangeCheck())
+						string[] resolutionLabels = MaterialExportSizeUtils.Names;
+						if (data?.IsResolutionOverridden ?? false)
 						{
-							foreach (Material mat in selectedMaterials)
+							MaterialExportSize sizeX = data?.ResolutionX ?? MaterialExportSizeUtils.GetDefault();
+							MaterialExportSize sizeY = data?.ResolutionY ?? MaterialExportSizeUtils.GetDefault();
+
+							// X Resolution
+							EditorGUI.BeginChangeCheck();
+							sizeX = (MaterialExportSize)EditorGUILayout.Popup((int)sizeX, resolutionLabels, EditorStyles.miniPullDown);
+							if (EditorGUI.EndChangeCheck())
 							{
-								mat.SetMaterialResolutionY(sizeY);
+								foreach (Material mat in selectedMaterials)
+								{
+									mat.SetMaterialResolutionX(sizeX);
+								}
+							}
+
+							GUI.contentColor = Color.gray;
+							GUILayout.Label(" x ");
+							GUI.contentColor = Color.white;
+
+							// Y Resolution
+							EditorGUI.BeginChangeCheck();
+							sizeY = (MaterialExportSize)EditorGUILayout.Popup((int)sizeY, resolutionLabels, EditorStyles.miniPullDown);
+							if (EditorGUI.EndChangeCheck())
+							{
+								foreach (Material mat in selectedMaterials)
+								{
+									mat.SetMaterialResolutionY(sizeY);
+								}
 							}
 						}
+						else
+						{
+							int[] widths = selectedMaterials.Select(m => m.mainTexture?.width ?? 0).Where(w => w > 0).Distinct().ToArray();
+							int[] heights = selectedMaterials.Select(m => m.mainTexture?.height ?? 0).Where(h => h > 0).Distinct().ToArray();
+
+							string widthStr = widths.Length > 0 ? widths[0].ToString() : "(multiple)";
+							string heightStr = heights.Length > 0 ? heights[0].ToString() : "(multiple)";
+
+							GUI.contentColor = Color.gray;
+							GUILayout.Label($"{widthStr} x {heightStr}");
+							GUI.contentColor = Color.white;
+						}
 					}
+					EditorGUILayout.EndHorizontal();
+					EditorGUI.indentLevel--;
 				}
-				EditorGUILayout.EndHorizontal();
-				EditorGUI.indentLevel--;
 			}
 			EditorGUILayout.EndFoldoutHeaderGroup();
 		}

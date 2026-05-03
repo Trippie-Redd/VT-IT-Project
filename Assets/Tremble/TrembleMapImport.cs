@@ -1,6 +1,6 @@
 //
 // This file is part of the Tremble package by Tiny Goose.
-// Copyright (c) 2024-2025 TinyGoose Ltd., All Rights Reserved.
+// Copyright (c) 2024-2026 TinyGoose Ltd., All Rights Reserved.
 // This class based on BSP Map Tools for Unity by John Evans (evans3d512@gmail.com)
 //
 
@@ -60,6 +60,7 @@ namespace TinyGoose.Tremble
 				{
 					Debug.LogError("Cannot get TrembleMapImportSettings when no import is in progress!");
 				}
+
 				return s_CurrentImportSettings;
 			}
 		}
@@ -140,10 +141,12 @@ namespace TinyGoose.Tremble
 				objs = null;
 				return false;
 			}
+
 			return m_EntityIDToGameObjects.TryGetValue(id, out objs);
 		}
 
 		public bool TryGetGameObjectForEntity(BspEntity entity, out GameObject obj) => m_SerialNumberToGameObject.TryGetValue(entity.SerialNumber, out obj);
+
 		public bool TryGetComponentForEntity<TComponent>(BspEntity entity, out TComponent component)
 			where TComponent : Component
 		{
@@ -599,7 +602,25 @@ namespace TinyGoose.Tremble
 						}
 					}
 
-					GameObject brush = m_MeshBuilder.BuildMesh(mapBsp, parentTransform, modelIdx, false, brushClass, false, modelCentre, false, inverseRotation);
+					// Allow configuring a smoothing angle per brush entity.
+					float smoothingAngle = m_ImportSettings.SmoothingAngle;
+					if (TrembleSyncSettings.Get().PipelineSmoothMeshNormals)
+					{
+						// By default the smoothing pipeline acts as "_phong=1"
+						// Allow the official terminology to override the smoothing angle
+						smoothingAngle = entity.GetFloat("_phong_angle", smoothingAngle);
+
+						// We allow inverted behaviour where users can write "_phong=0" to disable smoothing
+						if (entity.GetInt("_phong", 1) == 0)
+						{
+							smoothingAngle = 0f;
+						}
+					}
+
+					// Implement a "_static=1" flag for detail brush entities that need UV2
+					bool isStatic = entity.GetBoolean("_static", false);
+
+					GameObject brush = m_MeshBuilder.BuildMesh(mapBsp, parentTransform, modelIdx, false, brushClass, false, modelCentre, isStatic, inverseRotation, smoothingAngle);
 					if (!brush)
 					{
 						Debug.LogError($"Discarded brush entity of class {brushClass} due to its model being degenerate!");
@@ -834,6 +855,7 @@ namespace TinyGoose.Tremble
 		}
 
 		private readonly StringBuilder m_NameBuilder = new(128);
+
 		private void SetObjectName(GameObject root, GameObject go, BspEntity entity)
 		{
 			m_NameBuilder.Clear();
@@ -873,6 +895,7 @@ namespace TinyGoose.Tremble
 		}
 
 		private void SetTransformValuesFromEntity(GameObject instance, BspEntity entity) => SetTransformValuesFromEntity(instance, entity, Vector3.zero);
+
 		private void SetTransformValuesFromEntity(GameObject instance, BspEntity entity, Vector3 offset)
 		{
 			Transform instanceTransform = instance.transform;
@@ -945,6 +968,7 @@ namespace TinyGoose.Tremble
 			{
 				knownFieldNames.Insert(0, ta.OverrideName);
 			}
+
 			if (fsa != null)
 			{
 				knownFieldNames.Add(fsa.oldName.GetFieldNameInMap(m_SyncSettings.FieldNamingConvention));

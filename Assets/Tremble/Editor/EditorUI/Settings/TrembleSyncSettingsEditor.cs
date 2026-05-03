@@ -1,6 +1,6 @@
 //
 // This file is part of the Tremble package by Tiny Goose.
-// Copyright (c) 2024-2025 TinyGoose Ltd., All Rights Reserved.
+// Copyright (c) 2024-2026 TinyGoose Ltd., All Rights Reserved.
 //
 
 using System;
@@ -61,6 +61,7 @@ namespace TinyGoose.Tremble.Editor
 		private Vector2 m_ScrollPosition;
 
 		private GUIStyle m_TitleStyle;
+		private GUIStyle m_SubtitleStyle;
 		private GUIStyle m_PipelineTitleStyle;
 		private GUIStyle m_SmallTitleStyle;
 		private GUIStyle m_LeftAlignedSmallStyle;
@@ -101,15 +102,14 @@ namespace TinyGoose.Tremble.Editor
 				return;
 
 			m_TitleStyle ??= new(EditorStyles.boldLabel) { fontSize = EditorStyles.boldLabel.fontSize + 5 };
+			m_SubtitleStyle ??= new(EditorStyles.boldLabel) { fontSize = EditorStyles.boldLabel.fontSize + 2 };
 			m_PipelineTitleStyle ??= new(EditorStyles.boldLabel) { alignment = TextAnchor.MiddleCenter, fontSize = EditorStyles.boldLabel.fontSize + 2 };
 			m_SmallTitleStyle ??= new(EditorStyles.boldLabel) { fontSize = EditorStyles.boldLabel.fontSize + 3 };
 			m_LeftAlignedSmallStyle ??= new(EditorStyles.label) { fontSize = EditorStyles.label.fontSize - 2, alignment = TextAnchor.MiddleLeft };
 			m_RightAlignedSmallStyle ??= new(EditorStyles.label) { fontSize = EditorStyles.label.fontSize - 2, alignment = TextAnchor.MiddleRight};
 
-			bool isEmbedded = m_SettingsObject.FindBackedProperty(nameof(TrembleSyncSettings.EmbedTrembleSettingsInProjectSettings)).boolValue;
-
 			m_OriginalLabelWidth = EditorGUIUtility.labelWidth;
-			EditorGUIUtility.labelWidth = isEmbedded ? 275f : m_OriginalLabelWidth * 1.2f;
+			EditorGUIUtility.labelWidth = 275f;
 		}
 
 		public void ResetLabelWidth(bool onlyKeywordsCapture = false)
@@ -232,17 +232,6 @@ namespace TinyGoose.Tremble.Editor
 				"Thanks for buying Tremble!"
 			};
 			Label(String.Join('\n', acknowledgements), EditorStyles.wordWrappedMiniLabel);
-
-			Space(10f);
-
-			BeginHorizontal();
-			{
-				FlexibleSpace();
-
-				SerializedProperty expandedProp = m_SettingsObject.FindBackedProperty(nameof(TrembleSyncSettings.ShowExpanded));
-				expandedProp.boolValue = Toggle(expandedProp.boolValue, new("Show Inline Help", "Show help boxes for new users - disable to reduce clutter"));
-			}
-			EndHorizontal();
 		}
 		public void OnSettingsGUI(bool isEmbedded = false)
 		{
@@ -250,60 +239,53 @@ namespace TinyGoose.Tremble.Editor
 				helpText: "The default settings should be fine for most users.",
 				isEmbedded: isEmbedded);
 
-			Property(nameof(TrembleSyncSettings.AutoSyncOnCompile),
-				overrideLabel: "Automatic Sync",
-				off: "Manual sync only (from toolbar button)", on: "Sync to TrenchBroom whenever C# code changes");
+			Group("Sync", () =>
+			{
+				Property(nameof(TrembleSyncSettings.AutoSyncOnCompile),
+					overrideLabel: "Automatic Sync",
+					off: "Manual sync only (from toolbar button)", on: "Sync to TrenchBroom whenever C# code changes");
 
 #if !ADDRESSABLES_INSTALLED
-			UseDisabled(true, () =>
-			{
-#endif
-
-			Property(nameof(TrembleSyncSettings.AllowStandaloneImport),
-				overrideLabel: "User-Generated Content",
-				off: "Developer Only - Do not allow User-Generated Content", on: "Developer & Players - Allow import of User-Generated Content)",
-
-				extraContents: () =>
+				UseDisabled(true, () =>
 				{
-#if !ADDRESSABLES_INSTALLED
-					UseDisabled(false, () =>
-					{
-						UseColour(Color.red, ()=>
-						{
-							HelpBox("You must install 'Addressables' from the Unity Package Manager to use this setting!", MessageType.Error);
-						});
-					});
 #endif
-				}
-			);
+
+					Property(nameof(TrembleSyncSettings.AllowStandaloneImport),
+						overrideLabel: "User-Generated Content",
+						off: "Developer Only - Do not allow User-Generated Content", on: "Developer & Players - Allow import of User-Generated Content)",
+
+						extraContents: () =>
+						{
+#if !ADDRESSABLES_INSTALLED
+							UseDisabled(false, () => { UseColour(Color.red, () => { HelpBox("You must install 'Addressables' from the Unity Package Manager to use this setting!", MessageType.Error); }); });
+#endif
+						}
+					);
 
 #if !ADDRESSABLES_INSTALLED
+				});
+#endif
 			});
-#endif
 
-			Space(20f);
-
-			Property(nameof(TrembleSyncSettings.TrenchBroomVersion), overrideLabel: "TrenchBroom Version");
-
-			// Validate template map
-			GameObject defaultMapObject = (GameObject)m_SettingsObject.FindBackedProperty(nameof(TrembleSyncSettings.TemplateMap)).objectReferenceValue;
-			if (defaultMapObject && !defaultMapObject.TryGetComponent(out MapDocument _))
+			Group("Global Map Settings", () =>
 			{
-				Property(nameof(TrembleSyncSettings.TemplateMap),
-					extraContents: () =>
-					{
-						UseColour(new(1f, 0.4f, 0.4f), () =>
-						{
-							HelpBox($"{defaultMapObject.name} is NOT a valid map and will not be used!", MessageType.Error);
-						});
-					});
-			}
-			else
-			{
-				Property(nameof(TrembleSyncSettings.TemplateMap));
-			}
 
-			Property(nameof(TrembleSyncSettings.WorldspawnScript), overrideLabel: "Worldspawn Script Class");
+				Property(nameof(TrembleSyncSettings.TrenchBroomVersion), overrideLabel: "TrenchBroom Version");
+
+				// Validate template map
+				GameObject defaultMapObject = (GameObject)m_SettingsObject.FindBackedProperty(nameof(TrembleSyncSettings.TemplateMap)).objectReferenceValue;
+				if (defaultMapObject && !defaultMapObject.TryGetComponent(out MapDocument _))
+				{
+					Property(nameof(TrembleSyncSettings.TemplateMap),
+						extraContents: () => { UseColour(new(1f, 0.4f, 0.4f), () => { HelpBox($"{defaultMapObject.name} is NOT a valid map and will not be used!", MessageType.Error); }); });
+				}
+				else
+				{
+					Property(nameof(TrembleSyncSettings.TemplateMap));
+				}
+
+				Property(nameof(TrembleSyncSettings.WorldspawnScript), overrideLabel: "Worldspawn Script Class");
+			});
 		}
 
 		public void OnNamingConventionsGUI(bool isEmbedded = false)
@@ -314,18 +296,60 @@ namespace TinyGoose.Tremble.Editor
 				          "or use a more Unity-style convention.",
 				isEmbedded: isEmbedded);
 
-			Span<Color> pastelColours = stackalloc[]
-			{
-				new Color(1f, 0.6f, 0.6f),
-				new Color(1f, 1f, 0.6f),
-				new Color(0.6f, 1f, 0.6f),
-				new Color(0.6f, 0.8f, 1f),
+			Color[] pastelColours = {
+				new(1f, 0.6f, 0.6f),
+				new(1f, 1f, 0.6f),
+				new(0.6f, 1f, 0.6f),
+				new(0.6f, 0.8f, 1f),
 			};
 
-			UseColour(pastelColours[0], () => Property(nameof(TrembleSyncSettings.TypeNamingConvention), overrideLabel: "Entity Class Names"));
-			UseColour(pastelColours[1], () => Property(nameof(TrembleSyncSettings.FieldNamingConvention), overrideLabel: "Field Names"));
-			UseColour(pastelColours[2], () => Property(nameof(TrembleSyncSettings.SpawnFlagNamingConvention), overrideLabel: "Spawnflag Names", allowHumanFriendly: true));
-			UseColour(pastelColours[3], () => Property(nameof(TrembleSyncSettings.MaterialNamingConvention), overrideLabel: "Material Names", allowHumanFriendly: true));
+			string[] spawnflagsExamples = { "m_dangerousObject", "m_couldEatYou", "_scaryMode", "mightEmitSmoke" };
+			string suffix = m_SettingsObject.FindBackedProperty(nameof(TrembleSyncSettings.SpawnFlagNamingConvention)).enumValueIndex == (int)NamingConvention.HumanFriendly
+				? "?"
+				: "";
+
+			UseColour(pastelColours[0], () =>
+			{
+				string[] classExamples = m_PrefabNameLookup.AllPrefabPaths
+					.Take(2)
+					.Select(Path.GetFileNameWithoutExtension)
+					.Concat(m_MapTypeLookup.AllTypes.Take(2).Select(t => t.Name))
+					.ToArray();
+
+				Property(nameof(TrembleSyncSettings.TypeNamingConvention), overrideLabel: "Entity Class Names");
+				RenderNamingExamples(classExamples, nameof(TrembleSyncSettings.TypeNamingConvention));
+			});
+
+			Space(10f);
+
+			UseColour(pastelColours[1], () =>
+			{
+				string[] fieldsExamples = { "m_NumberOfEggs", "m_eggCount", "_eggs", "spawnEggs" };
+
+				Property(nameof(TrembleSyncSettings.FieldNamingConvention), overrideLabel: "Field Names");
+				RenderNamingExamples(fieldsExamples, nameof(TrembleSyncSettings.FieldNamingConvention));
+			});
+
+			Space(10f);
+
+			UseColour(pastelColours[2], () =>
+			{
+				Property(nameof(TrembleSyncSettings.SpawnFlagNamingConvention), overrideLabel: "Spawnflag Names", allowHumanFriendly: true);
+				RenderNamingExamples(spawnflagsExamples, nameof(TrembleSyncSettings.SpawnFlagNamingConvention), suffix: suffix);
+			});
+
+			Space(10f);
+
+			UseColour(pastelColours[3], () =>
+			{
+				string[] materialExamples = m_MaterialNameLookup.AllMaterialPaths
+					.Take(4)
+					.Select(Path.GetFileNameWithoutExtension)
+					.ToArray();
+
+				Property(nameof(TrembleSyncSettings.MaterialNamingConvention), overrideLabel: "Material Names", allowHumanFriendly: true);
+				RenderNamingExamples(materialExamples, nameof(TrembleSyncSettings.MaterialNamingConvention));
+			});
 
 			if (TrembleSyncSettings.Get().IsTrenchBroomVersionAtLeast(TrenchBroomVersion.VersionNext))
 			{
@@ -337,36 +361,6 @@ namespace TinyGoose.Tremble.Editor
 					? $"The name of the property used to identify entities (NOTE: you will need to manually change any of your maps that are still using '{m_OriginalIdentityProperty}' to use '{identityProperty}'!)"
 					: null);
 			}
-
-			Separator(2f);
-
-			// Examples
-			Title("Examples", helpText: "Here are some examples of how your settings might look:");
-
-			string[] classExamples = m_PrefabNameLookup.AllPrefabPaths
-				.Take(2)
-				.Select(Path.GetFileNameWithoutExtension)
-				.Concat(m_MapTypeLookup.AllTypes
-					.Take(2)
-					.Select(t => t.Name))
-				.ToArray();
-
-			string[] fieldsExamples = { "m_NumberOfEggs", "m_eggCount", "_eggs", "spawnEggs" };
-
-			string[] spawnflagsExamples = { "m_dangerousObject", "m_couldEatYou", "_scaryMode", "mightEmitSmoke" };
-			string suffix = m_SettingsObject.FindBackedProperty(nameof(TrembleSyncSettings.SpawnFlagNamingConvention)).enumValueIndex == (int)NamingConvention.HumanFriendly
-				? "?"
-				: "";
-
-			string[] materialExamples = m_MaterialNameLookup.AllMaterialPaths
-				.Take(4)
-				.Select(Path.GetFileNameWithoutExtension)
-				.ToArray();
-
-			UseColour(pastelColours[0], () => RenderNamingExamples("Entity Classes", classExamples, nameof(TrembleSyncSettings.TypeNamingConvention)));
-			UseColour(pastelColours[1], () => RenderNamingExamples("Fields/Properties", fieldsExamples, nameof(TrembleSyncSettings.FieldNamingConvention)));
-			UseColour(pastelColours[2], () => RenderNamingExamples("Spawnflags Variables", spawnflagsExamples, nameof(TrembleSyncSettings.SpawnFlagNamingConvention), suffix: suffix));
-			UseColour(pastelColours[3], () => RenderNamingExamples("Materials", materialExamples, nameof(TrembleSyncSettings.MaterialNamingConvention)));
 		}
 
 
@@ -671,19 +665,6 @@ namespace TinyGoose.Tremble.Editor
 				}
 			);
 
-			Property(nameof(TrembleSyncSettings.EmbedTrembleSettingsInProjectSettings),
-				off: "Show Tremble settings as a separate window (legacy)", on: "Embed Tremble's settings into Project Settings",
-				onChanged: () =>
-				{
-					TrembleSyncSettingsWindow window = EditorWindow.GetWindow<TrembleSyncSettingsWindow>();
-					if (window)
-					{
-						window.Close();
-					}
-
-					TrembleEditorAPI.OpenSettings();
-				});
-
 			Property(nameof(TrembleSyncSettings.AutomaticallyReimportWhenDependencyChanges),
 				overrideLabel: "Automatic Map Re-Import",
 				off: "Don't re-import, just show out of date icons", on: "Re-import maps when Prefabs or Materials inside are changed");
@@ -709,69 +690,78 @@ namespace TinyGoose.Tremble.Editor
 		}
 		public void OnAdvancedGUI_SyncImport()
 		{
-			Property(nameof(TrembleSyncSettings.AlwaysPackBoolsIntoSpawnFlags),
-				overrideLabel: "Boolean Fields",
-				off: "Expose bool fields as separate booleans", on: "Pack all bool fields into spawnflags");
+			Group("Fields", () =>
+			{
+				Property(nameof(TrembleSyncSettings.AlwaysPackBoolsIntoSpawnFlags),
+					overrideLabel: "Boolean Fields",
+					off: "Expose bool fields as separate booleans", on: "Pack all bool fields into spawnflags");
 
-			Property(nameof(TrembleSyncSettings.SyncEnumsAsStringValue),
-				overrideLabel: "Enum Fields",
-				off: "Store enums as integers", on: "Store enums as strings");
+				Property(nameof(TrembleSyncSettings.SyncEnumsAsStringValue),
+					overrideLabel: "Enum Fields",
+					off: "Store enums as integers", on: "Store enums as strings");
 
-			Property(nameof(TrembleSyncSettings.SyncMaterialsAndPrefabs),
-				overrideLabel: "Material & Prefab Fields",
-				off: "Don't expose Material & Prefab fields", on: "Expose Material & Prefab fields");
+				Property(nameof(TrembleSyncSettings.SyncMaterialsAndPrefabs),
+					overrideLabel: "Material & Prefab Fields",
+					off: "Don't expose Material & Prefab fields", on: "Expose Material & Prefab fields");
 
-			Property(nameof(TrembleSyncSettings.SyncSerializedFields),
-				overrideLabel: "Other Serialised Fields",
-				off: "Only expose fields explicitly marked with [Tremble]", on: "Expose all [SerializedField] and public fields");
+				Property(nameof(TrembleSyncSettings.SyncSerializedFields),
+					overrideLabel: "Other Serialised Fields",
+					off: "Only expose fields explicitly marked with [Tremble]", on: "Expose all [SerializedField] and public fields");
+			});
 
-			Space(20f);
+			Group("Layers/Groups", () =>
+			{
+				Property(nameof(TrembleSyncSettings.DiscardMapGroups),
+					overrideLabel: "Map Groups",
+					off: "Preserve layers & groups from the map", on: "Flatten layers & groups");
+			});
 
-			Property(nameof(TrembleSyncSettings.DiscardMapGroups),
-				overrideLabel: "Map Groups",
-				off: "Preserve layers & groups from the map", on: "Flatten layers & groups");
+			Group("Worldspawn Settings", () =>
+			{
+				Property(nameof(TrembleSyncSettings.WorldspawnLayer),
+					displayAsLayerMask: true,
+					overrideLabel: "Worldspawn Layer");
 
-			Space(20f);
+				Property(nameof(TrembleSyncSettings.MainMeshName),
+					overrideLabel: "Worldspawn GameObject Name");
+			});
 
-			Property(nameof(TrembleSyncSettings.WorldspawnLayer),
-				displayAsLayerMask: true,
-				overrideLabel: "Worldspawn Layer");
+			Group("Quake® Compatibility", () =>
+			{
+				Property(nameof(TrembleSyncSettings.UseClassicQuakeCulling),
+					off: "Prevent entire map culling, even with no point entities (Tremble)",
+					on: "Cull areas inaccessible by point entities, including exteriors (Quake®) - Entire map is culled without point entities!");
+			});
 
-			Property(nameof(TrembleSyncSettings.MainMeshName),
-				overrideLabel: "Worldspawn GameObject Name");
+			Group("Other Settings", () =>
+			{
+				Property(nameof(TrembleSyncSettings.AutoDeleteMapBackups),
+					overrideLabel: "TrenchBroom Autosaves",
+					off: "Allow TrenchBroom to create autosave backup files inside your project", on: "Remove TrenchBroom's autosave backup files from your project");
 
-			Property(nameof(TrembleSyncSettings.UseClassicQuakeCulling),
-				off: "(Tremble Default) Prevent entire map culling, even with no point entities",
-				on: "Cull areas inaccessible by point entities, including exteriors. Entire map is culled without point entities!");
-
-			Space(20f);
-
-			Property(nameof(TrembleSyncSettings.AutoDeleteMapBackups),
-				overrideLabel: "TrenchBroom Autosaves",
-				off: "Allow TrenchBroom to create autosave backup files inside your project", on: "Remove TrenchBroom's autosave backup files from your project");
-
-			Property(nameof(TrembleSyncSettings.ExtraCommandLineArgs),
-				overrideLabel: "Extra Command Line Args for Q3Map2");
+				Property(nameof(TrembleSyncSettings.ExtraCommandLineArgs),
+					overrideLabel: "Extra Command Line Args for Q3Map2");
+			});
 		}
 		public void OnAdvancedGUI_Materials()
 		{
-			Label("Use these sliders to control how Tremble renders your Unity materials " +
-			                "into textures for TrenchBroom. This can fix 'blown-out' or dimly-lit " +
-			                "texture appearance in TrenchBroom.", EditorStyles.wordWrappedLabel);
+			Group("Texture Export", () =>
+			{
+				Label("Use these sliders to control how Tremble renders your Unity materials " +
+				      "into textures for TrenchBroom. This can fix 'blown-out' or dimly-lit " +
+				      "texture appearance in TrenchBroom.", EditorStyles.wordWrappedLabel);
 
-			Space(10f);
+				Space(10f);
 
-			Property(nameof(TrembleSyncSettings.MaterialCaptureLightIntensity), onChanged: TrembleEditorAPI.InvalidateMaterialAndPrefabCache);
-			Property(nameof(TrembleSyncSettings.MaterialCaptureLightAngle), onChanged: TrembleEditorAPI.InvalidateMaterialAndPrefabCache);
+				Property(nameof(TrembleSyncSettings.MaterialCaptureLightIntensity), onChanged: TrembleEditorAPI.InvalidateMaterialAndPrefabCache);
+				Property(nameof(TrembleSyncSettings.MaterialCaptureLightAngle), onChanged: TrembleEditorAPI.InvalidateMaterialAndPrefabCache);
+			});
 
-			Space(20f);
-
-			Label("These settings control advanced material settings.");
-
-			Space(10f);
-
-			Property(nameof(TrembleSyncSettings.MaterialExportSize), onChanged: TrembleEditorAPI.InvalidateMaterialAndPrefabCache);
-			Property(nameof(TrembleSyncSettings.ExportClipSkipTextures));
+			Group("Advanced Material Settings", () =>
+			{
+				Property(nameof(TrembleSyncSettings.MaterialExportSize), onChanged: TrembleEditorAPI.InvalidateMaterialAndPrefabCache);
+				Property(nameof(TrembleSyncSettings.ExportClipSkipTextures));
+			});
 		}
 		public void OnAdvancedGUI_ImportScale()
 		{
@@ -822,39 +812,48 @@ namespace TinyGoose.Tremble.Editor
 
 			Space(20f);
 		}
-
-		private void RenderNamingExamples(string title, string[] examples, string namingConventionPropName, string suffix = "")
+		private void Subtitle(string title)
 		{
-			Space(2f);
-			Label(title);
+			Space(10f);
+			Label(title, m_SubtitleStyle);
 
-			Indent(() =>
+			Space(10f);
+		}
+
+		private void Group(string title, Action inside)
+		{
+			Subtitle(title);
+			inside();
+			Space(5f);
+			Separator();
+			Space(5f);
+		}
+
+		private void RenderNamingExamples(string[] examples, string namingConventionPropName, string suffix = "")
+		{
+			if (examples.Length == 0)
 			{
-				if (examples.Length == 0)
-				{
-					Label("No examples found in your project!");
-				}
-				else
-				{
-					NamingConvention naming = (NamingConvention)m_SettingsObject.FindBackedProperty(namingConventionPropName).enumValueIndex;
+				Label("No examples found in your project!");
+			}
+			else
+			{
+				NamingConvention naming = (NamingConvention)m_SettingsObject.FindBackedProperty(namingConventionPropName).enumValueIndex;
 
-					foreach (string example in examples)
+				foreach (string example in examples)
+				{
+					string rawExample = naming == NamingConvention.PreserveExact
+						? example
+						: RemovePrefixes(example, "M_", "P_", "m_", "_");
+
+					BeginHorizontal(GUILayout.ExpandWidth(true));
 					{
-						string rawExample = naming == NamingConvention.PreserveExact
-							? example
-							: RemovePrefixes(example, "M_", "P_", "m_", "_");
-
-						BeginHorizontal();
-						{
-							Space(30f);
-							Label($"(Unity) '{example}'", m_RightAlignedSmallStyle, GUILayout.Width(100f), GUILayout.ExpandWidth(true));
-							Label("->", EditorStyles.centeredGreyMiniLabel, GUILayout.Width(40f));
-							Label($"'{rawExample.ToNamingConvention(naming)}{suffix}' (TrenchBroom)", m_LeftAlignedSmallStyle, GUILayout.Width(100f), GUILayout.ExpandWidth(true));
-						}
-						EndHorizontal();
+						Label($"(Unity) '{example}'", m_RightAlignedSmallStyle, GUILayout.Width(100f), GUILayout.ExpandWidth(true));
+						Label("->", EditorStyles.centeredGreyMiniLabel, GUILayout.Width(40f));
+						Label($"'{rawExample.ToNamingConvention(naming)}{suffix}' (TrenchBroom)", m_LeftAlignedSmallStyle, GUILayout.Width(100f), GUILayout.ExpandWidth(true));
 					}
+					EndHorizontal();
 				}
-			});
+			}
 		}
 
 		private string RemovePrefix(string input, string prefix) => input.StartsWith(prefix) ? input.Substring(prefix.Length) : input;
@@ -875,8 +874,6 @@ namespace TinyGoose.Tremble.Editor
 			string on = null, string off = null,
 			bool displayVertically = false, bool displayAsLayerMask = false)
 		{
-			bool isExpanded = m_SettingsObject.FindBackedProperty(nameof(TrembleSyncSettings.ShowExpanded)).boolValue;
-
 			SerializedProperty sp = m_SettingsObject.FindBackedProperty(propertyName);
 			SerializedProperty defaultProp = DefaultObject.FindBackedProperty(propertyName);
 			uint oldValueHash = sp.GetHashOfContent();
@@ -1002,15 +999,6 @@ namespace TinyGoose.Tremble.Editor
 				}
 			}
 
-			// Draw help boxes if in beginner mode
-			if (isExpanded && !useTooltip.IsNullOrEmpty())
-			{
-				BeginHorizontal();
-				Space(EditorGUIUtility.labelWidth + 20f + 5f); // 20f = reset button
-				Label(useTooltip, EditorStyles.helpBox);
-				EndHorizontal();
-			}
-
 			// Extra contents, if any
 			extraContents?.Invoke();
 
@@ -1023,7 +1011,7 @@ namespace TinyGoose.Tremble.Editor
 			}
 
 			// Spacing
-			Space(isExpanded ? 15f : 5f);
+			Space(5f);
 		}
 
 		private void AddResetButton(bool isDefault, Action setDefault)

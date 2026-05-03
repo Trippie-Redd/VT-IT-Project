@@ -1,6 +1,6 @@
 //
 // This file is part of the Tremble package by Tiny Goose.
-// Copyright (c) 2024-2025 TinyGoose Ltd., All Rights Reserved.
+// Copyright (c) 2024-2026 TinyGoose Ltd., All Rights Reserved.
 //
 
 using System;
@@ -119,6 +119,6 @@ namespace TinyGoose.Tremble
 		}
 
 		public override void WriteCSharpInterface(StreamWriter sw, int indent)
-			=> WriteInterfaceProperty(sw, indent, nameof(Vector3), Name, Description);
+			=> WriteInterfaceProperty(sw, indent, EnumClassName, Name, Description);
 	}
 }

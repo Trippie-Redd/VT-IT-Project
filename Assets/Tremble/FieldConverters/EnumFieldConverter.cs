@@ -1,6 +1,6 @@
 //
 // This file is part of the Tremble package by Tiny Goose.
-// Copyright (c) 2024-2025 TinyGoose Ltd., All Rights Reserved.
+// Copyright (c) 2024-2026 TinyGoose Ltd., All Rights Reserved.
 //
 
 using System;
@@ -72,13 +72,27 @@ namespace TinyGoose.Tremble
 		{
 			string tooltip = target.GetCustomAttribute<TooltipAttribute>()?.tooltip;
 
-			entityClass.AddField(new FgdEnumField
+			bool isFlags = target.GetFieldOrPropertyTypeOrElementType().GetCustomAttribute<FlagsAttribute>() != null;
+
+			if (isFlags)
 			{
-				EnumClassName = target.GetFieldOrPropertyTypeOrElementType().FullName,
-				Name = fieldName,
-				Description = tooltip ?? $"{target.GetFieldOrPropertyTypeOrElementType()} {target.Name}",
-				DefaultValue = defaultValue == null ? 0 : (int)defaultValue
-			});
+				entityClass.AddField(new FgdFlagsField
+				{
+					EnumClassName = target.GetFieldOrPropertyTypeOrElementType().FullName,
+					Name = fieldName,
+					Description = tooltip ?? $"{target.GetFieldOrPropertyTypeOrElementType()} {target.Name}",
+				});
+			}
+			else
+			{
+				entityClass.AddField(new FgdEnumField
+				{
+					EnumClassName = target.GetFieldOrPropertyTypeOrElementType().FullName,
+					Name = fieldName,
+					Description = tooltip ?? $"{target.GetFieldOrPropertyTypeOrElementType()} {target.Name}",
+					DefaultValue = defaultValue == null ? 0 : (int)defaultValue
+				});
+			}
 		}
 	}
 }

@@ -1,6 +1,6 @@
 // 
 // This file is part of the Tremble package by Tiny Goose.
-// Copyright (c) 2024-2025 TinyGoose Ltd., All Rights Reserved.
+// Copyright (c) 2024-2026 TinyGoose Ltd., All Rights Reserved.
 //
 
 using System;
@@ -96,10 +96,10 @@ namespace TinyGoose.Tremble
 			}
 		}
 
-		public GameObject BuildMesh(MapBsp mapBsp, Transform parent, int sourceID, bool isBspRoot, string modelName, bool isFromNode, Vector3 origin, bool isStatic, Quaternion? rotation = null)
+		public GameObject BuildMesh(MapBsp mapBsp, Transform parent, int sourceID, bool isBspRoot, string modelName, bool isFromNode, Vector3 origin, bool isStatic, Quaternion? rotation = null, float smoothingAngleOverride = -1f)
 		{
 			// Thank you again John Evans. This method would have been awful to figure out by myself!
-		
+
 			// Collect face indices
 			m_FaceIndicesBuffer.Clear();
 			if (isFromNode)
@@ -136,7 +136,7 @@ namespace TinyGoose.Tremble
 				for (int faceVertIdx = face.MeshVertexStartIdx; faceVertIdx < face.MeshVertexStartIdx + face.NumMeshVertices; faceVertIdx++)
 				{
 					int baseIdx = face.VertexStartIdx + mapBsp.MeshVertices[faceVertIdx];
-					
+
 					// Find or add a vertex to this mesh
 					int localVertIndex = FindOrAddVertexForBaseIndex(baseIdx, mapBsp, origin, rotation);
 					AddVertexToSubmeshWithTexID(m_MeshSubmeshesBuffer, face.TexID, localVertIndex);
@@ -170,7 +170,12 @@ namespace TinyGoose.Tremble
 			}
 
 			// Create Unity mesh
-			Mesh mesh = CreateUnityMesh(isBspRoot, ref modelName, m_MeshVerticesBuffer, m_MeshSubmeshesBuffer);
+			Mesh mesh = CreateUnityMesh(isBspRoot, ref modelName, m_MeshVerticesBuffer, m_MeshSubmeshesBuffer, smoothingAngleOverride);
+
+			bool isTinyMesh = mesh.triangles.Length == 0 || Mathf.Max(mesh.bounds.extents.x, mesh.bounds.extents.y, mesh.bounds.extents.z) < 0.1f;
+			if (isTinyMesh)
+				return null;
+
 			m_ImportSettings.SaveObjectInMap(mesh.name, mesh);
 
 			// Create model GameObject and attach mesh
@@ -178,34 +183,30 @@ namespace TinyGoose.Tremble
 			modelObject.transform.parent = parent;
 			modelObject.transform.position = origin;
 			modelObject.AddComponent<MeshFilter>().mesh = mesh;
-
 			modelObject.AddComponent<MeshRenderer>().sharedMaterials = meshMaterials.ToArray();
 
-			bool isTinyMesh = mesh.triangles.Length == 0 || Mathf.Max(mesh.bounds.extents.x, mesh.bounds.extents.y, mesh.bounds.extents.z) < 0.1f;
 			TrembleSyncSettings syncSettings = TrembleSyncSettings.Get();
 
 			// Generate mesh collider
-			if (!isTinyMesh)
+			Mesh collisionMesh;
+			if (syncSettings.PipelineSimplifyCollisionMeshes)
 			{
-				Mesh collisionMesh;
-				if (syncSettings.PipelineSimplifyCollisionMeshes)
-				{
-					using TrembleTimerScope _ = new(TrembleTimer.Context.SimplifyCollisionMeshes);
-					collisionMesh = GenerateSimplifiedUnityCollisionMesh(mesh);
-				}
-				else
-				{
-					collisionMesh = Mesh.Instantiate(mesh);
-				}
-
-				collisionMesh.name = mesh.name.Replace("_mesh", "_collision");
-
-				m_ImportSettings.SaveObjectInMap(collisionMesh.name, collisionMesh);
-				modelObject.AddComponent<MeshCollider>().sharedMesh = collisionMesh;
+				using TrembleTimerScope _ = new(TrembleTimer.Context.SimplifyCollisionMeshes);
+				collisionMesh = GenerateSimplifiedUnityCollisionMesh(mesh);
 			}
+			else
+			{
+				collisionMesh = Mesh.Instantiate(mesh);
+			}
+
+			collisionMesh.name = mesh.name.Replace("_mesh", "_collision");
+
+			m_ImportSettings.SaveObjectInMap(collisionMesh.name, collisionMesh);
+			modelObject.AddComponent<MeshCollider>().sharedMesh = collisionMesh;
+
 			// Calculate lightmap UVs
 #if UNITY_EDITOR
-			if (isStatic && syncSettings.PipelineUnwrapUV2 && !isTinyMesh)
+			if (isStatic && syncSettings.PipelineUnwrapUV2)
 			{
 				using TrembleTimerScope _ = new(TrembleTimer.Context.GenerateUV2);
 				Unwrapping.GenerateSecondaryUVSet(mesh, new()
@@ -222,7 +223,7 @@ namespace TinyGoose.Tremble
 			return modelObject;
 		}
 
-		private Mesh CreateUnityMesh(bool isBspRoot, ref string modelName, List<BspMeshVertex> meshVertices, List<BspSubMesh> meshSubmeshes)
+		private Mesh CreateUnityMesh(bool isBspRoot, ref string modelName, List<BspMeshVertex> meshVertices, List<BspSubMesh> meshSubmeshes, float smoothingAngleOverride)
 		{
 			IndexFormat meshFormat = IndexFormat.UInt16;
 			foreach (BspSubMesh submesh in meshSubmeshes)
@@ -242,16 +243,16 @@ namespace TinyGoose.Tremble
 				subMeshCount = meshSubmeshes.Count,
 				vertices = meshVertices.Select(mv => mv.Position).ToArray(),
 				normals = meshVertices.Select(mv => mv.Normal).ToArray(),
-				uv = meshVertices.Select(mv => mv.UV).ToArray()
+				uv = meshVertices.Select(mv => mv.UV).ToArray(),
 			};
-			
+
 			for (int i = 0; i < meshSubmeshes.Count; i++)
 			{
 				mesh.SetTriangles(meshSubmeshes[i].Triangles.ToArray(), i);
 			}
 			mesh.RecalculateBounds();
 			mesh.RecalculateTangents();
-			
+
 			// Name the mesh
 			if (isBspRoot)
 			{
@@ -263,11 +264,15 @@ namespace TinyGoose.Tremble
 				mesh.name = $"{modelName}_{++m_MeshCounter}_mesh";
 			}
 
+			float smoothingAngle = m_SmoothingAngle;
+			if (smoothingAngleOverride >= 0f)
+				smoothingAngle = smoothingAngleOverride;
+
 			// Smooth out normals if required
-			if (m_SmoothingAngle > 0 && TrembleSyncSettings.Get().PipelineSmoothMeshNormals)
+			if (smoothingAngle > 0 && TrembleSyncSettings.Get().PipelineSmoothMeshNormals)
 			{
 				using TrembleTimerScope _ = new(TrembleTimer.Context.SmoothMeshNormals);
-				SmoothMeshNormals(mesh, m_SmoothingAngle);
+				SmoothMeshNormals(mesh, smoothingAngle);
 			}
 
 			return mesh;
@@ -383,7 +388,7 @@ namespace TinyGoose.Tremble
 		
 		private static Mesh GenerateSimplifiedUnityCollisionMesh(Mesh inputMesh, float threshold = 0.01f)
 		{
-			Mesh outputMesh = new() { name = inputMesh.name };
+			Mesh outputMesh = new() { name = inputMesh.name};
 
 			Vector3[] inputVertices = inputMesh.vertices;
 			int inputVertexCount = inputMesh.vertexCount;

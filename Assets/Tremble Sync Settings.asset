@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a88c8a3ff11450b94453ed26fba8f5c, type: 3}
   m_Name: Tremble Sync Settings
   m_EditorClassIdentifier: TinyGoose.Tremble::TinyGoose.Tremble.TrembleSyncSettings
-  m_ShowExpanded: 1
   m_AutoSyncOnCompile: 1
   m_AllowStandaloneImport: 0
   m_TrenchBroomVersion: 3
@@ -31,6 +30,12 @@ MonoBehaviour:
     - {fileID: 2100000, guid: 7d3123fd8a8bc0b4a96570973c7760d5, type: 2}
     - {fileID: 2100000, guid: 50948239ed72541719c2ed383664d12f, type: 2}
     - {fileID: 2100000, guid: f669396623d6f0ec4a9a2b0f4b53dd1a, type: 2}
+    - {fileID: 2100000, guid: a161519912d5c2c77bb3a20a3268631e, type: 2}
+    - {fileID: 2100000, guid: b2101260370a60f4d90cb563ed514fd3, type: 2}
+    - {fileID: 2100000, guid: 1c2d685df4551c685a2365beca142255, type: 2}
+    - {fileID: 2100000, guid: 1b1f00bffd215f304a3f33ccf396d031, type: 2}
+    - {fileID: 2100000, guid: b0f59cd05885ec4c99a451a8ac81db51, type: 2}
+    - {fileID: 2100000, guid: d403e99138ccb661281b88637eeb281f, type: 2}
   m_MaterialRenderData:
   - m_Material: {fileID: 2100000, guid: 3f1c092690d8f42b88ea7f2abef724db, type: 2}
     m_ExportMode: 1
@@ -848,6 +853,108 @@ MonoBehaviour:
     m_ResolutionX: 2
     m_ResolutionY: 2
     m_Dirty: 0
+  - m_Material: {fileID: 9152396224850093644, guid: b077258ccb6173343888e5df26be5d55, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 9152396224850093644, guid: 5cc0f38171e3c204bbceba2b061270ed, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -7687327065827259800, guid: 9223a929f8e7a504eb65dad411be677d, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 12044595783041190, guid: 073cd44c66f05e64bb9c5c697694dc38, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 2842735010409588573, guid: 8b63ebb67a876594e95f5b5035fbc176, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 2100000, guid: 4fe6410cf2dcf5f4cbc39a7a0be3a664, type: 2}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 2100000, guid: 1ddfbcffa6b55be4ebc8de21ceb8f090, type: 2}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 2100000, guid: 4027add27f304b047bdd5f6d45736bba, type: 2}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -1889434912452181271, guid: 0c36f27024d0db944864518ba42af863, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 2100000, guid: e9e51b0c26ea86c43b4a5219343ae214, type: 2}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 2100000, guid: 7e743db6d53a2864691ec4709d7a320c, type: 2}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 3743947089398870447, guid: 001efe176c789664abfc5006d00f8d37, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -5900466665640947601, guid: 169599de5232fb243b607327d42c5a16, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -8243032572913293192, guid: e59ca07e9b128e346a95c5aa37e1777a, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: -6824620026053660420, guid: 7b15d41a8ae7f3b498272ed2411cbea3, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 2100000, guid: b2101260370a60f4d90cb563ed514fd3, type: 2}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 2100000, guid: 1c2d685df4551c685a2365beca142255, type: 2}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
   m_PipelineSplitMesh: 1
   m_PipelineSmoothMeshNormals: 1
   m_PipelineSimplifyCollisionMeshes: 1
@@ -856,12 +963,11 @@ MonoBehaviour:
   m_MapProcessors: []
   m_LogOnImportAndSync: 0
   m_UseLiveUpdate: 1
-  m_AutomaticallyReimportWhenDependencyChanges: 1
+  m_AutomaticallyReimportWhenDependencyChanges: 0
   m_EntityIconStyle: 1
   m_PrefabOverrideHandling: 2
   m_UseClassicQuakeCulling: 0
   m_Q3Map2ResultDisplayType: 2
-  m_EmbedTrembleSettingsInProjectSettings: 1
   m_FgdFormattingStyle: 1
   m_SubdivideAllLeafs: 0
   m_AlwaysPackBoolsIntoSpawnFlags: 1
@@ -891,22 +997,6 @@ MonoBehaviour:
     Path: Assets/Prefabs/Buildings/garages_block_hr_1.prefab
     FullTypeName: UnityEngine.GameObject
     SpawnOffset: {x: -0, y: -2.1500015, z: 0.20000029}
-  - MapName: Buildings_pine_tree_n_1_4
-    Path: Assets/Prefabs/Buildings/pine_tree_n_1_4.prefab
-    FullTypeName: UnityEngine.GameObject
-    SpawnOffset: {x: -0.039144933, y: -2.2937648, z: 0.026190162}
-  - MapName: Buildings_pine_tree_n_2_1
-    Path: Assets/Prefabs/Buildings/pine_tree_n_2_1.prefab
-    FullTypeName: UnityEngine.GameObject
-    SpawnOffset: {x: 0.03352189, y: -4.5511203, z: 0.038926482}
-  - MapName: Buildings_pine_tree_n_2_2
-    Path: Assets/Prefabs/Buildings/pine_tree_n_2_2.prefab
-    FullTypeName: UnityEngine.GameObject
-    SpawnOffset: {x: -0.012165666, y: -4.0960083, z: 0.023163676}
-  - MapName: Buildings_pine_tree_n_2_3
-    Path: Assets/Prefabs/Buildings/pine_tree_n_2_3.prefab
-    FullTypeName: UnityEngine.GameObject
-    SpawnOffset: {x: -0.00578928, y: -2.8672059, z: 0.016775012}
   - MapName: buildings_shed_ax_1
     Path: Assets/Prefabs/Buildings/shed_ax_1.prefab
     FullTypeName: UnityEngine.GameObject
@@ -935,42 +1025,118 @@ MonoBehaviour:
     Path: Assets/Prefabs/Buildings/warehouse_mx_4_1.prefab
     FullTypeName: UnityEngine.GameObject
     SpawnOffset: {x: -1.8000019, y: -4.4349995, z: -0}
-  - MapName: nature_grass_1
-    Path: Assets/Prefabs/grass_1.prefab
+  - MapName: misc_bricks_stacked_mx_4_0
+    Path: Assets/Prefabs/Debris & Misc/bricks_stacked_mx_4_0.prefab
     FullTypeName: UnityEngine.GameObject
-    SpawnOffset: {x: -0, y: -0.3269357, z: -0.000000029802322}
-  - MapName: prefab_lamp_mx_2_on
-    Path: Assets/Prefabs/lamp_mx_2_on.prefab
+    SpawnOffset: {x: -0.032294065, y: -0.13499999, z: 0.010758534}
+  - MapName: misc_debris_bricks_mx_1_0
+    Path: Assets/Prefabs/Debris & Misc/debris_bricks_mx_1_0.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: 0.001072228, y: -0.035057537, z: -0.022418678}
+  - MapName: misc_gravel_pile_hr_1
+    Path: Assets/Prefabs/Debris & Misc/gravel_pile_hr_1.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: 0.0933069, y: -0.12833852, z: -0.16093525}
+  - MapName: misc_gravel_pile_hr_2
+    Path: Assets/Prefabs/Debris & Misc/gravel_pile_hr_2.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: -0.012873948, y: -0.1395596, z: -0.091234505}
+  - MapName: items_flashlight_mp_1
+    Path: Assets/Prefabs/Items & Weapons/flashlight_mp_1.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: 0.0050169826, y: -0.038337294, z: -0}
+  - MapName: lights_flashlight_light
+    Path: Assets/Prefabs/Lights/flashlight_light.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: -0, y: -0, z: -0}
+  - MapName: lights_lamp_mx_2_on
+    Path: Assets/Prefabs/Lights/lamp_mx_2_on.prefab
     FullTypeName: UnityEngine.GameObject
     SpawnOffset: {x: -0, y: 0.12322295, z: -0.18400005}
-  - MapName: Buildings_mushroom_n_1
-    Path: Assets/Prefabs/mushroom_n_1.prefab
+  - MapName: nature_fern_1
+    Path: Assets/Prefabs/Nature/fern_1.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: -0.010246336, y: -0.53252494, z: 0.027414262}
+  - MapName: nature_grass_1
+    Path: Assets/Prefabs/Nature/grass_1.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: -0, y: -0.3269357, z: -0.000000029802322}
+  - MapName: nature_grass_2
+    Path: Assets/Prefabs/Nature/grass_2.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: 0.028411627, y: -0.46000004, z: -0.019969374}
+  - MapName: nature_grass_4
+    Path: Assets/Prefabs/Nature/grass_4.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: -0, y: -0.22371215, z: 0.02639854}
+  - MapName: nature_mushroom_n_1
+    Path: Assets/Prefabs/Nature/mushroom_n_1.prefab
     FullTypeName: UnityEngine.GameObject
     SpawnOffset: {x: 0.00018461049, y: -0.14398669, z: -0.00022003055}
-  - MapName: Buildings_mushroom_n_1_0
-    Path: Assets/Prefabs/mushroom_n_1_0.prefab
+  - MapName: nature_mushroom_n_1_0
+    Path: Assets/Prefabs/Nature/mushroom_n_1_0.prefab
     FullTypeName: UnityEngine.GameObject
     SpawnOffset: {x: 0.00027690828, y: -0.21598002, z: -0.00033004582}
+  - MapName: nature_mushroom_n_2_1
+    Path: Assets/Prefabs/Nature/mushroom_n_2_1.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: -0.00020063668, y: -0.10986473, z: -0.000000014901161}
+  - MapName: nature_pine_tree_n_1
+    Path: Assets/Prefabs/Nature/pine_tree_n_1.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: -0.08628774, y: -5.0568004, z: 0.05773437}
+  - MapName: nature_pine_tree_n_1_4
+    Path: Assets/Prefabs/Nature/pine_tree_n_1_4.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: -0.039144933, y: -2.2937648, z: 0.026190162}
+  - MapName: nature_pine_tree_n_2_1
+    Path: Assets/Prefabs/Nature/pine_tree_n_2_1.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: -0.0776608, y: -4.5511203, z: 0.051962495}
+  - MapName: nature_pine_tree_n_2_2
+    Path: Assets/Prefabs/Nature/pine_tree_n_2_2.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: -0.06989646, y: -4.0960083, z: 0.046766758}
+  - MapName: nature_pine_tree_n_2_3
+    Path: Assets/Prefabs/Nature/pine_tree_n_2_3.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: -0.04892698, y: -2.8672059, z: 0.03273648}
+  - MapName: nature_pine_tree_n_3_4
+    Path: Assets/Prefabs/Nature/pine_tree_n_3_4.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: -0.039144933, y: -2.2937648, z: 0.026190162}
+  - MapName: nature_stone_1
+    Path: Assets/Prefabs/Nature/stone_1.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: -0.052222192, y: -0.30605304, z: 0.0968048}
+  - MapName: nature_stone_3
+    Path: Assets/Prefabs/Nature/stone_3.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: 0.034500718, y: -0.665645, z: 0.677006}
+  - MapName: nature_stone_4
+    Path: Assets/Prefabs/Nature/stone_4.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: -0.05916246, y: -0.10012615, z: -0.06601916}
+  - MapName: nature_tree_9
+    Path: Assets/Prefabs/Nature/tree_9.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: 0.023076653, y: -2.2370973, z: 0.2982756}
+  - MapName: nature_tree_log_1
+    Path: Assets/Prefabs/Nature/tree_log_1.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: -0.014526844, y: -0.26303566, z: -0.28711587}
   - MapName: prefab_Player
     Path: Assets/Prefabs/Player.prefab
     FullTypeName: UnityEngine.GameObject
-    SpawnOffset: {x: -0.20503, y: -0.26903, z: -0.297}
-  - MapName: Buildings_stone_1
-    Path: Assets/Prefabs/stone_1.prefab
-    FullTypeName: UnityEngine.GameObject
-    SpawnOffset: {x: -0.052222192, y: -0.30605304, z: 0.0968048}
-  - MapName: Buildings_stone_3
-    Path: Assets/Prefabs/stone_3.prefab
-    FullTypeName: UnityEngine.GameObject
-    SpawnOffset: {x: 0.034500718, y: -0.665645, z: 0.677006}
-  - MapName: Buildings_stone_4
-    Path: Assets/Prefabs/stone_4.prefab
-    FullTypeName: UnityEngine.GameObject
-    SpawnOffset: {x: -0.05916246, y: -0.10012615, z: -0.06601916}
-  - MapName: Van_van_1
-    Path: Assets/Prefabs/van_1.prefab
+    SpawnOffset: {x: -0.20503, y: -0.31533, z: -0.35639998}
+  - MapName: vans_van_1
+    Path: Assets/Prefabs/Vans/van_1.prefab
     FullTypeName: UnityEngine.GameObject
     SpawnOffset: {x: 0.0021852255, y: -1.5428474, z: 0.059007168}
+  - MapName: weapons_and_tools_shovel_mx_1
+    Path: Assets/Prefabs/Weapons & Tools/shovel_mx_1.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: -0, y: -0.047777254, z: -0.110000014}
   - MapName: TexturePackI/brick_wall_1
     Path: Assets/Materials/Texture Pack I/brick_wall_1.mat
     FullTypeName: UnityEngine.Material
@@ -984,35 +1150,139 @@ MonoBehaviour:
     FullTypeName: UnityEngine.Material
     SpawnOffset: {x: 0, y: 0, z: 0}
   - MapName: TexturePackI/grass_7
-    Path: Assets/Media/Textures/Texture Pack I/Color Maps/Materials/grass_7.mat
+    Path: Assets/Resources/Textures/Texture Pack I/Color Maps/Materials/grass_7.mat
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: TexturePackI/dirt_5
+    Path: Assets/Materials/Texture Pack I/dirt_5.mat
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: TexturePackI/dirt_6
+    Path: Assets/Materials/Texture Pack I/dirt_6.mat
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: TexturePackI/grass_7
+    Path: Assets/Materials/Texture Pack I/grass_7.mat
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: TexturePackI/tiles_floor_1
+    Path: Assets/Materials/Texture Pack I/tiles_floor_1.mat
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: TexturePackI/wood_4
+    Path: Assets/Materials/Texture Pack I/wood_4.mat
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: TexturePackI/water
+    Path: Assets/Materials/Nature/water.mat
     FullTypeName: UnityEngine.Material
     SpawnOffset: {x: 0, y: 0, z: 0}
   - MapName: garage_hl_1
-    Path: Assets/Media/Models/Buildings/garage_hl_1.fbx
+    Path: Assets/Resources/Models/Buildings/garage_hl_1.fbx
     FullTypeName: UnityEngine.Material
     SpawnOffset: {x: 0, y: 0, z: 0}
   - MapName: shed_ax_2
-    Path: Assets/Media/Models/Buildings/shed_ax_2.fbx
+    Path: Assets/Resources/Models/Buildings/shed_ax_2.fbx
     FullTypeName: UnityEngine.Material
     SpawnOffset: {x: 0, y: 0, z: 0}
   - MapName: garage_hm_2
-    Path: Assets/Media/Models/Buildings/garage_hm_2.fbx
+    Path: Assets/Resources/Models/Buildings/garage_hm_2.fbx
     FullTypeName: UnityEngine.Material
     SpawnOffset: {x: 0, y: 0, z: 0}
   - MapName: garages_block_hr_1
-    Path: Assets/Media/Models/Buildings/garages_block_hr_1.fbx
+    Path: Assets/Resources/Models/Buildings/garages_block_hr_1.fbx
     FullTypeName: UnityEngine.Material
     SpawnOffset: {x: 0, y: 0, z: 0}
-  - MapName: pine_tree_n_1_4
-    Path: Assets/Media/Models/Nature/pine_tree_n_1_4.fbx
+  - MapName: shed_ax_1
+    Path: Assets/Resources/Models/Buildings/shed_ax_1.fbx
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: shed_ax_4
+    Path: Assets/Resources/Models/Buildings/shed_ax_4.fbx
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: warehouse_mx_1
+    Path: Assets/Resources/Models/Buildings/warehouse_mx_1.fbx
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: warehouse_mx_2
+    Path: Assets/Resources/Models/Buildings/warehouse_mx_2.fbx
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: warehouse_mx_4
+    Path: Assets/Resources/Models/Buildings/warehouse_mx_4.fbx
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: warehouse_mx_4_1
+    Path: Assets/Resources/Models/Buildings/warehouse_mx_4_1.fbx
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: bricks_stacked_mx_4_0
+    Path: Assets/Resources/Models/Debris & Misc/bricks_stacked_mx_4_0.fbx
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: debris_bricks_mx_1_0
+    Path: Assets/Resources/Models/Debris & Misc/debris_bricks_mx_1_0.fbx
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: gravel_pile_hr_1
+    Path: Assets/Resources/Models/Debris & Misc/gravel_pile_hr_1.fbx
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: gravel_pile_hr_2
+    Path: Assets/Resources/Models/Debris & Misc/gravel_pile_hr_2.fbx
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: flashlight_mp_1
+    Path: Assets/Resources/Models/Items & Weapons/flashlight_mp_1.fbx
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: lamp_mx_2_on
+    Path: Assets/Resources/Models/Light Sources/lamp_mx_2_on.fbx
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: fern_1
+    Path: Assets/Materials/Nature/fern_1.mat
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: grass_1
+    Path: Assets/Materials/Nature/grass_1.mat
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: grass_2
+    Path: Assets/Materials/Nature/grass_2.mat
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: grass_4
+    Path: Assets/Materials/Nature/grass_4.mat
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: mushroom_n_1
+    Path: Assets/Resources/Models/Nature/mushroom_n_1.fbx
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: mushroom_n_1_0
+    Path: Assets/Resources/Models/Nature/mushroom_n_1_0.fbx
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: mushroom_n_2_1
+    Path: Assets/Resources/Models/Nature/mushroom_n_2_1.fbx
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: pine_tree_n_1
+    Path: Assets/Materials/Nature/pine_tree_n_1.mat
     FullTypeName: UnityEngine.Material
     SpawnOffset: {x: 0, y: 0, z: 0}
   - MapName: pine_branch_3
     Path: Assets/Materials/Nature/pine_branch_3.mat
     FullTypeName: UnityEngine.Material
     SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: pine_tree_n_1_4
+    Path: Assets/Resources/Models/Nature/pine_tree_n_1_4.fbx
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
   - MapName: pine_tree_n_2_1
-    Path: Assets/Media/Models/Nature/pine_tree_n_2_1.fbx
+    Path: Assets/Resources/Models/Nature/pine_tree_n_2_1.fbx
     FullTypeName: UnityEngine.Material
     SpawnOffset: {x: 0, y: 0, z: 0}
   - MapName: pine_branch_1
@@ -1020,70 +1290,46 @@ MonoBehaviour:
     FullTypeName: UnityEngine.Material
     SpawnOffset: {x: 0, y: 0, z: 0}
   - MapName: pine_tree_n_2_2
-    Path: Assets/Media/Models/Nature/pine_tree_n_2_2.fbx
+    Path: Assets/Resources/Models/Nature/pine_tree_n_2_2.fbx
     FullTypeName: UnityEngine.Material
     SpawnOffset: {x: 0, y: 0, z: 0}
   - MapName: pine_tree_n_2_3
-    Path: Assets/Media/Models/Nature/pine_tree_n_2_3.fbx
+    Path: Assets/Resources/Models/Nature/pine_tree_n_2_3.fbx
     FullTypeName: UnityEngine.Material
     SpawnOffset: {x: 0, y: 0, z: 0}
-  - MapName: shed_ax_1
-    Path: Assets/Media/Models/Buildings/shed_ax_1.fbx
-    FullTypeName: UnityEngine.Material
-    SpawnOffset: {x: 0, y: 0, z: 0}
-  - MapName: shed_ax_4
-    Path: Assets/Media/Models/Buildings/shed_ax_4.fbx
-    FullTypeName: UnityEngine.Material
-    SpawnOffset: {x: 0, y: 0, z: 0}
-  - MapName: warehouse_mx_1
-    Path: Assets/Media/Models/Buildings/warehouse_mx_1.fbx
-    FullTypeName: UnityEngine.Material
-    SpawnOffset: {x: 0, y: 0, z: 0}
-  - MapName: warehouse_mx_2
-    Path: Assets/Media/Models/Buildings/warehouse_mx_2.fbx
-    FullTypeName: UnityEngine.Material
-    SpawnOffset: {x: 0, y: 0, z: 0}
-  - MapName: warehouse_mx_4
-    Path: Assets/Media/Models/Buildings/warehouse_mx_4.fbx
-    FullTypeName: UnityEngine.Material
-    SpawnOffset: {x: 0, y: 0, z: 0}
-  - MapName: warehouse_mx_4_1
-    Path: Assets/Media/Models/Buildings/warehouse_mx_4_1.fbx
-    FullTypeName: UnityEngine.Material
-    SpawnOffset: {x: 0, y: 0, z: 0}
-  - MapName: grass_1
-    Path: Assets/Materials/Nature/grass_1.mat
-    FullTypeName: UnityEngine.Material
-    SpawnOffset: {x: 0, y: 0, z: 0}
-  - MapName: lamp_mx_2_on
-    Path: Assets/Media/Models/Light Sources/lamp_mx_2_on.fbx
-    FullTypeName: UnityEngine.Material
-    SpawnOffset: {x: 0, y: 0, z: 0}
-  - MapName: mushroom_n_1
-    Path: Assets/Media/Models/Nature/mushroom_n_1.fbx
-    FullTypeName: UnityEngine.Material
-    SpawnOffset: {x: 0, y: 0, z: 0}
-  - MapName: mushroom_n_1_0
-    Path: Assets/Media/Models/Nature/mushroom_n_1_0.fbx
-    FullTypeName: UnityEngine.Material
-    SpawnOffset: {x: 0, y: 0, z: 0}
-  - MapName: Invisible
-    Path: Assets/Materials/Invisible.mat
+  - MapName: pine_branch_2
+    Path: Assets/Materials/Nature/pine_branch_2.mat
     FullTypeName: UnityEngine.Material
     SpawnOffset: {x: 0, y: 0, z: 0}
   - MapName: stone_1
-    Path: Assets/Media/Models/Nature/stone_1.fbx
+    Path: Assets/Resources/Models/Nature/stone_1.fbx
     FullTypeName: UnityEngine.Material
     SpawnOffset: {x: 0, y: 0, z: 0}
   - MapName: stone_3
-    Path: Assets/Media/Models/Nature/stone_3.fbx
+    Path: Assets/Resources/Models/Nature/stone_3.fbx
     FullTypeName: UnityEngine.Material
     SpawnOffset: {x: 0, y: 0, z: 0}
   - MapName: stone_4
-    Path: Assets/Media/Models/Nature/stone_4.fbx
+    Path: Assets/Resources/Models/Nature/stone_4.fbx
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: tree_9
+    Path: Assets/Resources/Models/Nature/tree_9.fbx
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: tree_log_1
+    Path: Assets/Resources/Models/Nature/tree_log_1.fbx
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: pistol_mp_1_1
+    Path: Assets/Resources/Models/Items & Weapons/pistol_mp_1_1.fbx
     FullTypeName: UnityEngine.Material
     SpawnOffset: {x: 0, y: 0, z: 0}
   - MapName: van_1
-    Path: Assets/Media/Models/Vans/van_1.fbx
+    Path: Assets/Resources/Models/Vans/van_1.fbx
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: shovel_mx_1
+    Path: Assets/Resources/Models/Weapons & Tools/shovel_mx_1.fbx
     FullTypeName: UnityEngine.Material
     SpawnOffset: {x: 0, y: 0, z: 0}

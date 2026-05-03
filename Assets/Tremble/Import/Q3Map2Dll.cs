@@ -1,6 +1,6 @@
 //
 // This file is part of the Tremble package by Tiny Goose.
-// Copyright (c) 2024-2025 TinyGoose Ltd., All Rights Reserved.
+// Copyright (c) 2024-2026 TinyGoose Ltd., All Rights Reserved.
 //
 
 using System;
@@ -40,7 +40,7 @@ namespace TinyGoose.Tremble
 		private const string Q3MAP2_LIB_NAME = "q3map2";
 #else
 //TODO(jwf): ATV: No q3map2 - solution: use "__Internal" as the name and build as static lib
-		#warning Unknown platform - libq3map must be build as a static lib!
+		#warning Unknown platform - libq3map must be built as a static lib!
 		private const string Q3MAP2_LIB_NAME = "__Internal";
 #endif
 

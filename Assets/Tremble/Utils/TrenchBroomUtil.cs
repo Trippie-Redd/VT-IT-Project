@@ -1,6 +1,6 @@
 //
 // This file is part of the Tremble package by Tiny Goose.
-// Copyright (c) 2024-2025 TinyGoose Ltd., All Rights Reserved.
+// Copyright (c) 2024-2026 TinyGoose Ltd., All Rights Reserved.
 //
 
 using System;
@@ -161,41 +161,54 @@ namespace TinyGoose.Tremble
 			return !wasPatched;
 		}
 
-		private static string GetTrenchBroomConfigFolder()
-#if UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX
-			=> Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Library", "Application Support", "TrenchBroom");
-#elif UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
-			=> Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TrenchBroom");
-#else
-			=> Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), ".TrenchBroom");
-#endif
+		private static string GetTrenchBroomConfigFolder() =>
+			Application.platform switch
+			{
+				RuntimePlatform.OSXEditor or RuntimePlatform.OSXPlayer
+					=> Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Library", "Application Support", "TrenchBroom"),
+				RuntimePlatform.WindowsEditor or RuntimePlatform.WindowsPlayer
+					=> Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TrenchBroom"),
+				RuntimePlatform.LinuxEditor or RuntimePlatform.LinuxPlayer
+					=> Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), ".TrenchBroom"),
+				_ => throw new ArgumentOutOfRangeException(nameof(Application.platform), "Unknown platform!")
+			};
 
 		public static string GetGameFolder() => Path.Combine(GetTrenchBroomConfigFolder(), "games", "Unity", Application.productName);
 
 		public static void OpenWithTrenchBroom(string mapFile)
 		{
-#if UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX
-			RunCommand($"open -a TrenchBroom '{mapFile}'");
-#elif UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
-			// Sad. On Windows, TB is mostly portable so we may have to just show the file in Explorer, lol
-			if (TrenchBroomPath != null)
+			switch (Application.platform)
 			{
-				RunCommand($"\"{TrenchBroomPath}\" \"{mapFile}\"", useShell: false);
-			}
-			else
-			{
-				#if UNITY_EDITOR
-					EditorUtility.DisplayDialog(
-						title: "Where's TrenchBroom?",
-						message: "Tremble could not find TrenchBroom. Ensure TrenchBroom is installed and " +
-						         "running, and Tremble will make a note of where it's installed for next time." +
-						         " For now, I'll show your map in Explorer.", "Okay");
-				#endif
-				RunCommand($"explorer /select, \"{mapFile}\"");
-			}
-#else
-			RunCommand($"/usr/bin/trenchbroom '{mapFile}'");
+				case RuntimePlatform.OSXEditor:
+				case RuntimePlatform.OSXPlayer:
+					RunCommand($"open -a TrenchBroom '{mapFile}'");
+					break;
+
+				case RuntimePlatform.WindowsEditor:
+				case RuntimePlatform.WindowsPlayer:
+					// Sad. On Windows, TB is mostly portable so we may have to just show the file in Explorer, lol
+					if (TrenchBroomPath != null)
+					{
+						RunCommand($"\"{TrenchBroomPath}\" \"{mapFile}\"", useShell: false);
+					}
+					else
+					{
+#if UNITY_EDITOR
+						EditorUtility.DisplayDialog(
+							title: "Where's TrenchBroom?",
+							message: "Tremble could not find TrenchBroom. Ensure TrenchBroom is installed and " +
+							         "running, and Tremble will make a note of where it's installed for next time." +
+							         " For now, I'll show your map in Explorer.", "Okay");
 #endif
+						RunCommand($"explorer /select, \"{mapFile}\"");
+					}
+					break;
+
+				case RuntimePlatform.LinuxEditor:
+				case RuntimePlatform.LinuxPlayer:
+					RunCommand($"/usr/bin/trenchbroom '{mapFile}'");
+					break;
+			}
 		}
 
 		private static void RunCommand(string command, bool useShell = true)

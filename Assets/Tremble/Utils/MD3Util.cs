@@ -1,6 +1,6 @@
 //
 // This file is part of the Tremble package by Tiny Goose.
-// Copyright (c) 2024-2025 TinyGoose Ltd., All Rights Reserved.
+// Copyright (c) 2024-2026 TinyGoose Ltd., All Rights Reserved.
 // This class based on BSP Map Tools for Unity by John Evans (evans3d512@gmail.com)
 //
 
@@ -326,7 +326,12 @@ namespace TinyGoose.Tremble
 
 				// Write material names
 				string textureName;
-				if (materials[submeshIdx] && materialNameLookup != null)
+				if (submeshIdx >= materials.Length)
+				{
+					Debug.LogWarning($"Mesh '{unityMesh.name}' on '{meshTransform.name}' has {unityMesh.subMeshCount} submesh(es) but the renderer only has {materials.Length} material slot(s). Submesh {submeshIdx} will use 'missing'.", meshTransform);
+					textureName = "missing";
+				}
+				else if (materials[submeshIdx] && materialNameLookup != null)
 				{
 					string path = TrembleAssetLoader.GetPath(materials[submeshIdx]);
 					textureName = materialNameLookup.GetPrefabNameFromMaterialPath(path);

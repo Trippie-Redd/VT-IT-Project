@@ -1,6 +1,6 @@
 // 
 // This file is part of the Tremble package by Tiny Goose.
-// Copyright (c) 2024-2025 TinyGoose Ltd., All Rights Reserved.
+// Copyright (c) 2024-2026 TinyGoose Ltd., All Rights Reserved.
 //
 
 using System.IO;
@@ -18,7 +18,7 @@ namespace TinyGoose.Tremble
 		
 		// Version
 		private const int VERSION_MAJOR = 1;
-		private const int VERSION_MINOR = 10;
+		private const int VERSION_MINOR = 11;
 		private const int VERSION_PATCH = 0;
 		public static readonly string VERSION_STRING = $"{VERSION_MAJOR}.{VERSION_MINOR}.{VERSION_PATCH}";
 		

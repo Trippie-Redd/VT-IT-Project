@@ -1,6 +1,6 @@
 //
 // This file is part of the Tremble package by Tiny Goose.
-// Copyright (c) 2024-2025 TinyGoose Ltd., All Rights Reserved.
+// Copyright (c) 2024-2026 TinyGoose Ltd., All Rights Reserved.
 //
 
 using System;
@@ -18,6 +18,8 @@ namespace TinyGoose.Tremble.Editor
 	{
 		private static readonly List<string> s_Keywords = new(256);
 		private static bool s_IsCapturingKeywords = false;
+
+		private static GUIStyle s_LineStyle;
 
 		private static readonly Dictionary<string, bool> s_FoldoutStates = new();
 
@@ -159,12 +161,13 @@ namespace TinyGoose.Tremble.Editor
 			EditorGUILayout.HelpBox(message, type);
 		}
 
-		public static void Separator(float height = 2f)
+		public static void Separator(float height = 1f)
 		{
 			if (s_IsCapturingKeywords)
 				return;
 
-			GUILayout.Box(Texture2D.grayTexture, GUILayout.ExpandWidth(true), GUILayout.Height(height));
+			s_LineStyle ??= new() { normal = new() { background = Texture2D.grayTexture } };
+			GUILayout.Box(Texture2D.grayTexture, s_LineStyle, GUILayout.ExpandWidth(true), GUILayout.Height(height));
 		}
 
 		public static void Label(string text, params GUILayoutOption[] options)

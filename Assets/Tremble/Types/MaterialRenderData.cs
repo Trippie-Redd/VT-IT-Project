@@ -75,7 +75,7 @@ namespace TinyGoose.Tremble
 
        public enum MaterialImportMode
        {
-   	    MainTex,
-   	    Legacy,
+   	    Dynamic,
+   	    FixedSize,
        }
 }
