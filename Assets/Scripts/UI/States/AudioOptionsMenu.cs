@@ -11,11 +11,15 @@ public class AudioOptionsMenu : MenuState
     protected override void OnEnter()
     {
         ShowVE("audio-options-container");
+        
+        menu.panelHeaderText.Enter("AUDIO");
     }
 
 
     protected override void OnExit()
     {
         HideVE("audio-options-container");
+        
+        menu.panelHeaderText.Exit();
     }
 }

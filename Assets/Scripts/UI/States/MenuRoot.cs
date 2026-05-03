@@ -1,5 +1,4 @@
 using HSM;
-using UnityEngine;
 
 public class MenuRoot : MenuState
 {
@@ -11,16 +10,18 @@ public class MenuRoot : MenuState
 
     public readonly NotInMenu notInMenu;
 
-    public bool TransitionToOptions = false;
+    public bool TransitionToOptions { get; set; } = false;
     public bool TransitionToMainMenu { get; set; } = false;
     public bool TransitionToPauseMenu { get; set; } = false;
+
+    State _stateBeforeOptions;
 
     public MenuRoot(StateMachine machine, Menu menu) : base(machine, null, menu)
     {
         mainMenu = new MainMenu(machine, this, menu);
         pauseMenu = new PauseMenu(machine, this, menu);
         notInMenu = new NotInMenu(machine, this, menu);
-        pauseMenu = new PauseMenu(machine, this, menu);
+        optionsMenu = new OptionsMenu(machine, this, menu);
     }
 
     protected override State GetInitialState()
@@ -30,22 +31,26 @@ public class MenuRoot : MenuState
     {
         if (TransitionToOptions)
         {
-            Debug.Log("Reached options");
             TransitionToOptions = false;
+            _stateBeforeOptions = ActiveChild;
             return optionsMenu;
+        }
+
+        if (optionsMenu.TransitionFromOptions)
+        {
+            optionsMenu.TransitionFromOptions = false;
+            return _stateBeforeOptions ?? mainMenu;
         }
 
         if (TransitionToMainMenu)
         {
-            Debug.Log("Reached main");
             TransitionToMainMenu = false;
             return mainMenu;
         }
 
         if (TransitionToPauseMenu)
         {
-            Debug.Log("Reached pause");
-            TransitionToMainMenu = false;
+            TransitionToPauseMenu = false;
             return pauseMenu;
         }
 

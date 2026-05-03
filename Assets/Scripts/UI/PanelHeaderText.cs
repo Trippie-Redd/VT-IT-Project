@@ -14,6 +14,8 @@ public class PanelHeaderText : MonoBehaviour
     {
         _panelHeaderText = GetComponent<UIDocument>().rootVisualElement.Q<Label>("panel-header-text");
         Debug.Assert(_panelHeaderText != null);
+
+        _headerContent = new List<string>();
     }
 
     public void Enter(string str)
@@ -30,13 +32,16 @@ public class PanelHeaderText : MonoBehaviour
     
     void _UpdateText()
     {
+        if (_headerContent.Count == 0)
+            return;
+        
         string result = "";
 
         result += _headerContent[0].ToUpper();
 
         for (int i = 1; i < _headerContent.Count; i++)
         {
-            result += "/ ";
+            result += "/";
             result += _headerContent[i].ToUpper();
         }
 

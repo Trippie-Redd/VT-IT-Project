@@ -11,11 +11,15 @@ public class ControlsOptionsMenu : MenuState
     protected override void OnEnter()
     {
         ShowVE("controls-options-container");
+        
+        menu.panelHeaderText.Enter("Controls");
     }
 
 
     protected override void OnExit()
     {
         HideVE("controls-options-container");
+        
+        menu.panelHeaderText.Exit();
     }
 }

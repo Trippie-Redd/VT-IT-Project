@@ -1,19 +1,13 @@
 using HSM;
 using UnityEngine.UIElements;
 using UnityEngine;
-using System.Linq;
 
 public class MainMenu : MenuState
 {
-    public readonly OptionsMenu optionsMenu;
-
     Button _startButton, _exitButton, _optionsButton;
-
-    public bool TransitionToOptions { set; get; }
 
     public MainMenu(StateMachine machine, State parent, Menu menu) : base(machine, parent, menu)
     {
-        optionsMenu = new OptionsMenu(machine, this, menu);
     }
 
     protected override void OnEnter()
@@ -35,8 +29,6 @@ public class MainMenu : MenuState
 
     protected override void OnExit()
     {
-        var root = menu.RootVE;
-
         HideVE("main-buttons-container");
         HideVE("panel-container");
         HideVE("menu-container");
@@ -54,9 +46,7 @@ public class MainMenu : MenuState
 
     void _OptionsClicked(ClickEvent evt)
     {
-        TransitionToOptions = true;
-
-        Leaf().LogCurrentTree();
+        ((MenuRoot)Parent).TransitionToOptions = true;
     }
 
     void _ExitClicked(ClickEvent evt)

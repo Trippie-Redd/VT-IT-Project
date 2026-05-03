@@ -26,6 +26,7 @@ public class OptionsMenu : MenuState
     {
         var root = menu.RootVE;
 
+        ShowVE("menu-container");
         ShowVE("options-button-container");
         ShowVE("panel-container");
         ShowVE("panel-header");
@@ -42,11 +43,14 @@ public class OptionsMenu : MenuState
         _gameplayButton.RegisterCallback<ClickEvent>(_GameplayClicked);
         _controlsButton.RegisterCallback<ClickEvent>(_ControlsClicked);
         _returnButton.RegisterCallback<ClickEvent>(_ReturnClicked);
+        
+        menu.panelHeaderText.Enter("OPTIONS");
     }
 
 
     protected override void OnExit()
     {
+        HideVE("menu-container");
         HideVE("options-button-container");
         HideVE("panel-container");
         HideVE("panel-header");
@@ -57,17 +61,29 @@ public class OptionsMenu : MenuState
         _gameplayButton.UnregisterCallback<ClickEvent>(_GameplayClicked);
         _controlsButton.UnregisterCallback<ClickEvent>(_ControlsClicked);
         _returnButton.UnregisterCallback<ClickEvent>(_ReturnClicked);
+        
+        menu.panelHeaderText.Exit();
     }
 
     protected override State GetTransition()
     {
-        State result = audioOptionsMenu;
+        if (_transitionToAudio)
+        {
+            _transitionToAudio = false;
+            return audioOptionsMenu;
+        }
+        if (_transitionToGameplay)
+        {
+            _transitionToGameplay = false;
+            return gameplayOptionsMenu;
+        }
+        if (_transitionToControls)
+        {
+            _transitionToControls = false;
+            return controlsOptionsMenu;
+        }
 
-        if (_transitionToAudio)         result = audioOptionsMenu;
-        else if (_transitionToGameplay) result = gameplayOptionsMenu;
-        else if (_transitionToControls) result = controlsOptionsMenu;
-
-        return result;
+        return ActiveChild;
     }
 
     void _AudioClicked(ClickEvent evt)

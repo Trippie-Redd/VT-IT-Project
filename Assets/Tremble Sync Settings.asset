@@ -963,11 +963,11 @@ MonoBehaviour:
   m_MapProcessors: []
   m_LogOnImportAndSync: 0
   m_UseLiveUpdate: 1
-  m_AutomaticallyReimportWhenDependencyChanges: 0
+  m_AutomaticallyReimportWhenDependencyChanges: 1
   m_EntityIconStyle: 1
   m_PrefabOverrideHandling: 2
   m_UseClassicQuakeCulling: 0
-  m_Q3Map2ResultDisplayType: 2
+  m_Q3Map2ResultDisplayType: 0
   m_FgdFormattingStyle: 1
   m_SubdivideAllLeafs: 0
   m_AlwaysPackBoolsIntoSpawnFlags: 1

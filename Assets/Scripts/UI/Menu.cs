@@ -2,12 +2,14 @@ using HSM;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-[RequireComponent(typeof(UIDocument))]
+[RequireComponent(typeof(PanelHeaderText), typeof(UIDocument))]
 public class Menu : MonoBehaviour
 {
     public VisualElement RootVE { private set; get; }
 
     public bool inGame = false;
+
+    public PanelHeaderText panelHeaderText;
 
     State _root;
     StateMachine _machine;
@@ -22,6 +24,8 @@ public class Menu : MonoBehaviour
         RootVE.Q<VisualElement>("panel-container").style.display          = DisplayStyle.None;
         RootVE.Q<VisualElement>("panel-header").style.display             = DisplayStyle.None;
         RootVE.Q<VisualElement>("panel").style.display                    = DisplayStyle.None;
+
+        panelHeaderText = GetComponent<PanelHeaderText>();
 
         _root = new MenuRoot(null, this);
         var builder = new StateMachineBuilder(_root);

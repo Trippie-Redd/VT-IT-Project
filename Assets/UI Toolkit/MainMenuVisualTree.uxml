@@ -42,9 +42,71 @@
                     </ui:VisualElement>
                 </ui:VisualElement>
                 <ui:VisualElement name="options-container" class="menu-options-container" style="flex-grow: 1;">
-                    <ui:VisualElement name="audio-options-container" style="flex-grow: 1; display: none;"/>
-                    <ui:VisualElement name="gameplay-options-container" style="flex-grow: 1; display: none;"/>
-                    <ui:VisualElement name="controls-options-container" style="flex-grow: 1; display: none;"/>
+                    <ui:VisualElement name="audio-options-container" class="menu-options-panel" style="flex-grow: 1; display: none;">
+                        <ui:Slider name="master-volume-slider" label="MASTER VOLUME" low-value="0" high-value="100" value="80" show-input-field="true" class="menu-option-slider"/>
+                        <ui:Slider name="music-volume-slider" label="MUSIC VOLUME" low-value="0" high-value="100" value="70" show-input-field="true" class="menu-option-slider"/>
+                        <ui:Slider name="sfx-volume-slider" label="SFX VOLUME" low-value="0" high-value="100" value="80" show-input-field="true" class="menu-option-slider"/>
+                        <ui:Slider name="dialogue-volume-slider" label="DIALOGUE VOLUME" low-value="0" high-value="100" value="90" show-input-field="true" class="menu-option-slider"/>
+                        <ui:Toggle name="mute-on-focus-loss-toggle" label="MUTE WHEN UNFOCUSED" value="true" class="menu-option-toggle"/>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="gameplay-options-container" class="menu-options-panel" style="flex-grow: 1; display: none;">
+                        <ui:Slider name="fov-slider" label="FIELD OF VIEW" low-value="60" high-value="110" value="90" show-input-field="true" class="menu-option-slider"/>
+                        <ui:Slider name="mouse-sensitivity-slider" label="MOUSE SENSITIVITY" low-value="0.1" high-value="5" value="1" show-input-field="true" class="menu-option-slider"/>
+                        <ui:Toggle name="invert-y-toggle" label="INVERT Y AXIS" value="false" class="menu-option-toggle"/>
+                        <ui:Toggle name="hold-to-aim-toggle" label="HOLD TO AIM" value="true" class="menu-option-toggle"/>
+                        <ui:Toggle name="show-hud-toggle" label="SHOW HUD" value="true" class="menu-option-toggle"/>
+                        <ui:DropdownField name="difficulty-dropdown" label="DIFFICULTY" choices="ROOKIE,OPERATIVE,VETERAN" index="1" class="menu-option-dropdown"/>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="controls-options-container" class="menu-options-panel" style="flex-grow: 1; display: none;">
+                        <ui:VisualElement class="menu-option-row">
+                            <ui:Label text="MOVE FORWARD" class="menu-option-label"/>
+                            <ui:Label text="W" class="menu-option-binding"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement class="menu-option-row">
+                            <ui:Label text="MOVE BACKWARD" class="menu-option-label"/>
+                            <ui:Label text="S" class="menu-option-binding"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement class="menu-option-row">
+                            <ui:Label text="MOVE LEFT" class="menu-option-label"/>
+                            <ui:Label text="A" class="menu-option-binding"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement class="menu-option-row">
+                            <ui:Label text="MOVE RIGHT" class="menu-option-label"/>
+                            <ui:Label text="D" class="menu-option-binding"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement class="menu-option-row">
+                            <ui:Label text="JUMP" class="menu-option-label"/>
+                            <ui:Label text="SPACE" class="menu-option-binding"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement class="menu-option-row">
+                            <ui:Label text="CROUCH" class="menu-option-label"/>
+                            <ui:Label text="C" class="menu-option-binding"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement class="menu-option-row">
+                            <ui:Label text="SPRINT" class="menu-option-label"/>
+                            <ui:Label text="LEFT SHIFT" class="menu-option-binding"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement class="menu-option-row">
+                            <ui:Label text="FIRE" class="menu-option-label"/>
+                            <ui:Label text="MOUSE 0" class="menu-option-binding"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement class="menu-option-row">
+                            <ui:Label text="AIM" class="menu-option-label"/>
+                            <ui:Label text="MOUSE 1" class="menu-option-binding"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement class="menu-option-row">
+                            <ui:Label text="RELOAD" class="menu-option-label"/>
+                            <ui:Label text="R" class="menu-option-binding"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement class="menu-option-row">
+                            <ui:Label text="INTERACT" class="menu-option-label"/>
+                            <ui:Label text="E" class="menu-option-binding"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement class="menu-option-row">
+                            <ui:Label text="PAUSE" class="menu-option-label"/>
+                            <ui:Label text="ESC" class="menu-option-binding"/>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>

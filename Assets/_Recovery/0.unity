@@ -395,8 +395,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9000923a11fad3c1841f0aa9a777614, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Menu
-  inGame: 1
-  panelHeaderText: {fileID: 729436870}
+  inGame: 0
 --- !u!114 &729436870
 MonoBehaviour:
   m_ObjectHideFlags: 0

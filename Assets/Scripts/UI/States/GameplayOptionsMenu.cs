@@ -11,11 +11,15 @@ public class GameplayOptionsMenu : MenuState
     protected override void OnEnter()
     {
         ShowVE("gameplay-options-container");
+        
+        menu.panelHeaderText.Enter("GAMEPLAY");
     }
 
 
     protected override void OnExit()
     {
         HideVE("gameplay-options-container");
+        
+        menu.panelHeaderText.Exit();
     }
 }
