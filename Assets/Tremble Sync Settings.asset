@@ -1128,7 +1128,7 @@ MonoBehaviour:
   - MapName: prefab_Player
     Path: Assets/Prefabs/Player.prefab
     FullTypeName: UnityEngine.GameObject
-    SpawnOffset: {x: -0.20503, y: -0.31533, z: -0.35639998}
+    SpawnOffset: {x: -0, y: -0, z: -0.10640001}
   - MapName: vans_van_1
     Path: Assets/Prefabs/Vans/van_1.prefab
     FullTypeName: UnityEngine.GameObject
