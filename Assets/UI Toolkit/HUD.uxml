@@ -1,0 +1,26 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/HUDStyle.uss?fileID=7433441132597879392&amp;guid=62afcb4598b62884e9fadc38ec967576&amp;type=3#HUDStyle"/>
+    <ui:VisualElement name="health-bar-container" class="health-bar-container" style="flex-grow: 1;">
+        <ui:Image source="project://database/Assets/Resources/Images/HealthIcon.png?fileID=2800000&amp;guid=70141c9a6bee3d346bc525faa98b72a9&amp;type=3#HealthIcon" name="health-icon" class="health-icon" style="width: 93px;"/>
+        <ui:VisualElement name="health-bar-border" class="health-bar-border" style="flex-grow: 1;">
+            <ui:VisualElement name="health-bar-slider-container" class="health-bar-slider-container">
+                <ui:VisualElement name="health-bar-slider" class="health-bar-slider"/>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="ammo-container" class="ammo-container">
+        <ui:VisualElement name="ammo-box-container" class="ammo-box-container">
+            <ui:Label text="67" name="mag-ammo-count" class="text"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="ammo-box-container" class="ammo-box-container">
+            <ui:Label text="67" name="backup-ammo-count" class="text"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="ammo-box-container" class="ammo-box-container">
+            <ui:Image name="gun-icon" class="gun-icon"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="crosshair-container" class="crosshair-container">
+        <ui:Image name="crosshair" source="project://database/Assets/Resources/Images/Crosshair.png?fileID=2800000&amp;guid=e750d9d037bc5394f92441096516799c&amp;type=3#Crosshair" style="width: 100%; height: auto;"/>
+    </ui:VisualElement>
+    <ui:Label text="" name="gun-message" enabled="true" class="gun-message text" style="visibility: visible; display: none; font-size: 20px;"/>
+</ui:UXML>

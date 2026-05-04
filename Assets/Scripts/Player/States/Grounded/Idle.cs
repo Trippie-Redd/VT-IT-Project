@@ -14,6 +14,9 @@ namespace Player
             standing = new StandingIdle(machine, this, controller);
         }
 
+        protected override State GetInitialState()
+            => _controller.root.IsCrouching ? crouching : standing;
+
         protected override State GetTransition()
             => _controller.root.IsCrouching ? crouching : standing;
 

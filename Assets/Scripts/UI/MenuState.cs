@@ -8,9 +8,10 @@ public class MenuState : State
     protected MenuState(StateMachine machine, State parent, Menu menu) : base(machine, parent)
         => this.menu = menu;
 
-    protected void ShowVE(string name)
-        => menu.RootVE.Q<VisualElement>(name).style.display = DisplayStyle.Flex;
-    
-    protected void HideVE(string name)
-        => menu.RootVE.Q<VisualElement>(name).style.display = DisplayStyle.None;
+    VisualElement Root => menu.GetComponent<UIDocument>().rootVisualElement;
+
+    protected void ShowVE(string name) => Root.Q<VisualElement>(name).style.display = DisplayStyle.Flex;
+    protected void HideVE(string name) => Root.Q<VisualElement>(name).style.display = DisplayStyle.None;
+    protected void ShowRoot()          => Root.style.display = DisplayStyle.Flex;
+    protected void HideRoot()          => Root.style.display = DisplayStyle.None;
 }

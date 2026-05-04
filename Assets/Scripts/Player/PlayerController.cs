@@ -2,6 +2,7 @@
 using HSM;
 using Input;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Player
 {
@@ -11,6 +12,7 @@ namespace Player
         public Root root;
         public StateMachine machine;
 
+        public Damageable damageable;
         [HideInInspector] public CharacterController characterController;
         public InputReader inputReader;
 
@@ -59,6 +61,14 @@ namespace Player
 
         void Update()
         {
+            if (damageable != null)
+            {
+                if (damageable.Dead)
+                {
+                    SceneManager.LoadScene(0); // ass
+                }
+            }
+
             machine.Tick(Time.deltaTime);
             characterController.Move(velocity * Time.deltaTime);
             Debug.Log(_waters.Count);

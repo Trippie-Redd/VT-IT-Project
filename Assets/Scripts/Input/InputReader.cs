@@ -6,8 +6,6 @@ using static InputSystem_Actions;
 
 namespace Input
 {
-    // TODO - Remove this whole thing and add a "Player Input" component to the player instead
-    // https://www.youtube.com/watch?v=phzU5k2hB4s
     [CreateAssetMenu(fileName = "InputReader", menuName = "InputReader")]
     public class InputReader : ScriptableObject, IPlayerActions
     {
@@ -22,6 +20,8 @@ namespace Input
 
         public event UnityAction<bool> Sprint = delegate { };
         public event UnityAction<bool> Crouch = delegate { };
+
+        public bool GameplayInputEnabled { get; set; } = true;
 
         private InputSystem_Actions _inputActions;
 
@@ -51,27 +51,31 @@ namespace Input
         }
 
         public void OnMove(InputAction.CallbackContext context)
-            => Move.Invoke(context.ReadValue<Vector2>());
+        {
+            if (GameplayInputEnabled) Move.Invoke(context.ReadValue<Vector2>());
+        }
 
         public void OnLook(InputAction.CallbackContext context)
-            => Look.Invoke(context.ReadValue<Vector2>());
+        {
+            if (GameplayInputEnabled) Look.Invoke(context.ReadValue<Vector2>());
+        }
 
         private bool _IsDeviceMouse(InputAction.CallbackContext context)
             => context.control.device.name == "Mouse";
 
         public void OnAttack(InputAction.CallbackContext context)
         {
-            if (context.performed) Attack.Invoke();
+            if (GameplayInputEnabled && context.performed) Attack.Invoke();
         }
 
         public void OnReload(InputAction.CallbackContext context)
         {
-            if (context.performed) Reload.Invoke();
+            if (GameplayInputEnabled && context.performed) Reload.Invoke();
         }
 
         public void OnInteract(InputAction.CallbackContext context)
         {
-            if (context.performed) Interact.Invoke();
+            if (GameplayInputEnabled && context.performed) Interact.Invoke();
         }
 
         public void OnPause(InputAction.CallbackContext context)
@@ -81,6 +85,7 @@ namespace Input
 
         public void OnCrouch(InputAction.CallbackContext context)
         {
+            if (!GameplayInputEnabled) return;
             if (context.performed)
                 Crouch.Invoke(true);
             else if (context.canceled)
@@ -89,7 +94,7 @@ namespace Input
 
         public void OnJump(InputAction.CallbackContext context)
         {
-            if (context.performed) Jump.Invoke();
+            if (GameplayInputEnabled && context.performed) Jump.Invoke();
         }
 
         public void OnPrevious(InputAction.CallbackContext context)
@@ -104,6 +109,7 @@ namespace Input
 
         public void OnSprint(InputAction.CallbackContext context)
         {
+            if (!GameplayInputEnabled) return;
             if (context.performed)
                 Sprint.Invoke(true);
             else if (context.canceled)

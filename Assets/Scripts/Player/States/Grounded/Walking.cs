@@ -7,7 +7,7 @@ namespace Player
     {
         private readonly PlayerGroundedOptions _options = new()
         {
-            targetSpeed = 5f
+            targetSpeed = 6f
         };
         
         public Walking(StateMachine machine, State parent, PlayerController controller) : base(machine, parent, controller) { }

@@ -16,19 +16,21 @@ namespace Player
         public AudioSource audioSource;
         public MuzzleFlash muzzleFlash;
 
-        int _currentAmmoMag;
-        int _currentAmmoBackup;
+        public int currentAmmoMag;
+        public int currentAmmoBackup;
         float _nextShotTime;
         bool _isReloading;
         Coroutine _burstRoutine;
+
+        public event System.Action<string> OnGunMessage;
 
         PlayerController _player;
 
         void Awake()
         {
             _player = GetComponent<PlayerController>();
-            _currentAmmoMag = gunData.maxMagAmmo;
-            _currentAmmoBackup = gunData.maxBackupAmmo;
+            currentAmmoMag = gunData.maxMagAmmo;
+            currentAmmoBackup = gunData.maxBackupAmmo;
 
             Debug.Assert(muzzleOrigin != null, "PlayerGun: muzzleOrigin is not assigned.", this);
             Debug.Assert(gunData != null, "PlayerGun: gunData is not assigned.", this);
@@ -70,10 +72,10 @@ namespace Player
             {
                 case CanShootResult.NoAmmo:
                     audioSource.PlayOneShot(gunData.magEmptyFireSound);
-                    // TODO: HUD "Out Of Ammo"
+                    OnGunMessage?.Invoke("Out Of Ammo");
                     break;
                 case CanShootResult.Underwater:
-                    // TODO: muffled-click sfx + HUD "Can't Shoot Underwater"
+                    OnGunMessage?.Invoke("Can't Shoot Underwater");
                     break;
                 case CanShootResult.CanShoot:
                     if (gunData.fireMode == FireMode.Burst)
@@ -91,7 +93,7 @@ namespace Player
         public CanShootResult CanShoot()
         {
             if (_player.IsSubmerged) return CanShootResult.Underwater;
-            if (_currentAmmoMag <= 0) return CanShootResult.NoAmmo;
+            if (currentAmmoMag <= 0) return CanShootResult.NoAmmo;
             return CanShootResult.CanShoot;
         }
 
@@ -110,7 +112,7 @@ namespace Player
 
         void _Shoot()
         {
-            _currentAmmoMag--;
+            currentAmmoMag--;
             _nextShotTime = Time.time + 1f / Mathf.Max(0.01f, gunData.fireRate);
 
             IGun.Shoot(muzzleOrigin, gunData, targetTags);
@@ -129,11 +131,15 @@ namespace Player
             switch (CanReload())
             {
                 case CanReloadResult.NoAmmo:
-                    // TODO: HUD "Out Of Ammo"
+                    OnGunMessage?.Invoke("Out Of Ammo");
+                    audioSource.PlayOneShot(gunData.cantReloadSound);
+                    break;
                 case CanReloadResult.MagFull:
-                    // TODO: HUD "Mag Already Full"
+                    OnGunMessage?.Invoke("Mag Already Full");
+                    audioSource.PlayOneShot(gunData.cantReloadSound);
+                    break;
                 case CanReloadResult.Underwater:
-                    // TODO: muffled empty-click sfx + HUD "Can't Reload Underwater"
+                    OnGunMessage?.Invoke("Can't Reload Underwater");
                     audioSource.PlayOneShot(gunData.cantReloadSound);
                     break;
                 case CanReloadResult.Shooting:
@@ -150,8 +156,8 @@ namespace Player
         {
             if (_isReloading) return CanReloadResult.AlreadyReloading;
             if (_burstRoutine != null) return CanReloadResult.Shooting;
-            if (_currentAmmoBackup == 0) return CanReloadResult.NoAmmo;
-            if (_currentAmmoMag >= gunData.maxMagAmmo) return CanReloadResult.MagFull;
+            if (currentAmmoBackup == 0) return CanReloadResult.NoAmmo;
+            if (currentAmmoMag >= gunData.maxMagAmmo) return CanReloadResult.MagFull;
             if (_player.IsSubmerged) return CanReloadResult.Underwater;
             return CanReloadResult.CanReload;
         }
@@ -168,16 +174,16 @@ namespace Player
 
         public void Reload()
         {
-            int magDifference = gunData.maxMagAmmo - _currentAmmoMag;
-            if (_currentAmmoBackup >= magDifference)
+            int magDifference = gunData.maxMagAmmo - currentAmmoMag;
+            if (currentAmmoBackup >= magDifference)
             {
-                _currentAmmoMag += magDifference;
-                _currentAmmoBackup -= magDifference;
+                currentAmmoMag += magDifference;
+                currentAmmoBackup -= magDifference;
             }
             else
             {
-                _currentAmmoMag += _currentAmmoBackup;
-                _currentAmmoBackup = 0;
+                currentAmmoMag += currentAmmoBackup;
+                currentAmmoBackup = 0;
             }
         }
     }

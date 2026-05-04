@@ -13,6 +13,7 @@ public class MenuRoot : MenuState
     public bool TransitionToOptions { get; set; } = false;
     public bool TransitionToMainMenu { get; set; } = false;
     public bool TransitionToPauseMenu { get; set; } = false;
+    public bool TransitionToNotInMenu { get; set; } = false;
 
     State _stateBeforeOptions;
 
@@ -52,6 +53,12 @@ public class MenuRoot : MenuState
         {
             TransitionToPauseMenu = false;
             return pauseMenu;
+        }
+
+        if (TransitionToNotInMenu)
+        {
+            TransitionToNotInMenu = false;
+            return notInMenu;
         }
 
         return ActiveChild;

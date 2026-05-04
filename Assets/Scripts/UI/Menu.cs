@@ -1,4 +1,5 @@
 using HSM;
+using Input;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -11,7 +12,11 @@ public class Menu : MonoBehaviour
 
     public PanelHeaderText panelHeaderText;
 
+    public GameObject HUD;
+
     [SerializeField] AudioClip buttonClickSound;
+    [SerializeField] InputReader inputReader;
+    public InputReader InputReader => inputReader;
 
     AudioSource _audioSource;
 
@@ -40,10 +45,28 @@ public class Menu : MonoBehaviour
         _root = new MenuRoot(null, this);
         var builder = new StateMachineBuilder(_root);
         _machine = builder.Build();
+
+        if (inGame && InputReader != null)
+            InputReader.Pause += _OnPause;
+    }
+
+    void OnDestroy()
+    {
+        if (inGame && InputReader != null)
+            InputReader.Pause -= _OnPause;
     }
 
     void Update()
     {
         _machine.Tick(Time.deltaTime);
+    }
+
+    void _OnPause()
+    {
+        var root = (MenuRoot)_root;
+        if (root.ActiveChild is NotInMenu)
+            root.TransitionToPauseMenu = true;
+        else if (root.ActiveChild is PauseMenu)
+            root.TransitionToNotInMenu = true;
     }
 }

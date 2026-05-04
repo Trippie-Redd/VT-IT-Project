@@ -24,5 +24,5 @@ MonoBehaviour:
   fireSound: {fileID: 8300000, guid: 16950e59be5475f40bcf81f4fef9c2cf, type: 3}
   magEmptyFireSound: {fileID: 8300000, guid: 1b2b5ea860e50ba40859f9d72e393f86, type: 3}
   reloadSound: {fileID: 8300000, guid: 6488f4ad50a12904f883f98ac5fac863, type: 3}
-  backupEmptyReloadSound: {fileID: 8300000, guid: eac68c9af776d83429e95e794e36c8cc, type: 3}
+  cantReloadSound: {fileID: 8300000, guid: 543324b109b911a4496c3d9f31569551, type: 3}
   muzzleFlash: {fileID: 2800000, guid: 1383521cb6627b7a0b0d2f5519a92465, type: 3}

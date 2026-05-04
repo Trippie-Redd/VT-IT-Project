@@ -7,7 +7,7 @@ namespace Player
     {
         private readonly PlayerGroundedOptions _options = new()
         {
-            targetSpeed = 2.5f
+            targetSpeed = 4f
         };
         
         public Crouching(StateMachine machine, State parent, PlayerController controller, bool idle = false) : base(machine, parent, controller)

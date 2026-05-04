@@ -12,7 +12,13 @@ public class PauseMenu : MenuState
 
     protected override void OnEnter()
     {
-        var root = menu.RootVE;
+        ShowRoot();
+
+        Time.timeScale = 0f;
+        UnityEngine.Cursor.lockState = CursorLockMode.None;
+        UnityEngine.Cursor.visible = true;
+        if (menu.HUD != null) menu.HUD.SetActive(false);
+        if (menu.InputReader != null) menu.InputReader.GameplayInputEnabled = false;
 
         ShowVE("menu-container");
         ShowVE("main-buttons-container");
@@ -21,14 +27,14 @@ public class PauseMenu : MenuState
         ShowVE("panel");
         ShowVE("mission-brief-container");
 
-        _startButton = root.Q<Button>("start-button");
-        _optionsButton = root.Q<Button>("options-button");
-        _exitButton = root.Q<Button>("exit-button");
+        _startButton = menu.GetComponent<UIDocument>().rootVisualElement.Q<Button>("start-button");
+        _optionsButton = menu.GetComponent<UIDocument>().rootVisualElement.Q<Button>("options-button");
+        _exitButton = menu.GetComponent<UIDocument>().rootVisualElement.Q<Button>("exit-button");
 
         _startButton.RegisterCallback<ClickEvent>(_StartClicked);
         _optionsButton.RegisterCallback<ClickEvent>(_OptionsClicked);
         _exitButton.RegisterCallback<ClickEvent>(_ExitClicked);
-        
+
         menu.panelHeaderText.Enter("PAUSE");
     }
 
@@ -44,14 +50,14 @@ public class PauseMenu : MenuState
         _startButton.UnregisterCallback<ClickEvent>(_StartClicked);
         _optionsButton.UnregisterCallback<ClickEvent>(_OptionsClicked);
         _exitButton.UnregisterCallback<ClickEvent>(_ExitClicked);
-        
+
         menu.panelHeaderText.Exit();
     }
 
 
     void _StartClicked(ClickEvent evt)
     {
-
+        ((MenuRoot)Parent).TransitionToNotInMenu = true;
     }
 
     void _OptionsClicked(ClickEvent evt)

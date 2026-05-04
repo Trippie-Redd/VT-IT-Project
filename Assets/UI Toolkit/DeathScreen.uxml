@@ -1,0 +1,10 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/DeathScreenStyle.uss?fileID=7433441132597879392&amp;guid=28c254b3008996a40b065be4d3525330&amp;type=3#DeathScreenStyle"/>
+    <ui:VisualElement name="background" class="background"/>
+    <ui:VisualElement name="death-screen" class="death-screen" style="display: none;">
+        <ui:VisualElement name="terminal-panel" class="terminal-panel">
+            <ui:Label name="terminal-output" text="" class="terminal-output"/>
+            <ui:Label name="terminal-cursor" text="_" class="terminal-cursor"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

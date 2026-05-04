@@ -7,7 +7,7 @@ namespace Player
     {
         private readonly PlayerGroundedOptions _options = new()
         {
-            targetSpeed = 7.5f
+            targetSpeed = 9f
         };
         
         public Sprinting(StateMachine machine, State parent, PlayerController controller) : base(machine, parent, controller) { }
