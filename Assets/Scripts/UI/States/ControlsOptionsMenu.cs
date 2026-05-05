@@ -1,25 +1,28 @@
 using HSM;
 using UnityEngine.UIElements;
 
-public class ControlsOptionsMenu : MenuState
+namespace UI
 {
-    public ControlsOptionsMenu(StateMachine machine, State parent, Menu menu) : base(machine, parent, menu)
+    public class ControlsOptionsMenu : MenuState
     {
+        public ControlsOptionsMenu(StateMachine machine, State parent, Menu menu) : base(machine, parent, menu)
+        {
 
-    }
+        }
 
-    protected override void OnEnter()
-    {
-        ShowVE("controls-options-container");
-        
-        menu.panelHeaderText.Enter("Controls");
-    }
+        protected override void OnEnter()
+        {
+            ShowVE("controls-options-container");
+            
+            menu.panelHeaderText.Enter("Controls");
+        }
 
 
-    protected override void OnExit()
-    {
-        HideVE("controls-options-container");
-        
-        menu.panelHeaderText.Exit();
+        protected override void OnExit()
+        {
+            HideVE("controls-options-container");
+            
+            menu.panelHeaderText.Exit();
+        }
     }
 }

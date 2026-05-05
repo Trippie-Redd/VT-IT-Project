@@ -4,27 +4,69 @@ using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
 
-// TODO - Implement
-// TODO - Make not static
-public class TargetsTracker : MonoBehaviour
+namespace Enemy
 {
-    public HashSet<Targets> _aliveTargets = new()
+    // TODO - Implement
+    public class TargetsTracker : MonoBehaviour
     {
-        Targets.Nettspend,
-        Targets.TooSlimey
-    };
-
-    public bool IsAlive(Targets target)
-        => _aliveTargets.Contains(target);
-
-    public static Targets EnumFromString(string str)
-    {
-        return str switch
+        [Serializable]
+        public struct TargetDamageablePair
         {
-            "2slimey" => Targets.TooSlimey,
-            "nettspend" => Targets.Nettspend,
-            "epstein" => Targets.Epstein,
-            _ => Targets.InvalidTarget
-        };
+            public Target target;
+            public Damageable damageable;
+
+            public readonly void Deconstruct(out Target target, out Damageable damageable)
+            {
+                target = this.target;
+                damageable = this.damageable;
+            }
+        }
+
+        // a tuple would be nicer but they arent Serializable, unity is not it
+        [SerializeField] List<TargetDamageablePair> aliveTargets;
+
+        public bool AllTargetsDead => aliveTargets.Count == 0;
+
+        void Update()
+        {
+            if (aliveTargets.Count == 0)
+            {
+                // unlock exits
+            }
+
+            for (int i = 0; i < aliveTargets.Count; i++)
+            {
+                if (aliveTargets[i].damageable.IsDead)
+                {
+                    aliveTargets.RemoveAt(i);
+                    i--;
+                }
+            }
+        }
+
+        public bool IsAlive(Target target)
+        {
+            foreach (var (t, _) in aliveTargets)
+            {
+                if (t == target) 
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        // this would be nice to have inside of the Target enum but of course C# doesnt allow that
+        public static Target EnumFromString(string str)
+        {
+            return str switch
+            {
+                "2slimey" => Target.TooSlimey,
+                "nettspend" => Target.Nettspend,
+                "epstein" => Target.Epstein,
+                _ => Target.InvalidTarget
+            };
+        }
     }
 }

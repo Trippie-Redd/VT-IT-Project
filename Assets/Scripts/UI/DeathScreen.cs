@@ -64,9 +64,9 @@ namespace UI
             var kb = Keyboard.current;
             if (kb == null) return;
             if (kb.yKey.wasPressedThisFrame || kb.enterKey.wasPressedThisFrame)
-                SceneManager.LoadScene("Map");
+                SceneManager.LoadScene((int)Utils.SceneEnum.Map);
             else if (kb.nKey.wasPressedThisFrame)
-                SceneManager.LoadScene("Main Menu");
+                SceneManager.LoadScene((int)Utils.SceneEnum.MainMenu);
         }
 
         IEnumerator _TypeSequence()

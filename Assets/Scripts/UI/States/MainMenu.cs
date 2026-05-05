@@ -1,60 +1,67 @@
 using HSM;
 using UnityEngine.UIElements;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class MainMenu : MenuState
+namespace UI
 {
-    Button _startButton, _exitButton, _optionsButton;
-
-    public MainMenu(StateMachine machine, State parent, Menu menu) : base(machine, parent, menu)
+    public class MainMenu : MenuState
     {
-    }
+        Button _startButton, _exitButton, _optionsButton;
 
-    protected override void OnEnter()
-    {
-        var root = menu.RootVE;
+        public MainMenu(StateMachine machine, State parent, Menu menu) : base(machine, parent, menu)
+        {
+        }
 
-        ShowVE("main-buttons-container");
-        ShowVE("panel-container");
-        ShowVE("menu-container");
+        protected override void OnEnter()
+        {
+            var root = menu.RootVE;
 
-        _startButton = root.Q<Button>("start-button");
-        _optionsButton = root.Q<Button>("options-button");
-        _exitButton = root.Q<Button>("exit-button");
+            ShowVE("main-buttons-container");
+            ShowVE("panel-container");
+            ShowVE("menu-container");
 
-        _startButton.RegisterCallback<ClickEvent>(_StartClicked);
-        _optionsButton.RegisterCallback<ClickEvent>(_OptionsClicked);
-        _exitButton.RegisterCallback<ClickEvent>(_ExitClicked);
-    }
+            _startButton = root.Q<Button>("start-button");
+            _optionsButton = root.Q<Button>("options-button");
+            _exitButton = root.Q<Button>("exit-button");
 
-    protected override void OnExit()
-    {
-        HideVE("main-buttons-container");
-        HideVE("panel-container");
-        HideVE("menu-container");
+            _startButton.RegisterCallback<ClickEvent>(_StartClicked);
+            _optionsButton.RegisterCallback<ClickEvent>(_OptionsClicked);
+            _exitButton.RegisterCallback<ClickEvent>(_ExitClicked);
 
-        _startButton.UnregisterCallback<ClickEvent>(_StartClicked);
-        _optionsButton.UnregisterCallback<ClickEvent>(_OptionsClicked);
-        _exitButton.UnregisterCallback<ClickEvent>(_ExitClicked);
-    }
+            // just cause its "CONTINUE" in game
+            _startButton.text = "START";
+        }
+
+        protected override void OnExit()
+        {
+            HideVE("main-buttons-container");
+            HideVE("panel-container");
+            HideVE("menu-container");
+
+            _startButton.UnregisterCallback<ClickEvent>(_StartClicked);
+            _optionsButton.UnregisterCallback<ClickEvent>(_OptionsClicked);
+            _exitButton.UnregisterCallback<ClickEvent>(_ExitClicked);
+        }
 
 
-    void _StartClicked(ClickEvent evt)
-    {
+        void _StartClicked(ClickEvent evt)
+        {
+            SceneManager.LoadScene((int)Utils.SceneEnum.Map);
+        }
 
-    }
+        void _OptionsClicked(ClickEvent evt)
+        {
+            ((MenuRoot)Parent).TransitionToOptions = true;
+        }
 
-    void _OptionsClicked(ClickEvent evt)
-    {
-        ((MenuRoot)Parent).TransitionToOptions = true;
-    }
-
-    void _ExitClicked(ClickEvent evt)
-    {
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#else
-        Application.Quit();
-#endif
+        void _ExitClicked(ClickEvent evt)
+        {
+    #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+    #else
+            Application.Quit();
+    #endif
+        }
     }
 }

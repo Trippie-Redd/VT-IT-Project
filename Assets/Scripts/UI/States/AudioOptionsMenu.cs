@@ -1,25 +1,28 @@
 using HSM;
 using UnityEngine.UIElements;
 
-public class AudioOptionsMenu : MenuState
+namespace UI 
 {
-    public AudioOptionsMenu(StateMachine machine, State parent, Menu menu) : base(machine, parent, menu)
+    public class AudioOptionsMenu : MenuState
     {
+        public AudioOptionsMenu(StateMachine machine, State parent, Menu menu) : base(machine, parent, menu)
+        {
 
-    }
+        }
 
-    protected override void OnEnter()
-    {
-        ShowVE("audio-options-container");
-        
-        menu.panelHeaderText.Enter("AUDIO");
-    }
+        protected override void OnEnter()
+        {
+            ShowVE("audio-options-container");
+            
+            menu.panelHeaderText.Enter("AUDIO");
+        }
 
 
-    protected override void OnExit()
-    {
-        HideVE("audio-options-container");
-        
-        menu.panelHeaderText.Exit();
+        protected override void OnExit()
+        {
+            HideVE("audio-options-container");
+            
+            menu.panelHeaderText.Exit();
+        }
     }
 }

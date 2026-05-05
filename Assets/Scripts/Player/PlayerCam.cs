@@ -3,7 +3,6 @@ using UnityEngine.InputSystem;
 
 namespace Player
 {
-
     // Yo this fuckahh camera to annoying it keeps feeling bad and snappy and jittery
     // especially when i tried to use the new input system
     // if there is time i will fix/change this to the new input system but for rn this is fine

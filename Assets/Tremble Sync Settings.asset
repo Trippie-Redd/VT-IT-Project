@@ -1041,6 +1041,18 @@ MonoBehaviour:
     Path: Assets/Prefabs/Debris & Misc/gravel_pile_hr_2.prefab
     FullTypeName: UnityEngine.GameObject
     SpawnOffset: {x: -0.012873948, y: -0.1395596, z: -0.091234505}
+  - MapName: target_2slimey
+    Path: Assets/Prefabs/Enemies/2slimey.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: -0, y: -0, z: -0}
+  - MapName: target_Epstein
+    Path: Assets/Prefabs/Enemies/Epstein.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: -0, y: -0, z: -0}
+  - MapName: target_Nettspend
+    Path: Assets/Prefabs/Enemies/Nettspend.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: -0, y: -0, z: -0}
   - MapName: items_flashlight_mp_1
     Path: Assets/Prefabs/Items & Weapons/flashlight_mp_1.prefab
     FullTypeName: UnityEngine.GameObject

@@ -3,48 +3,51 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-[RequireComponent(typeof(UIDocument))]
-public class PanelHeaderText : MonoBehaviour
+namespace UI
 {
-    Label _panelHeaderText;
-
-    List<string> _headerContent;
-
-    void OnEnable()
+    [RequireComponent(typeof(UIDocument))]
+    public class PanelHeaderText : MonoBehaviour
     {
-        _panelHeaderText = GetComponent<UIDocument>().rootVisualElement.Q<Label>("panel-header-text");
-        Debug.Assert(_panelHeaderText != null);
+        Label _panelHeaderText;
 
-        _headerContent = new List<string>();
-    }
+        List<string> _headerContent;
 
-    public void Enter(string str)
-    {
-        _headerContent.Add(str);
-        _UpdateText();
-    }
-
-    public void Exit()
-    {
-        _headerContent.RemoveAt(_headerContent.Count - 1);
-        _UpdateText();
-    }
-    
-    void _UpdateText()
-    {
-        if (_headerContent.Count == 0)
-            return;
-        
-        string result = "";
-
-        result += _headerContent[0].ToUpper();
-
-        for (int i = 1; i < _headerContent.Count; i++)
+        void OnEnable()
         {
-            result += "/";
-            result += _headerContent[i].ToUpper();
+            _panelHeaderText = GetComponent<UIDocument>().rootVisualElement.Q<Label>("panel-header-text");
+            Debug.Assert(_panelHeaderText != null);
+
+            _headerContent = new List<string>();
         }
 
-        _panelHeaderText.text = result;
+        public void Enter(string str)
+        {
+            _headerContent.Add(str);
+            _UpdateText();
+        }
+
+        public void Exit()
+        {
+            _headerContent.RemoveAt(_headerContent.Count - 1);
+            _UpdateText();
+        }
+        
+        void _UpdateText()
+        {
+            if (_headerContent.Count == 0)
+                return;
+            
+            string result = "";
+
+            result += _headerContent[0].ToUpper();
+
+            for (int i = 1; i < _headerContent.Count; i++)
+            {
+                result += "/";
+                result += _headerContent[i].ToUpper();
+            }
+
+            _panelHeaderText.text = result;
+        }
     }
 }

@@ -1,11 +1,16 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Damageable : MonoBehaviour
 {
     public float maxHealth;
     public float currentHealth;
 
-    public bool Dead => currentHealth <= 0;
+    bool _dead = false;
+
+    public bool IsDead => _dead;
+
+    public event UnityAction Dead = delegate { };
 
     void Start()
     {
@@ -14,8 +19,15 @@ public class Damageable : MonoBehaviour
 
     public void OnHit(float damage)
     {
-        if (Dead) return;
+        if (_dead) return;
 
         currentHealth -= damage;
+
+        if (currentHealth <= 0)
+        {
+            Dead.Invoke();
+            _dead = true;
+        }
+
     }
 }

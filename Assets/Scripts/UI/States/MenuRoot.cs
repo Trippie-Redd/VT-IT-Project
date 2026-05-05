@@ -1,66 +1,69 @@
 using HSM;
 
-public class MenuRoot : MenuState
+namespace UI
 {
-    public readonly MainMenu mainMenu;
-
-    public readonly PauseMenu pauseMenu;
-
-    public readonly OptionsMenu optionsMenu;
-
-    public readonly NotInMenu notInMenu;
-
-    public bool TransitionToOptions { get; set; } = false;
-    public bool TransitionToMainMenu { get; set; } = false;
-    public bool TransitionToPauseMenu { get; set; } = false;
-    public bool TransitionToNotInMenu { get; set; } = false;
-
-    State _stateBeforeOptions;
-
-    public MenuRoot(StateMachine machine, Menu menu) : base(machine, null, menu)
+    public class MenuRoot : MenuState
     {
-        mainMenu = new MainMenu(machine, this, menu);
-        pauseMenu = new PauseMenu(machine, this, menu);
-        notInMenu = new NotInMenu(machine, this, menu);
-        optionsMenu = new OptionsMenu(machine, this, menu);
-    }
+        public readonly MainMenu mainMenu;
 
-    protected override State GetInitialState()
-        => menu.inGame ? notInMenu : mainMenu;
+        public readonly PauseMenu pauseMenu;
 
-    protected override State GetTransition()
-    {
-        if (TransitionToOptions)
+        public readonly OptionsMenu optionsMenu;
+
+        public readonly NotInMenu notInMenu;
+
+        public bool TransitionToOptions { get; set; } = false;
+        public bool TransitionToMainMenu { get; set; } = false;
+        public bool TransitionToPauseMenu { get; set; } = false;
+        public bool TransitionToNotInMenu { get; set; } = false;
+
+        State _stateBeforeOptions;
+
+        public MenuRoot(StateMachine machine, Menu menu) : base(machine, null, menu)
         {
-            TransitionToOptions = false;
-            _stateBeforeOptions = ActiveChild;
-            return optionsMenu;
+            mainMenu = new MainMenu(machine, this, menu);
+            pauseMenu = new PauseMenu(machine, this, menu);
+            notInMenu = new NotInMenu(machine, this, menu);
+            optionsMenu = new OptionsMenu(machine, this, menu);
         }
 
-        if (optionsMenu.TransitionFromOptions)
-        {
-            optionsMenu.TransitionFromOptions = false;
-            return _stateBeforeOptions ?? mainMenu;
-        }
+        protected override State GetInitialState()
+            => menu.inGame ? notInMenu : mainMenu;
 
-        if (TransitionToMainMenu)
+        protected override State GetTransition()
         {
-            TransitionToMainMenu = false;
-            return mainMenu;
-        }
+            if (TransitionToOptions)
+            {
+                TransitionToOptions = false;
+                _stateBeforeOptions = ActiveChild;
+                return optionsMenu;
+            }
 
-        if (TransitionToPauseMenu)
-        {
-            TransitionToPauseMenu = false;
-            return pauseMenu;
-        }
+            if (optionsMenu.TransitionFromOptions)
+            {
+                optionsMenu.TransitionFromOptions = false;
+                return _stateBeforeOptions ?? mainMenu;
+            }
 
-        if (TransitionToNotInMenu)
-        {
-            TransitionToNotInMenu = false;
-            return notInMenu;
-        }
+            if (TransitionToMainMenu)
+            {
+                TransitionToMainMenu = false;
+                return mainMenu;
+            }
 
-        return ActiveChild;
+            if (TransitionToPauseMenu)
+            {
+                TransitionToPauseMenu = false;
+                return pauseMenu;
+            }
+
+            if (TransitionToNotInMenu)
+            {
+                TransitionToNotInMenu = false;
+                return notInMenu;
+            }
+
+            return ActiveChild;
+        }
     }
 }

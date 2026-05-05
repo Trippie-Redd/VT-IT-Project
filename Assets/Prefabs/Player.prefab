@@ -596,7 +596,7 @@ GameObject:
   - component: {fileID: 6357242042929158756}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -697,7 +697,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Player.PlayerGun
   gunData: {fileID: 11400000, guid: d74daa7101da4d9f68c62df83ecee772, type: 2}
   targetTags:
-  - enemy
+  - Enemy
   inputReader: {fileID: 11400000, guid: 0c4ef68089f415c4d9f6d8674f4eeb02, type: 2}
   muzzleOrigin: {fileID: 6972420502642398410}
   audioSource: {fileID: 7701722888397747510}
