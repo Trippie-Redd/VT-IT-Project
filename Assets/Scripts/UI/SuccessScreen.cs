@@ -6,8 +6,9 @@ using UnityEngine.UIElements;
 
 namespace UI
 {
+    // this is like basically the same as DeathScreen, DRY
     [RequireComponent(typeof(UIDocument))]
-    public class DeathScreen : MonoBehaviour
+    public class SuccessScreen : MonoBehaviour
     {
         public Scene mainMenu;
         public Scene map;
@@ -25,9 +26,9 @@ namespace UI
 
         static readonly string[] Lines =
         {
-            "Agent deceased.",
-            "Target(s) alive.",
-            "Mission aborted.",
+            "Targets eliminated.",
+            "Mission successful.",
+            "Fine work agent.",
             "",
             "Continue? [Y/n]"
         };
@@ -42,7 +43,7 @@ namespace UI
 
             _screen.style.display = DisplayStyle.Flex;
 
-            root.Q<VisualElement>("success-background").style.visibility = Visibility.Hidden;
+            root.Q<VisualElement>("death-background").style.visibility = Visibility.Hidden;
 
             UnityEngine.Cursor.lockState = CursorLockMode.None;
             UnityEngine.Cursor.visible = true;
@@ -66,9 +67,17 @@ namespace UI
             var kb = Keyboard.current;
             if (kb == null) return;
             if (kb.yKey.wasPressedThisFrame || kb.enterKey.wasPressedThisFrame)
-                SceneManager.LoadScene((int)Utils.SceneEnum.Map);
-            else if (kb.nKey.wasPressedThisFrame)
+            {
                 SceneManager.LoadScene((int)Utils.SceneEnum.MainMenu);
+            }
+            else if (kb.nKey.wasPressedThisFrame)
+            {
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#else
+            Application.Quit();
+#endif
+            }
         }
 
         IEnumerator _TypeSequence()
