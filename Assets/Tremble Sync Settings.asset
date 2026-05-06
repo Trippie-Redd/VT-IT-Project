@@ -36,6 +36,7 @@ MonoBehaviour:
     - {fileID: 2100000, guid: 1b1f00bffd215f304a3f33ccf396d031, type: 2}
     - {fileID: 2100000, guid: b0f59cd05885ec4c99a451a8ac81db51, type: 2}
     - {fileID: 2100000, guid: d403e99138ccb661281b88637eeb281f, type: 2}
+    - {fileID: 2100000, guid: 112c969cf5fe3be44b835396278e05a7, type: 2}
   m_MaterialRenderData:
   - m_Material: {fileID: 2100000, guid: 3f1c092690d8f42b88ea7f2abef724db, type: 2}
     m_ExportMode: 1
@@ -955,6 +956,18 @@ MonoBehaviour:
     m_ResolutionX: 2
     m_ResolutionY: 2
     m_Dirty: 0
+  - m_Material: {fileID: -1788371389123477280, guid: c6dd9f27c7e5d3c4b9bb75a3275fe7ed, type: 3}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
+  - m_Material: {fileID: 2100000, guid: 112c969cf5fe3be44b835396278e05a7, type: 2}
+    m_ExportMode: 0
+    m_IsResolutionOverridden: 0
+    m_ResolutionX: 2
+    m_ResolutionY: 2
+    m_Dirty: 0
   m_PipelineSplitMesh: 1
   m_PipelineSmoothMeshNormals: 1
   m_PipelineSimplifyCollisionMeshes: 1
@@ -1041,6 +1054,10 @@ MonoBehaviour:
     Path: Assets/Prefabs/Debris & Misc/gravel_pile_hr_2.prefab
     FullTypeName: UnityEngine.GameObject
     SpawnOffset: {x: -0.012873948, y: -0.1395596, z: -0.091234505}
+  - MapName: misc_sign_3
+    Path: Assets/Prefabs/Debris & Misc/sign_3.prefab
+    FullTypeName: UnityEngine.GameObject
+    SpawnOffset: {x: 0.000071540475, y: -0.0004260093, z: -0.0019999994}
   - MapName: target_2slimey
     Path: Assets/Prefabs/Enemies/2slimey.prefab
     FullTypeName: UnityEngine.GameObject
@@ -1189,6 +1206,10 @@ MonoBehaviour:
     Path: Assets/Materials/Nature/water.mat
     FullTypeName: UnityEngine.Material
     SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: TexturePackI/concrete_tx_4
+    Path: Assets/Materials/Texture Pack I/concrete_tx_4.mat
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
   - MapName: garage_hl_1
     Path: Assets/Resources/Models/Buildings/garage_hl_1.fbx
     FullTypeName: UnityEngine.Material
@@ -1243,6 +1264,10 @@ MonoBehaviour:
     SpawnOffset: {x: 0, y: 0, z: 0}
   - MapName: gravel_pile_hr_2
     Path: Assets/Resources/Models/Debris & Misc/gravel_pile_hr_2.fbx
+    FullTypeName: UnityEngine.Material
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - MapName: sign_3
+    Path: Assets/Resources/Models/Bunkers/sign_3.fbx
     FullTypeName: UnityEngine.Material
     SpawnOffset: {x: 0, y: 0, z: 0}
   - MapName: flashlight_mp_1

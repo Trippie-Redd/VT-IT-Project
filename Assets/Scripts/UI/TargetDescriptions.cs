@@ -42,11 +42,13 @@ namespace UI
             _root = GetComponent<UIDocument>().rootVisualElement;
 
             _targets = _root.Query<Image>(className: "menu-target-description").ToList();
+            _targetsTracker = FindFirstObjectByType<TargetsTracker>();
+
+            if (_targetsTracker == null)
+                enabled = false;
 
             foreach (Image element in _targets)
             {
-                _targetsTracker = FindFirstObjectByType<TargetsTracker>().GetComponent<TargetsTracker>();
-
                 var target = TargetsTracker.EnumFromString(element.name);
                 _targetNames.Add(element.name);
 
@@ -82,22 +84,24 @@ namespace UI
             _nameLabel.style.left = mousePos.x;
             _nameLabel.style.top = (Screen.height - mousePos.y);
 
+            var toRemove = new List<string>();
+
             // this is inefficient and should NOT be done here but im lazy
             foreach (var name in _targetNames)
             {
                 Image image = _root.Q<Image>(name);
-
                 Target target = TargetsTracker.EnumFromString(name);
                 if (!_targetsTracker.IsAlive(target))
                 {
                     var grayscale = new FilterFunction(FilterFunctionType.Grayscale);
                     grayscale.AddParameter(new FilterParameter(1.0f));
-
                     image.style.filter = new StyleList<FilterFunction>(new List<FilterFunction> { grayscale });
-
-                    _targetNames.Remove(name);
+                    toRemove.Add(name);
                 }
             }
+
+            foreach (var name in toRemove)
+                _targetNames.Remove(name);
         }
 
         void _OnMouseEnter(MouseEnterEvent evt)

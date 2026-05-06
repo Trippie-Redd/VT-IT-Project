@@ -72,6 +72,8 @@ namespace UI
 
         void _ExitClicked(ClickEvent evt)
         {
+            Time.timeScale = 1f;
+
             SceneManager.LoadScene((int)Utils.SceneEnum.MainMenu);
         }
     }

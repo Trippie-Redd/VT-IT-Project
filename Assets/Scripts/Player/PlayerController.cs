@@ -69,7 +69,7 @@ namespace Player
         {
             machine.Tick(Time.deltaTime);
             characterController.Move(velocity * Time.deltaTime);
-            Debug.Log(_waters.Count);
+            //Debug.Log(_waters.Count);
         }
 
         void OnTriggerEnter(Collider other)
