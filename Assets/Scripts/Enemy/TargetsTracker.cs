@@ -29,11 +29,6 @@ namespace Enemy
 
         void Update()
         {
-            if (aliveTargets.Count == 0)
-            {
-                // unlock exits
-            }
-
             for (int i = 0; i < aliveTargets.Count; i++)
             {
                 if (aliveTargets[i].damageable.IsDead)
@@ -48,7 +43,7 @@ namespace Enemy
         {
             foreach (var (t, _) in aliveTargets)
             {
-                if (t == target) 
+                if (t == target)
                 {
                     return true;
                 }
